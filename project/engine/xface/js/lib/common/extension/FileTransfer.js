@@ -59,7 +59,7 @@ var FileTransfer = function() {
      * total: 要传输的文件总大小，单位byte
      * @property onprogress
      * @type Function
-     * @platform Android, iOS, WP8
+     * @platform Android, iOS
      * @since 3.0.0
      */
     this.onprogress = null; // optional callback
@@ -67,7 +67,7 @@ var FileTransfer = function() {
 
 /**
  * 下载一个文件到指定的路径(Android, iOS, WP8)<br/>
- * 下载过程中会通过onprogress属性更新文件传输进度
+ * 下载过程中会通过onprogress属性更新文件传输进度(WP8不支持onprogress)
  * @example
         var fileTransfer = new FileTransfer();
         var remoteFile = "http://192.168.2.245/develop/test/test.css";
@@ -144,7 +144,7 @@ FileTransfer.prototype.download = function(source, target, successCallback, erro
 
 /**
  * 上传文件到服务器（Android，iOS, WP8）<br/>
- * 上传过程中会通过onprogress属性更新文件传输进度
+ * 上传过程中会通过onprogress属性更新文件传输进度(WP8不支持onprogress)
  * @example
         var localFilePath = "file:///mnt/sdcard/upload.txt";
         var localFileName = "upload.txt";
@@ -237,7 +237,7 @@ FileTransfer.prototype.upload = function(filePath, server, successCallback, erro
 };
 
 /**
- * 取消该对象正在进行的文件传输任务（Android，iOS, WP8）<br/>
+ * 取消该对象正在进行的文件传输任务（Android，iOS）<br/>
  * @example
         var localFilePath = "file:///mnt/sdcard/upload.txt";
         var localFileName = "upload.txt";
@@ -280,7 +280,7 @@ FileTransfer.prototype.upload = function(filePath, server, successCallback, erro
  * @param {Function} [successCallback] 成功回调函数
  * @param {Function} [errorCallback] 失败回调函数
  * @param {String} errorCallback.errorMessage 错误信息
- * @platform Android, iOS, WP8
+ * @platform Android, iOS
  * @since 3.0.0
  */
 FileTransfer.prototype.abort = function(successCallback, errorCallback) {
