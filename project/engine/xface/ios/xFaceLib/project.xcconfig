@@ -1,0 +1,11 @@
+//
+//  project.xcconfig
+//  xFaceLib
+//
+//  Created by chenxy on 12-7-5.
+//  Copyright (c) 2012年 Polyvi Inc. All rights reserved.
+//
+
+SOURCE_COMPILE_MACRO = -D__XAccelerometerExt__ -D__XMessagingExt__ -D__XNotificationExt__ -D__XBatteryExt__ -D__XConsoleExt__ -D__XContactsExt__ -D__XFileExt__ -D__XFileTransferExt__ -D__XNetworkConnectionExt__ -D__XTelephonyExt__ -D__XCaptureExt__ -D__XCompassExt__ -D__XCameraExt__ -D__XSecurityExt__ -D__XAppExt__ -D__XAdvancedFileTransferExt__ -D__XDeviceExt__ -D__XPushNotificationExt__  -D__XZipArchiveExt__  -D__XCalendarExt__ -D__XZBarExt__ -D__XAudioExt__ -D__XInAppBrowserExt__ -D__XEchoExt__ -D__XSplashScreenExt__ -D__XIdleWatcherExt__ -D__XXMLHttpRequestExt__
+
+OTHER_CFLAGS = ${inherited} ${SOURCE_COMPILE_MACRO}

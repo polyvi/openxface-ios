@@ -1,0 +1,30 @@
+﻿<!-- config标签的schema属性用来指定app.xml的版本 -->
+<config schema="1.0">
+    <!-- app标签；id属性指应用id，应用的唯一标识符，不同应用id必须不同-->
+    <app id="nativeAppId">
+        <!--description标签；type指定应用的类型；entry标签指定应用的起始页面；icon标签指定应用图标；
+         version标签标识应用的版本号；name标签定义应用名称；width和height属性分别指定应用的宽和高-->
+         <description>
+             <!-- type有两种取值 xapp,napp (xapp表示webapp（html+css+js）,napp表示nativeapp)-->
+            <type>napp</type>
+            <!-- 对于android来说是apk的id 对于iOS来说是ipa的custom URL-->
+            <entry src="com.polyvi.xface"/>
+            <icon background-color="0xFFFFFFF" src="icon.png" />
+            <version>3.0</version>
+            <name>startapp</name>
+            <!-- value表示native app安装包的iTunes store地址-->
+            <preference name = "remote-pkg"  value = "http://itunes.apple.com/cn/app/xin-tong-jiao-yu-wu-xian/id501656736?mt=8"  readonly = "true"/>
+            <!-- value表示native app的iTunes identifier(iOS only and optional，由于企业版应用没有appleID,所以apple-id为可选)-->
+            <preference name = "apple-id"  value = "409547517"  readonly = "true"/>
+            <copyright>
+                <author href="www.polyvi.com" email="">polyvi</author>
+                <license href="www.polyvi.com">tie</license>
+            </copyright>
+            </description>
+            <distribution>
+                <channel id="cupmp_1000">
+                    <name>中联正式渠道</name>
+                </channel>
+            </distribution>
+     </app>
+</config>

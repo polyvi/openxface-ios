@@ -1,0 +1,19 @@
+﻿<app id="storage" version="1.2" width="480" height="640" isEncrypted="false">
+    <description>
+        <name>中国银联</name>
+        <author href="www.polyvi.com" email="">普辰瑞通</author>
+        <license href="www.polyvi.com">tie</license>
+        <entry src="index.html" />
+        <icon src="" />
+        <type  value="xapp" />
+    </description>
+    <extensions>
+	<extension name="AMS" />
+	<extension name="Device" />
+	<extension name="FileTransfer" />
+	<extension name="NetworkConnection" />
+	<extension name="Console" />
+	<extension name="Storage" />
+    <extension name="Battery" />
+    </extensions>
+</app>

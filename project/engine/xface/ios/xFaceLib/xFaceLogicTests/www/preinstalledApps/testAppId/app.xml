@@ -1,0 +1,14 @@
+﻿<app id="testAppId" version="2.0.20801" width="480" height="640" isEncrypted="false">
+    <description>
+        <name>日期控件</name>
+        <author href="www.polyvi.com" email="">普辰瑞通</author>
+        <license href="www.polyvi.com">tie</license>
+        <entry src="index.html" />
+        <icon src="//image/icon.png" />
+        <type  value="component" />
+    </description>
+    <extensions>
+        <extension name="Calendar" />
+        <extension name="AMS" />
+    </extensions>
+</app>

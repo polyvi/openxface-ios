@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <pre_install_packages>
+        <app_package id="app">app</app_package>
+    </pre_install_packages>
+    <xFace>
+        <!-- Preferences for iOS -->
+        <preference name="AutoHideSplashScreen" value="true" />
+        <preference name="CheckUpdate" value="false" />
+        <preference name="DisallowOverscroll" value="true" />
+        <preference name="EngineVersion" value="3.1.x" />
+        <preference name="EngineBuild" value="12345" />
+        <preference name="FadeSplashScreen" value="false" />
+        <preference name="FadeSplashScreenDuration" value="0.75" />
+        <preference name="ShowSplashScreen" value="true" />
+        <preference name="SplashScreenDelayDuration" value="2000" />
+        <preference name="ShowSplashScreenSpinner" value="true" />
+        <preference name="SecurityAddress" value="" />
+        <preference name="TopActivityIndicator" value="gray" />
+        <preference name="UpdateAddress" value="" />
+        <preference name="UsePlayerMode" value="true" />
+
+        <!-- To be removed -->
+        <preference name="UseLightweightBootstrap" value="false" />
+
+    </xFace>
+    <extensions>
+        <extension name="AMS" value="XAmsExt" />
+        <extension name="IdleWatcher" value="XIdleWatcherExt" />
+        <extension name="SplashScreen" value="XSplashScreenExt" />
+        <extension name="InAppBrowser" value="XInAppBrowserExt" />
+        <extension name="Audio" value="XAudioExt" />
+        <extension name="BarcodeScanner" value="XZBarExt" />
+        <extension name="Calendar" value="XCalendarExt" />
+        <extension name="Zip" value="XZipArchiveExt" />
+        <extension name="Device" value="XDeviceExt" />
+        <extension name="Camera" value="XCameraExt" />
+        <extension name="File" value="XFileExt" />
+        <extension name="FileTransfer" value="XFileTransferExt" />
+        <extension name="Battery" value="XBatteryExt" />
+        <extension name="Contacts" value="XContactsExt" />
+        <extension name="Telephony" value="XTelephonyExt" />
+        <extension name="NetworkConnection" value="XNetworkConnectionExt" />
+        <extension name="Console" value="XConsoleExt" />
+        <extension name="Notification" value="XNotificationExt" />
+        <extension name="Messaging" value="XMessagingExt" />
+        <extension name="Capture" value="XCaptureExt"/>
+        <extension name="Accelerometer" value="XAccelerometerExt" />
+        <extension name="Compass" value="XCompassExt" />
+        <extension name="Security" value="XSecurityExt" />
+        <extension name="App" value="XAppExt" />
+        <extension name="AdvancedFileTransfer" value="XAdvancedFileTransferExt" />
+        <extension name="PushNotification" value="XPushNotificationExt" />
+        <extension name="Echo" value="XEchoExt" />
+    </extensions>
+</config>
+
