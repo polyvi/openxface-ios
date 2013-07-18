@@ -17,6 +17,33 @@ openxface is our open project for xFace, a flexible hybrid app runtime.
 4. Execute js.py to generate xface.js
 5. Run with your app in the emulator or in the device
 
+####Directory Structure
+
+    ├── framework
+	|   ├── ios
+	|	|   ├── extlibs
+	|	|   ├── inc
+	|	|   ├── src
+	|	|   └── unittest
+	├── project
+	|   ├── engine
+	|	|   ├── xface
+	|	|	|   ├── ios
+	|	|	|	|   └── xFacePlayer
+	|	|	|   └── js
+	├── .gitignore
+	├── COPYING
+	├── NOTICE
+	└── README.md
+
+An overview of the main directories:
+
+| FILE / DIRECTORY         | DESCRIPTION                                             |
+| -------------------------| :-------------------------------------------------------|
+| framework/ios            | This is where the openxface iOS source code resides.    |
+| project/engine/xface/ios/xFacePlayer | Project files for xFacePlayer.              |
+| project/engine/xface/js  | These are the JavaScript source codes which will be used to generate xface.js |
+
 ##Further Reading
 * Please visit [openxface](http://polyvi.github.io/openxface)
 
@@ -38,6 +65,33 @@ openxface是基于xface的开源项目，一个灵活的hybrid app runtime
 	* 请把应用源码放到 **www/xface/apps/yourapp** 下面
 4. 执行js.py生成xface.js
 5. 在模拟器或设备上运行
+
+####目录结构
+
+    ├── framework
+	|   ├── ios
+	|	|   ├── extlibs
+	|	|   ├── inc
+	|	|   ├── src
+	|	|   └── unittest
+	├── project
+	|   ├── engine
+	|	|   ├── xface
+	|	|	|   ├── ios
+	|	|	|	|   └── xFacePlayer
+	|	|	|   └── js
+	├── .gitignore
+	├── COPYING
+	├── NOTICE
+	└── README.md
+
+主要目录说明:
+
+| FILE / DIRECTORY                     | DESCRIPTION                         |
+| -------------------------            | :-----------------------------------|
+| framework/ios                        | 所有 openxface iOS 源码所在目录.       |
+| project/engine/xface/ios/xFacePlayer | xFacePlayer 工程文件所在目录.          |
+| project/engine/xface/js              | 用于生成 xface.js 的 JavaScript 源码.  |
 
 ##更多参考
 * 请访问 [openxface](http://polyvi.github.io/openxface)
