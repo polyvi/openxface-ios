@@ -1,4 +1,4 @@
-﻿import os
+import os
 import subprocess
 import sys
 #run command and return the status code
@@ -13,7 +13,7 @@ def runCommand(command_str):
     return output.returncode
 
 def copyXFaceJsToAppsDir():
-    commonFilePath = os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)),r"../../../../../tools/scripts/xfaceJsManager",COPYFILENAME))
+    commonFilePath = os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)),r"../../../xface/js/generater",COPYFILENAME))
     destFilePath = os.path.join(os.path.dirname(os.path.realpath(__file__)),"xface.js")
     projectPath = os.path.dirname(os.path.realpath(__file__))
     appsDir =  os.path.join(projectPath,os.path.basename(projectPath),"www","preinstalledApps")
