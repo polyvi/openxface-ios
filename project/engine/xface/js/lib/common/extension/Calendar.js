@@ -29,10 +29,10 @@ var argscheck = require('xFace/argscheck'),
 
 /**
  * 此类提供系统原生calendar控件支持.此类不能通过new来创建相应的对象,只能通过xFace.ui.Calendar
- * 对象来直接使用该类中定义的方法(Android,iOS)
+ * 对象来直接使用该类中定义的方法(Android,iOS,WP8)
  * @class Calendar
  * @static
- * @platform Android, iOS
+ * @platform Android, iOS, WP8
  * @since 3.0.0
  */
 function Calendar() {}
@@ -50,7 +50,7 @@ var MIN_HOURS    = 0;
 var MIN_MINUTES  = 0;
 
 /**
- * 打开原生时间控件.可以指定控件显示的初始时间,如果用户不传入初始时间，则默认为当前系统时间.(Android,iOS)
+ * 打开原生时间控件.可以指定控件显示的初始时间,如果用户不传入初始时间，则默认为当前系统时间.(Android,iOS,WP8)
  * 注意：初始时间要么不传，要么全传，否则会报错。
  * @example
         //通过Calendar控件获取用户选取的时间
@@ -67,9 +67,9 @@ var MIN_MINUTES  = 0;
  * @param {Function} successCallback   成功的回调函数，返回用户设置的时间.
  * @param {Object}  successCallback.obj  回调函数的参数为一个带有hour,minute属性的Object对象
  * @param {Function} [errorCallback]     失败的回调函数
- * @param {Number} [hours]   初始小时值(iOS上不支持传参初始化Calendar控件,默认显示系统当前的时间)
- * @param {Number} [minutes] 初始分钟值(iOS上不支持传参初始化,不需要该参数）
- * @platform Android,iOS
+ * @param {Number} [hours]   初始小时值(iOS,WP8上不支持传参初始化Calendar控件,默认显示系统当前的时间)
+ * @param {Number} [minutes] 初始分钟值(iOS,WP8上不支持传参初始化,不需要该参数）
+ * @platform Android,iOS,WP8
  * @since 3.0.0
  */
 Calendar.prototype.getTime = function(successCallback, errorCallback, hours, minutes) {
@@ -107,7 +107,7 @@ Calendar.prototype.getTime = function(successCallback, errorCallback, hours, min
 }
 
 /**
- * 打开原生日期控件。可以指定控件显示的初始日期,如果用户不传入初始日期，则默认为当前系统日期.(Android,iOS)
+ * 打开原生日期控件。可以指定控件显示的初始日期,如果用户不传入初始日期，则默认为当前系统日期.(Android,iOS,WP8)
  * 注意：初始日期要么不传，要么全传，否则会报错。
  * @example
         //通过Calendar控件获取用户选取的日期
@@ -126,10 +126,10 @@ Calendar.prototype.getTime = function(successCallback, errorCallback, hours, min
  * @param {Function} successCallback   成功回调函数，返回用户设置的日期.
  * @param {Object}  successCallback.obj  回调函数的参数为一个带有year,month,day属性的Object对象
  * @param {Function} [errorCallback]      失败回调函数
- * @param {Number} [year]    初始年值(iOS上不支持传参初始化Calendar控件,默认显示系统当前的日期)
- * @param {Number} [month]   初始月份值(iOS上不支持传参初始化,不需要该参数)
- * @param {Number} [day]     初始日值(iOS上不支持传参初始化,不需要该参数)
- * @platform Android,iOS
+ * @param {Number} [year]    初始年值(iOS,WP8上不支持传参初始化Calendar控件,默认显示系统当前的日期)
+ * @param {Number} [month]   初始月份值(iOS,WP8上不支持传参初始化,不需要该参数)
+ * @param {Number} [day]     初始日值(iOS,WP8上不支持传参初始化,不需要该参数)
+ * @platform Android,iOS,WP8
  * @since 3.0.0
  */
 Calendar.prototype.getDate = function(successCallback, errorCallback, year, month, day) {

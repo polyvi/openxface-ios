@@ -30,7 +30,7 @@ var argscheck = require('xFace/argscheck'),
     ProgressEvent = require('xFace/extension/ProgressEvent');
 
 /**
- * 提供高级文件传输（断点下载与上传），暂停，取消等功能（Android，iOS）<br/>
+ * 提供高级文件传输（断点下载与上传），暂停，取消等功能（Android，iOS，WP8）<br/>
  * @example
         var uploadUrl = "http://polyvi.net:8091/mi/UploadServer";
         var downloadUrl = "http://apollo.polyvi.com/develop/TestFileTransfer/test.exe";
@@ -39,7 +39,7 @@ var argscheck = require('xFace/argscheck'),
         var fileTransfer3 = new xFace.AdvancedFileTransfer("test_upload2.rar", uploadUrl, true); //构造上传对象
  * @param {String} source 文件传输的源文件地址（下载时为服务器地址，上传时为本地地址（只能在workspace目录下））
  * @param {String} target 文件传输的目标地址（下载时为本地地址（可以为工作目录也可以指定其他路径，其他路径用file://头标示），上传时为服务器地址）
- * @param {boolean} [isUpload=false] 标识是上传还是下载（默认为false，即默认为下载，iOS目前还不支持上传）
+ * @param {boolean} [isUpload=false] 标识是上传还是下载（默认为false，即默认为下载，iOS，WP8目前还不支持上传）
  * @class AdvancedFileTransfer
  * @namespace xFace
  * @constructor
@@ -57,14 +57,14 @@ var AdvancedFileTransfer = function(source, target, isUpload) {
     * total: 要传输的文件总大小
     * @property onprogress
     * @type Function
-    * @platform Android, iOS
+    * @platform Android, iOS，WP8
     * @since 3.0.0
     */
     this.onprogress = null;     // While download the file, and reporting partial download data
 };
 
 /**
- * 下载一个文件到指定的路径(Android, iOS)<br/>
+ * 下载一个文件到指定的路径(Android, iOS，WP8)<br/>
  * 下载过程中会通过onprogress属性更新文件传输进度。
  * @example
         var downloadUrl = "http://apollo.polyvi.com/develop/TestFileTransfer/test.exe";
@@ -93,7 +93,7 @@ var AdvancedFileTransfer = function(source, target, isUpload) {
  * @param {Number} errorCallback.errorInfo.code 错误码（在<a href="FileTransferError.html">FileTransferError</a>中定义）
  * @param {String} errorCallback.errorInfo.source 下载源地址
  * @param {String} errorCallback.errorInfo.target 下载目标地址
- * @platform Android, iOS
+ * @platform Android, iOS，WP8
  * @since 3.0.0
  */
 AdvancedFileTransfer.prototype.download = function(successCallback, errorCallback) {
@@ -123,7 +123,7 @@ AdvancedFileTransfer.prototype.download = function(successCallback, errorCallbac
 };
 
 /**
-*  暂停文件传输操作（上传/下载）（Android, iOS）<br/>
+*  暂停文件传输操作（上传/下载）（Android, iOS，WP8）<br/>
 *  @example
         //构造下载对象，先调用下载接口，然后调用暂停接口暂停下载
         var downloadUrl = "http://apollo.polyvi.com/develop/TestFileTransfer/test.exe";
@@ -154,7 +154,7 @@ AdvancedFileTransfer.prototype.download = function(successCallback, errorCallbac
             alert(error.target);
         }
 *  @method pause
-*  @platform Android, iOS
+*  @platform Android, iOS，WP8
 *  @since 3.0.0
 */
 AdvancedFileTransfer.prototype.pause = function() {
@@ -162,7 +162,7 @@ AdvancedFileTransfer.prototype.pause = function() {
 };
 
 /**
-*  取消文件的传输操作（上传/下载），相应的临时文件也会被删除（Android, iOS）<br/>
+*  取消文件的传输操作（上传/下载），相应的临时文件也会被删除（Android, iOS，WP8）<br/>
 *  @example
         //构造下载对象，先调用下载接口，然后调用取消接口取消下载。
         var downloadUrl = "http://apollo.polyvi.com/develop/TestFileTransfer/test.exe";
@@ -195,7 +195,7 @@ AdvancedFileTransfer.prototype.pause = function() {
             alert(error.target);
         }
 *  @method cancel
-*  @platform Android, iOS
+*  @platform Android, iOS，WP8
 *  @since 3.0.0
 */
 AdvancedFileTransfer.prototype.cancel = function() {
