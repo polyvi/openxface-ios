@@ -64,7 +64,7 @@ var CaptureError = function(c) {
 /**
   * 摄像头/耳机采集图片或声音时失败(Android, iOS)
   * @example
-         CaptureError.CAPTURE_INTERNAL_ERR 
+         CaptureError.CAPTURE_INTERNAL_ERR
   * @property CAPTURE_INTERNAL_ERR
   * @type Number
   * @final
@@ -75,7 +75,7 @@ CaptureError.CAPTURE_INTERNAL_ERR = 0;
 /**
   * 摄像头/音频采集程序正在处理别的采集请求(Android, iOS)
   * @example
-         CaptureError.CAPTURE_APPLICATION_BUSY 
+         CaptureError.CAPTURE_APPLICATION_BUSY
   * @property CAPTURE_APPLICATION_BUSY
   * @type Number
   * @final
@@ -86,7 +86,7 @@ CaptureError.CAPTURE_APPLICATION_BUSY = 1;
 /**
   * api的调用方式不对(例如：limit 参数的值小于1)(Android, iOS)
   * @example
-         CaptureError.CAPTURE_INVALID_ARGUMENT 
+         CaptureError.CAPTURE_INVALID_ARGUMENT
   * @property CAPTURE_INVALID_ARGUMENT
   * @type Number
   * @final
@@ -97,7 +97,7 @@ CaptureError.CAPTURE_INVALID_ARGUMENT = 2;
 /**
   * 在采集到任何信息之前用户退出了摄像头/音频采集程序(Android, iOS)
   * @example
-         CaptureError.CAPTURE_NO_MEDIA_FILES 
+         CaptureError.CAPTURE_NO_MEDIA_FILES
   * @property CAPTURE_NO_MEDIA_FILES
   * @type Number
   * @final
@@ -108,7 +108,7 @@ CaptureError.CAPTURE_NO_MEDIA_FILES = 3;
 /**
   * 设备不支持该采集操作(Android, iOS)
   * @example
-         CaptureError.CAPTURE_NOT_SUPPORTED 
+         CaptureError.CAPTURE_NOT_SUPPORTED
   * @property CAPTURE_NOT_SUPPORTED
   * @type Number
   * @final

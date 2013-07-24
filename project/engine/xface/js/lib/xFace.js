@@ -311,7 +311,7 @@ channel.onResume = xFace.addDocumentEventHandler('resume');
             alert(para.data);
             //现在可以安全调用xFace的API了
         }
-        document.addEventListener("deviceready", onDeviceReady, false); 
+        document.addEventListener("deviceready", onDeviceReady, false);
  * @event deviceready
  * @param {Object} [para] 可选启动参数。程序启动的时候可以接受portal或者引擎传过来的参数，参数传入通过xFace.AMS.startApplication接口（参见{{#crossLink "AMS/startApplication"}}{{/crossLink}}
 ）传入
@@ -322,7 +322,7 @@ channel.onResume = xFace.addDocumentEventHandler('resume');
 channel.onDeviceReady = xFace.addStickyDocumentEventHandler('deviceready');
 
 /**
- * 当放大音量键被按下时，会触发该事件（Android）<br/> 
+ * 当放大音量键被按下时，会触发该事件（Android）<br/>
  * @example
         function onVolumeUpButton(){
             alert("App deals with volumeupbutton by itself!");

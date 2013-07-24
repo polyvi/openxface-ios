@@ -73,7 +73,7 @@ var ContactField = function(type, value, pref) {
      */
     this.value = (value && value.toString()) || null;
     /**
-     * 首选项 
+     * 首选项
      */
     this.pref = (typeof pref != 'undefined' ? pref : false);
 };

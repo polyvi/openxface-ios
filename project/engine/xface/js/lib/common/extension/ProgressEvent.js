@@ -24,7 +24,7 @@
  * 该模块用于表示各种类型的事件
  * @module event
  */
- 
+
   /**
   * 该类用于表示进度事件信息（Android, iOS）<br/>
   * 应用场景参考{{#crossLink "FileTransfer"}}{{/crossLink}},{{#crossLink "xFace.AdvancedFileTransfer"}}{{/crossLink}},{{#crossLink "FileReader"}}{{/crossLink}},{{#crossLink "FileWriter"}}{{/crossLink}}

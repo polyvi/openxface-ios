@@ -174,7 +174,7 @@ Capture.prototype.captureVideo = function(successCallback, errorCallback, option
                 msg = "invalid argument";
             } else if(result.code == CaptureScreenResult.IO_ERROR) {
                 msg = "io exception";
-            } 
+            }
             console.log("error:" + msg);
         }
  * @method captureScreen

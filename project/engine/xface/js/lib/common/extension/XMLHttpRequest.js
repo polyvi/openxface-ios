@@ -36,7 +36,7 @@ var XMLHttpRequest = function()
      * @platform Android, iOS
      * @since 3.0.0
      */
-    this.onerror = null; 
+    this.onerror = null;
 
    /**
      * HTTP请求被中断时调用的句柄函数,比如调用abort方法 该句柄函数会被触发（Android，iOS）<br/>

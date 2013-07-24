@@ -40,10 +40,10 @@
 var ContactOrganization = function(pref, type, name, dept, title) {
     /**
      * 唯一标识符
-     */	
+     */
     this.id = null;
     /**
-     * 首选项 
+     * 首选项
      */
     this.pref = (typeof pref != 'undefined' ? pref : false);
     /**

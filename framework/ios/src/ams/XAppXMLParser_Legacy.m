@@ -20,21 +20,21 @@
 */
 
 //
-//  XAppXMLParserSchema1_0.m
+//  XAppXMLParser_Legacy.m
 //  xFaceLib
 //
 //
 
-#import "XAppXMLParserSchema1_0.h"
+#import "XAppXMLParser_Legacy.h"
 #import "APDocument+XAPDocument.h"
 #import "APXML.h"
 #import "XAPElement.h"
 #import "XAppInfo.h"
 #import "XAppXMLTagDefine.h"
 #import "XAPElement.h"
-#import "XAppXMLParserSchema1_0_Privates.h"
+#import "XAppXMLParser_Legacy_Privates.h"
 
-@implementation XAppXMLParserSchema1_0
+@implementation XAppXMLParser_Legacy
 
 //app.xml 解析的工作
 -(XAppInfo*) parseAppXML

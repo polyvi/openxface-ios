@@ -51,7 +51,7 @@
 #define XUTILS_LOGIC_TESTS_APP_NAME                             @"日期控件"
 #define XUTILS_LOGIC_TESTS_APP_ENTRY                            @"index.html"
 #define XUTILS_LOGIC_TESTS_APP_ICON                             @"//image/icon.png"
-#define XUTILS_LOGIC_TESTS_APP_TYPE                             @"component"
+#define XUTILS_LOGIC_TESTS_APP_TYPE                             @"xapp"
 #define XUTILS_LOGIC_TESTS_APP_ALLOW_EXT_NAME1                  @"Calendar"
 #define XUTILS_LOGIC_TESTS_APP_ALLOW_EXT_NAME2                  @"AMS"
 

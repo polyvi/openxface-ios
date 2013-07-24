@@ -23,7 +23,7 @@
 /**
  * @module fileTransfer
  */
- 
+
  /**
  * 文件上传成功时成功回调返回的相关信息（Android，iOS, WP8）<br/>
  * 应用场景参考{{#crossLink "FileTransfer/upload"}}{{/crossLink}}

@@ -23,14 +23,14 @@
 /**
  * @module compass
  */
- 
+
 /**
  * 用于封装监视指南针时的一些参数信息（Android, iOS）<br/>
  * @class CompassOptions
  * @platform Android, iOS
  * @since 3.0.0
  */
- 
+
  /**
  * 初始化对象中的属性（Android, iOS）<br/>
  * @constructor

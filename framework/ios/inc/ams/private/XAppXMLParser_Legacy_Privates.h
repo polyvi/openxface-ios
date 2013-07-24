@@ -25,9 +25,9 @@
 //
 //
 
-#import "XAppXMLParserSchema1_0.h"
+#import "XAppXMLParser_Legacy.h"
 
-@interface XAppXMLParserSchema1_0 ()
+@interface XAppXMLParser_Legacy ()
 
 /**
     解析access标签

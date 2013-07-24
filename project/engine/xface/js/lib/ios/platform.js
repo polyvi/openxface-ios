@@ -25,24 +25,24 @@ module.exports = {
     initialize:function() {
         var channel = require('xFace/channel');
         var xFace = require('xFace');
-		var privateModule = require('xFace/privateModule');
+        var privateModule = require('xFace/privateModule');
 
-		channel.onVolumeDownKeyDown = xFace.addDocumentEventHandler('volumedownbutton');
-		channel.onVolumeUpKeyDown = xFace.addDocumentEventHandler('volumeupbutton');
+        channel.onVolumeDownKeyDown = xFace.addDocumentEventHandler('volumedownbutton');
+        channel.onVolumeUpKeyDown = xFace.addDocumentEventHandler('volumeupbutton');
 
-		/**
-		 * 当商圈退出的时候，会触发该事件（iOS）<br/>
-		 document.addEventListener("circlemessagereceived", onCircleMessageReceived, false);
-		 * @event circlemessagereceived
-		 * @for BaseEvent
-		 * @param {String} status 状态信息.<br/>
-		 *            0：退出 <br/>
-		 *            1：回首页<br/>
-		 *            2：注册长时间无操作的监听
-		 * @platform iOS
-		 * @since 3.0.0
-		 */
-		channel.onCircleMessageReceived = xFace.addDocumentEventHandler('circlemessagereceived');
+        /**
+         * 当商圈退出的时候，会触发该事件（iOS）<br/>
+         document.addEventListener("circlemessagereceived", onCircleMessageReceived, false);
+         * @event circlemessagereceived
+         * @for BaseEvent
+         * @param {String} status 状态信息.<br/>
+         *            0：退出 <br/>
+         *            1：回首页<br/>
+         *            2：注册长时间无操作的监听
+         * @platform iOS
+         * @since 3.0.0
+         */
+        channel.onCircleMessageReceived = xFace.addDocumentEventHandler('circlemessagereceived');
 
         // TODO:处理geolocation
 

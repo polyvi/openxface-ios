@@ -27,7 +27,7 @@
  */
 
  var argscheck = require('xFace/argscheck');
- 
+
  /**
   * File定义了单个文件的属性（Android, iOS, WP8）<br/>
   * @example
@@ -107,7 +107,7 @@ var File = function(name, fullPath, type, lastModifiedDate, size){
      * @since 3.0.0
      */
     this.size = size || 0;
-    
+
     /**
      * 用来表示一个文件块的起始位置(Android).
      * @example
@@ -120,7 +120,7 @@ var File = function(name, fullPath, type, lastModifiedDate, size){
      * @since 3.0.0
      */
      this.start = 0;
-     
+
     /**
      * 用来表示一个文件块的结束位置(Android).
      * @example
@@ -133,7 +133,7 @@ var File = function(name, fullPath, type, lastModifiedDate, size){
      * @since 3.0.0
      */
      this.end = this.size;
-     
+
     /**
      * 返回一个指定文件块分块的文件对象，由于文件对象并不包含实际的内容，这个返回对象只是修改了start和end这2个属性（Android）<br/>
      * @example

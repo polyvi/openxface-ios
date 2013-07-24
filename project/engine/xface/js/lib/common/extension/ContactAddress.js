@@ -45,7 +45,7 @@ var ContactAddress = function(pref, type, formatted, streetAddress, locality, re
      */
     this.id = null;
     /**
-     * 首选项 
+     * 首选项
      */
     this.pref = (typeof pref != 'undefined' ? pref : false);
     /**

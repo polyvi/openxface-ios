@@ -53,7 +53,7 @@ function CaptureScreenResult(code, result) {
                 msg = "invalid argument";
             } else if(result.code == CaptureScreenResult.IO_ERROR) {
                 msg = "io exception";
-            } 
+            }
             console.log("error:" + msg);
         }
    * @property code
@@ -62,7 +62,7 @@ function CaptureScreenResult(code, result) {
    * @since 3.0.0
    */
   this.code = code || null;
-  
+
   /**
    * 截屏执行完毕后返回的截屏数据(Android, iOS)<br/>
    * 其取值范围参考{{#crossLink "CaptureScreenResult"}}{{/crossLink}}中定义的常量
@@ -85,7 +85,7 @@ function CaptureScreenResult(code, result) {
                 msg = "invalid argument";
             } else if(result.code == CaptureScreenResult.IO_ERROR) {
                 msg = "io exception";
-            } 
+            }
             console.log("error:" + msg);
         }
    * @property result

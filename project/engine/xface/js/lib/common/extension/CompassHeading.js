@@ -66,7 +66,7 @@ var CompassHeading = function(magneticHeading, trueHeading, headingAccuracy, tim
    * 在Android下，headingAccuracy的值始终为0
    * @example
           var success = function(heading){
-             console.log("The deviation in degrees between the reported heading and the true heading is: " 
+             console.log("The deviation in degrees between the reported heading and the true heading is: "
                     + heading.headingAccuracy);
           };
    * @property headingAccuracy
@@ -80,7 +80,7 @@ var CompassHeading = function(magneticHeading, trueHeading, headingAccuracy, tim
    * 获取指南针方向信息时的时间（距1970年1月1日之间的毫秒数） (Android, iOS, WP8)
    * @example
           var success = function(heading){
-              console.log("The time at which this heading was determined is: " 
+              console.log("The time at which this heading was determined is: "
                     + heading.timestamp);
           };
    * @property timestamp

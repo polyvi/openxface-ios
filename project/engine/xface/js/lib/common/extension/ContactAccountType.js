@@ -23,7 +23,7 @@
 /**
  * @module contacts
  */
- 
+
  /**
  * 该类定义一些常量，用于标识联系人项的帐号类型，在定义ContactFindOptions对象时会使用（Android）<br/>
  * 相关参考： {{#crossLink "Contacts"}}{{/crossLink}}，{{#crossLink "ContactFindOptions"}}{{/crossLink}}

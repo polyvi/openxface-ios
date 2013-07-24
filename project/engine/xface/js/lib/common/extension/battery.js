@@ -56,7 +56,7 @@ var Battery = function() {
       /**
        * 当xFace应用监测到手机的电池达到低电量值(20%)的时候会触发该事件（Android, iOS, WP8）<br/>
        * @example
-              function onBatteryLow(info) { 
+              function onBatteryLow(info) {
                   alert("battery low level is " + info.level + "%");
               }
               window.addEventListener("batterylow", onBatteryLow, false);

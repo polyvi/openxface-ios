@@ -29,8 +29,7 @@
 #import "APDocument+XAPDocument.h"
 #import "APXML.h"
 #import "XAPElement.h"
-#import "XAppXMLParserNoSchema.h"
-#import "XAppXMLParserSchema1_0.h"
+#import "XAppXMLParser_Legacy.h"
 #import "XAppInfo.h"
 #import "XAppXMLParserFactory_Privates.h"
 
@@ -56,12 +55,12 @@
     if ([schemaValue isEqualToString:SCHEMA_1_0])
     {
         //返回解析含schema标签的对象
-        return [[XAppXMLParserSchema1_0 alloc] initWithXMLData:xmlData];
+        return [[XAppXMLParser_Legacy alloc] initWithXMLData:xmlData];
     }
     else if(nil == schemaValue)
     {
-        //返回解析不含schema标签的对象
-        return [[XAppXMLParserNoSchema alloc] initWithXMLData:xmlData];
+        //TODO: 返回新版本的parser
+        return nil;
     }
     else
     {

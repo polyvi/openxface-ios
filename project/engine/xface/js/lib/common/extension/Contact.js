@@ -226,7 +226,7 @@ var Contact = function (id, displayName, name, nickname, phoneNumbers, emails, a
  */
 Contact.prototype.remove = function(successCallback, errorCallback) {
     argscheck.checkArgs('FF', 'Contact.remove', arguments);
-    
+
     var fail = typeof errorCallback !== 'function' ? null : function(code) {
         errorCallback(new ContactError(code));
     };

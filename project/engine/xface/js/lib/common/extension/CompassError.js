@@ -23,7 +23,7 @@
 /**
  * @module compass
  */
- 
+
  /**
  * 用于描述获取指南针信息时产生的错误（Android, iOS, WP8）<br/>
  * @class CompassError
@@ -43,7 +43,7 @@ var CompassError = function(err) {
                     return "COMPASS_NOT_SUPPORTED";
                 }
                 return "";
-            } 
+            }
       * @property code
       * @default null
       * @type Number
@@ -56,7 +56,7 @@ var CompassError = function(err) {
 /**
   * 设备内部错误 (Android, iOS, WP8).
   * @example
-         CompassError.COMPASS_INTERNAL_ERR 
+         CompassError.COMPASS_INTERNAL_ERR
   * @property COMPASS_INTERNAL_ERR
   * @type Number
   * @final
@@ -68,7 +68,7 @@ CompassError.COMPASS_INTERNAL_ERR = 0;
 /**
   * 不支持compass (Android, iOS, WP8).
   * @example
-         CompassError.COMPASS_NOT_SUPPORTED 
+         CompassError.COMPASS_NOT_SUPPORTED
   * @property COMPASS_NOT_SUPPORTED
   * @type Number
   * @final

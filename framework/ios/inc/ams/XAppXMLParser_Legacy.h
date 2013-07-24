@@ -20,7 +20,7 @@
 */
 
 //
-//  XAppXMLParserNoSchema.h
+//  XAppXMLParser_Legacy.h
 //  xFaceLib
 //
 //
@@ -28,11 +28,18 @@
 #import "XAppXMLParser.h"
 
 /**
-    解析不含schema标签的app.xml的类
+    解析含schema标签的1.0版本的app.xml的类,
+    有新版本可直接继承该类。
  */
-@interface XAppXMLParserNoSchema : XAppXMLParser
+@interface XAppXMLParser_Legacy : XAppXMLParser
 {
 }
+
+/**
+    app.xml 解析的工作
+    @returns 返回保存了xml中解析出来的appInfo
+ */
+-(XAppInfo*) parseAppXML;
 
 /**
     解析app标签

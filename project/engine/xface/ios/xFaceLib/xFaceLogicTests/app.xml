@@ -1,19 +1,96 @@
-﻿<app id="storage" version="1.2" width="480" height="640" isEncrypted="false">
-    <description>
-        <name>中国银联</name>
-        <author href="www.polyvi.com" email="">普辰瑞通</author>
-        <license href="www.polyvi.com">tie</license>
-        <entry src="index.html" />
-        <icon src="" />
-        <type  value="xapp" />
-    </description>
-    <extensions>
-	<extension name="AMS" />
-	<extension name="Device" />
-	<extension name="FileTransfer" />
-	<extension name="NetworkConnection" />
-	<extension name="Console" />
-	<extension name="Storage" />
-    <extension name="Battery" />
-    </extensions>
-</app>
+﻿<!-- config标签的schema属性用来指定app.xml的版本 -->
+<config schema="1.0">
+    <!-- app标签；id属性指应用id，应用的唯一标识符，不同应用id必须不同-->
+    <app id="storage">
+        <!--description标签；type指定应用的类型；entry标签指定应用的起始页面；icon标签指定应用图标；
+         version标签标识应用的版本号；name标签定义应用名称；width和height属性分别指定应用的宽和高-->
+        <description>
+            <!-- type有两种取值 xapp,napp,(xapp表示xface的app,napp表示nativeapp（html+css+js）-->
+            <type>xapp</type>
+            <!--对于xapp，有三种运行模式 local ，singfile， online如果不设置该标签 则默认为local模式-->
+            <running_mode value="local"/>
+            <entry src="index.html" />
+            <icon background-color="0xFFFFFFF" src="icon.png" />
+            <version>1.1</version>
+            <name>Telephony</name>
+            <!-- window/fullscreen, window模式下width、height属性有效 -->
+            <display type="fullscreen">
+                <width>480</width>
+                <height>640</height>
+            </display>
+            <!--指定xface引擎的版本-->
+            <runtime>1</runtime>
+            <copyright>
+                <author href="www.polyvi.com" email="">polyvi</author>
+                <license href="www.polyvi.com">tie</license>
+            </copyright>
+        </description>
+        <extensions>
+            <!-- 定义当前应用能使用的扩展功能，如果不需要使用某项扩展，直接加上注释对应扩展定义项 -->
+			<!-- 应用程序管理扩展，具有安装、卸载、启动、更新应用等功能 -->
+            <extension name="AMS" />
+			<!--设备信息扩展，通过此扩展可以获取设备的UUID、platform、xfaceVersion等设备相关信息-->
+            <extension name="Device" />
+			<!-- FileTransfer扩展，实现了文件下载的操作-->
+            <extension name="FileTransfer" />
+			<!--网络连接扩展，提供对设备的蜂窝及WiFi连接信息的访问-->
+            <extension name="NetWorkConnection" />
+			<!--控制台扩展，向控制台输出log信息-->
+            <extension name="Console" />
+			<!--Storage扩展,实现了对数据库的操作，其API和HTML5一致-->
+            <extension name="Storage" />
+			<!--Accelerometer扩展，捕捉x,y,z三个方向的设备的加速度-->
+            <extension name="Accelerometer" />
+			<!--Compass扩展，获取device指示的方向 -->
+            <extension name="Compass" />
+			<!--SMS扩展，用于发送，获取和查找短信 -->
+            <extension name="SMS" />
+			<!--Telephony扩展，实现拨打电话以及对通讯录的操作，包括
+             获取通讯录、删除通讯录、查找通讯录等 -->
+            <extension name="Telephony" />
+            <!--contacts扩展，提供对设备通讯录数据库的访问-->
+            <extension name="Contacts" />
+			<!--Camera扩展，调用设备摄像头照相采集照或从图片库选择图片-->
+            <extension name="Camera" />
+			<!-- Notification扩展，实现一系列通知功能，包括提示框、选择框等-->
+            <extension name="Notification" />
+			<!--UPPay主要是封装启动银联支付控件的接口和接收交易结束后控件返回的交易结果-->
+            <extension name="UPPay" />
+			<!--Audio扩展，提供音频播放功能-->
+            <extension name="Audio" />
+			<!--Video扩展，提供视频播放功能-->
+            <extension name="Video" />
+			<!-- AdvancedFileTransfer扩展，实现了高级文件下载的操作（支持断点续传和进度通知）-->
+            <extension name="AdvancedFileTransfer" />
+			<!--capture扩展，提供对设备音频、图像和视频采集功能的访问-->
+            <extension name="Capture" />
+			<!--Security扩展，提供了加解密功能-->
+            <extension name="Security" />
+            <extension name="UPPCardlessTrans" />
+			<!--App扩展，用于提供退出引擎，通过系统默认浏览器打开url等接口-->
+            <extension name="App" />
+            <!--Battery扩展，用于监听电池电量信息-->
+            <extension name="Battery" />
+			<!-- Messaging扩展，实现了对短信的一系列操作，包括新建短信，发送短信，查找短信等-->
+            <extension name="Messaging" />
+			<!-- File扩展 提供对本地文件系统的操作-->
+            <extension name="File" />
+			<!-- 智能卡操作扩展-->
+            <extension name="UPPCardAppInterface" />
+			<!-- HTTP、HTTPS数据发送接收-->
+            <extension name="HttpTransfer" />
+			<!-- 银联有卡支付扩展类-->
+            <extension name="UPPCardTransaction" />
+        </extensions>
+        <distribution>
+            <!--singlefile标签用来指定是否使用singlefile，如果singlefile标签不存在则默认为false -->
+            <package>
+                <singlefile>false</singlefile>
+                <encrypt>false</encrypt>
+            </package>
+            <channel id="cupmp_1000">
+                <name>中联正式渠道</name>
+            </channel>
+        </distribution>
+    </app>
+</config>

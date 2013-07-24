@@ -53,7 +53,7 @@
      * @platform Android, iOS, WP8
      * @since 3.0.0
      */
-     
+
      /**
      * 当页面开始停止加载时，该事件被触发（Android, iOS, WP8）<br/>
      * @example
@@ -69,7 +69,7 @@
      * @platform Android, iOS, WP8
      * @since 3.0.0
      */
-     
+
      /**
      * 当退出InAppBrowser时，该事件被触发（Android, iOS, WP8）<br/>
      * @example
@@ -84,8 +84,8 @@
      * @platform Android, iOS, WP8
      * @since 3.0.0
      */
-     
-     
+
+
     function InAppBrowser()
     {
        var _channel = require('xFace/channel');
@@ -165,7 +165,7 @@
     {
         exec(null, null, null, "InAppBrowser", "close", []);
     }
-    
+
     /**
      * 为InAppBrowser增加一个事件监听器,注意只有在内置的浏览器打开，事件监听器才有效
      @example
@@ -186,13 +186,13 @@
             this.channels[eventname].subscribe(f);
         }
     }
-    
+
     /**
      * 去除InAppBrowser一个事件监听器
      @example
           见loadstart、loadstop、exit 事件的示例
      * @method removeEventListener
-     * @example 
+     * @example
           var inAppBrowser = window.open('http://baidu.com', 'random_string');
             function handler() {
                 console.log("page load stop!");
@@ -291,7 +291,7 @@
                     console.log("Styles Altered");
                 });
             }
-            
+
             function injectStyleCode() {
                 browser = window.open('http://apache.org', '_blank', 'location=yes');
                 browser.addEventListener('loadstop', changeBackgroundColor);

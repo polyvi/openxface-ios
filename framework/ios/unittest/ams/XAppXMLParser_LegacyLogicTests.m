@@ -20,30 +20,30 @@
 */
 
 //
-//  XAppXMLParserSchema1_0LogicTests.m
+//  XAppXMLParser_LegacyLogicTests.m
 //  xFaceLib
 //
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "XAppXMLParserSchema1_0.h"
+#import "XAppXMLParser_Legacy.h"
 #import "APDocument+XAPDocument.h"
 #import "XAPElement.h"
 #import "XAppInfo.h"
 #import "XAppXMLTagDefine.h"
-#import "XAppXMLParserSchema1_0_Privates.h"
+#import "XAppXMLParser_Legacy_Privates.h"
 
 #define XAPPXMLPARSER_CHEMA1_0_WEB_APP_CONFIG_FILE_NAME       @"appschema.xml"
 #define XAPPXMLPARSER_CHEMA1_0_NATIVE_APP_CONFIG_FILE_NAME    @"nativeapp.xml"
 
-@interface XAppXMLParserSchema1_0LogicTests : SenTestCase
+@interface XAppXMLParser_LegacyLogicTests : SenTestCase
 {
 @private
-    XAppXMLParserSchema1_0* xmlParserForWebApp;
-    XAppXMLParserSchema1_0* xmlParserForNativeApp;
+    XAppXMLParser_Legacy* xmlParserForWebApp;
+    XAppXMLParser_Legacy* xmlParserForNativeApp;
 }
 @end
-@implementation XAppXMLParserSchema1_0LogicTests
+@implementation XAppXMLParser_LegacyLogicTests
 
 - (void)setUp
 {
@@ -54,11 +54,11 @@
     NSString* nativeAppXMLPath = [bundle pathForResource:XAPPXMLPARSER_CHEMA1_0_NATIVE_APP_CONFIG_FILE_NAME ofType:nil];
     NSFileManager *fileMgr = [NSFileManager defaultManager];
     NSData *xmlDataForWebApp = [fileMgr contentsAtPath:webAppXMLPath];
-    self->xmlParserForWebApp = [[XAppXMLParserSchema1_0 alloc] initWithXMLData:xmlDataForWebApp];
+    self->xmlParserForWebApp = [[XAppXMLParser_Legacy alloc] initWithXMLData:xmlDataForWebApp];
     STAssertNotNil(self->xmlParserForWebApp, @"Failed to create app xml parser instance");
 
     NSData *xmlDataForNativeApp = [fileMgr contentsAtPath:nativeAppXMLPath];
-    self->xmlParserForNativeApp = [[XAppXMLParserSchema1_0 alloc] initWithXMLData:xmlDataForNativeApp];
+    self->xmlParserForNativeApp = [[XAppXMLParser_Legacy alloc] initWithXMLData:xmlDataForNativeApp];
     STAssertNotNil(self->xmlParserForNativeApp, @"Failed to create app xml parser instance");
 }
 

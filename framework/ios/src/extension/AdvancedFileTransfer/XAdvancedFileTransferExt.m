@@ -45,6 +45,7 @@
     if (self)
     {
         self->downloaderManager = [[XFileDownloaderManager alloc] init];
+        self->messenger = [[XMessenger alloc] init];
     }
 
     return self;
@@ -92,14 +93,7 @@
         return;
     }
 
-    //Fixme:messenger的获取方式有待调整
-    XMessenger *messenger = nil;
-    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate respondsToSelector:@selector(messenger)])
-    {
-        messenger = (XMessenger*)[delegate performSelector:@selector(messenger)];
-    }
-    [downloaderManager addDownloaderWithMessenger:messenger messageHandler:self->jsEvaluator callback:callback application:app url:source filePath:fullPath];
+    [downloaderManager addDownloaderWithMessenger:self->messenger messageHandler:self->jsEvaluator callback:callback application:app url:source filePath:fullPath];
 }
 
 - (void) pause:(NSMutableArray *)arguments withDict:(NSMutableDictionary *)options

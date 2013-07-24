@@ -198,18 +198,15 @@
 		7E249A5916084194007B2399 /* XCalendarExt_Privates.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E249A56160840A0007B2399 /* XCalendarExt_Privates.h */; };
 		7E249A5B16084322007B2399 /* XCalendarExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E249A5A16084322007B2399 /* XCalendarExt.m */; };
 		7E249A5E16084557007B2399 /* XCalendarExtLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E249A5D16084557007B2399 /* XCalendarExtLogicTests.m */; };
-		7E280DA515D1FEA200C2F38A /* XAppXMLParserNoSchema.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E280DA315D1FEA200C2F38A /* XAppXMLParserNoSchema.h */; };
 		7E2883B71627E24800022207 /* XContactsExtLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2883B61627E24800022207 /* XContactsExtLogicTests.m */; };
 		7E2F6D3C162BE25400388EC1 /* XContactsExt_Privates.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E2F6D3A162BDA0A00388EC1 /* XContactsExt_Privates.h */; };
 		7E35742115E3682B00F4A2AD /* XLocalStorageExt_Privates.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E35742015E3682B00F4A2AD /* XLocalStorageExt_Privates.h */; };
 		7E3A6AD215D39AD5009DC740 /* XAppXMLParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B2B15D23F9400046170 /* XAppXMLParserFactory.m */; };
 		7E3A6AD415D39AE9009DC740 /* XAppXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B2A15D23F9400046170 /* XAppXMLParser.m */; };
-		7E3A6AD515D39AEC009DC740 /* XAppXMLParserSchema1_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B2D15D23F9400046170 /* XAppXMLParserSchema1_0.m */; };
-		7E3A6AD615D39AF1009DC740 /* XAppXMLParserNoSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B2C15D23F9400046170 /* XAppXMLParserNoSchema.m */; };
+		7E3A6AD515D39AEC009DC740 /* XAppXMLParser_Legacy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B2D15D23F9400046170 /* XAppXMLParser_Legacy.m */; };
 		7E3A6ADD15D39BCE009DC740 /* XAppXMLParserLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A6ADC15D39BCE009DC740 /* XAppXMLParserLogicTests.m */; };
 		7E3A6AE115D39CBC009DC740 /* XAppXMLParserFactoryLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A6ADE15D39CBC009DC740 /* XAppXMLParserFactoryLogicTests.m */; };
-		7E3A6AE215D39CBC009DC740 /* XAppXMLParserNoSchemaLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A6ADF15D39CBC009DC740 /* XAppXMLParserNoSchemaLogicTests.m */; };
-		7E3A6AE315D39CBC009DC740 /* XAppXMLParserSchema1_0LogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A6AE015D39CBC009DC740 /* XAppXMLParserSchema1_0LogicTests.m */; };
+		7E3A6AE315D39CBC009DC740 /* XAppXMLParser_LegacyLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A6AE015D39CBC009DC740 /* XAppXMLParser_LegacyLogicTests.m */; };
 		7E3A6AE615D3AC3A009DC740 /* app.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7E3A6AE415D3AC3A009DC740 /* app.xml */; };
 		7E3A6AE715D3AC3A009DC740 /* appschema.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7E3A6AE515D3AC3A009DC740 /* appschema.xml */; };
 		7E42184D15DB42DF00C1896F /* XAudioRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5C22A315DA6032005DFE76 /* XAudioRecorderViewController.m */; };
@@ -225,11 +222,10 @@
 		7E5C22A415DA6032005DFE76 /* XAudioRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5C22A315DA6032005DFE76 /* XAudioRecorderViewController.m */; };
 		7E747BE215D2809500FB4229 /* XAppXMLTagDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E747BE115D2809500FB4229 /* XAppXMLTagDefine.h */; };
 		7E943B2615D228A200046170 /* XAppXMLParserFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E943B2415D228A100046170 /* XAppXMLParserFactory.h */; };
-		7E943B2915D23F5600046170 /* XAppXMLParserSchema1_0.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E943B2815D23F5500046170 /* XAppXMLParserSchema1_0.h */; };
+		7E943B2915D23F5600046170 /* XAppXMLParser_Legacy.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E943B2815D23F5500046170 /* XAppXMLParser_Legacy.h */; };
 		7E943B2E15D23F9400046170 /* XAppXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B2A15D23F9400046170 /* XAppXMLParser.m */; };
 		7E943B2F15D23F9400046170 /* XAppXMLParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B2B15D23F9400046170 /* XAppXMLParserFactory.m */; };
-		7E943B3015D23F9400046170 /* XAppXMLParserNoSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B2C15D23F9400046170 /* XAppXMLParserNoSchema.m */; };
-		7E943B3115D23F9400046170 /* XAppXMLParserSchema1_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B2D15D23F9400046170 /* XAppXMLParserSchema1_0.m */; };
+		7E943B3115D23F9400046170 /* XAppXMLParser_Legacy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E943B2D15D23F9400046170 /* XAppXMLParser_Legacy.m */; };
 		7EBDA8C415D0EF6100B6F6B2 /* XAppXMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EBDA8C215D0EF6100B6F6B2 /* XAppXMLParser.h */; };
 		7EC22CCF163F7DA4003D3172 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC22CB9163F7DA4003D3172 /* libzbar.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7EC22CD0163F7DA4003D3172 /* Decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EC22CBB163F7DA4003D3172 /* Decoder.h */; };
@@ -498,7 +494,7 @@
 		C8AD14C116A6447B0044CF33 /* XStoreProductPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD14BF16A6447B0044CF33 /* XStoreProductPresenter.m */; };
 		C8AD14C516A644C30044CF33 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8AD14C416A644C30044CF33 /* StoreKit.framework */; };
 		C8AD14DE16A645890044CF33 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8AD14C416A644C30044CF33 /* StoreKit.framework */; };
-		C8AD237316F99FED0033C2F9 /* XAppXMLParserSchema1_0_Privates.h in Headers */ = {isa = PBXBuildFile; fileRef = C8AD237216F99FED0033C2F9 /* XAppXMLParserSchema1_0_Privates.h */; };
+		C8AD237316F99FED0033C2F9 /* XAppXMLParser_Legacy_Privates.h in Headers */ = {isa = PBXBuildFile; fileRef = C8AD237216F99FED0033C2F9 /* XAppXMLParser_Legacy_Privates.h */; };
 		C8AD237816F9AF1E0033C2F9 /* XNativeApplication_Privates.h in Headers */ = {isa = PBXBuildFile; fileRef = C8AD237716F9AF1E0033C2F9 /* XNativeApplication_Privates.h */; };
 		C8ADB51C172B635900BF88D8 /* NSString+XStartParams.h in Headers */ = {isa = PBXBuildFile; fileRef = C8ADB51B172B635900BF88D8 /* NSString+XStartParams.h */; };
 		C8ADB51E172B636D00BF88D8 /* NSString+XStartParams.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADB51D172B636D00BF88D8 /* NSString+XStartParams.m */; };
@@ -752,14 +748,12 @@
 		7E249A56160840A0007B2399 /* XCalendarExt_Privates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCalendarExt_Privates.h; sourceTree = "<group>"; };
 		7E249A5A16084322007B2399 /* XCalendarExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCalendarExt.m; sourceTree = "<group>"; };
 		7E249A5D16084557007B2399 /* XCalendarExtLogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCalendarExtLogicTests.m; sourceTree = "<group>"; };
-		7E280DA315D1FEA200C2F38A /* XAppXMLParserNoSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAppXMLParserNoSchema.h; sourceTree = "<group>"; };
 		7E2883B61627E24800022207 /* XContactsExtLogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XContactsExtLogicTests.m; sourceTree = "<group>"; };
 		7E2F6D3A162BDA0A00388EC1 /* XContactsExt_Privates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XContactsExt_Privates.h; sourceTree = "<group>"; };
 		7E35742015E3682B00F4A2AD /* XLocalStorageExt_Privates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLocalStorageExt_Privates.h; sourceTree = "<group>"; };
 		7E3A6ADC15D39BCE009DC740 /* XAppXMLParserLogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppXMLParserLogicTests.m; sourceTree = "<group>"; };
 		7E3A6ADE15D39CBC009DC740 /* XAppXMLParserFactoryLogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppXMLParserFactoryLogicTests.m; sourceTree = "<group>"; };
-		7E3A6ADF15D39CBC009DC740 /* XAppXMLParserNoSchemaLogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppXMLParserNoSchemaLogicTests.m; sourceTree = "<group>"; };
-		7E3A6AE015D39CBC009DC740 /* XAppXMLParserSchema1_0LogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppXMLParserSchema1_0LogicTests.m; sourceTree = "<group>"; };
+		7E3A6AE015D39CBC009DC740 /* XAppXMLParser_LegacyLogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppXMLParser_LegacyLogicTests.m; sourceTree = "<group>"; };
 		7E3A6AE415D3AC3A009DC740 /* app.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = app.xml; sourceTree = "<group>"; };
 		7E3A6AE515D3AC3A009DC740 /* appschema.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appschema.xml; sourceTree = "<group>"; };
 		7E44A4C215E72D3700A3E8F9 /* XBatteryExt_Privates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBatteryExt_Privates.h; sourceTree = "<group>"; };
@@ -774,11 +768,10 @@
 		7E5C22A915DA64C2005DFE76 /* XAudioRecorderViewControllerLogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAudioRecorderViewControllerLogicTests.m; sourceTree = "<group>"; };
 		7E747BE115D2809500FB4229 /* XAppXMLTagDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAppXMLTagDefine.h; sourceTree = "<group>"; };
 		7E943B2415D228A100046170 /* XAppXMLParserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAppXMLParserFactory.h; sourceTree = "<group>"; };
-		7E943B2815D23F5500046170 /* XAppXMLParserSchema1_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAppXMLParserSchema1_0.h; sourceTree = "<group>"; };
+		7E943B2815D23F5500046170 /* XAppXMLParser_Legacy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAppXMLParser_Legacy.h; sourceTree = "<group>"; };
 		7E943B2A15D23F9400046170 /* XAppXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppXMLParser.m; sourceTree = "<group>"; };
 		7E943B2B15D23F9400046170 /* XAppXMLParserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppXMLParserFactory.m; sourceTree = "<group>"; };
-		7E943B2C15D23F9400046170 /* XAppXMLParserNoSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppXMLParserNoSchema.m; sourceTree = "<group>"; };
-		7E943B2D15D23F9400046170 /* XAppXMLParserSchema1_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppXMLParserSchema1_0.m; sourceTree = "<group>"; };
+		7E943B2D15D23F9400046170 /* XAppXMLParser_Legacy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppXMLParser_Legacy.m; sourceTree = "<group>"; };
 		7E943B3615D257BB00046170 /* XAppXMLParserFactory_Privates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XAppXMLParserFactory_Privates.h; sourceTree = "<group>"; };
 		7EBDA8C215D0EF6100B6F6B2 /* XAppXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAppXMLParser.h; sourceTree = "<group>"; };
 		7EC22CB9163F7DA4003D3172 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
@@ -989,7 +982,7 @@
 		C8AD14BD16A644640044CF33 /* XStoreProductPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XStoreProductPresenter.h; sourceTree = "<group>"; };
 		C8AD14BF16A6447B0044CF33 /* XStoreProductPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XStoreProductPresenter.m; sourceTree = "<group>"; };
 		C8AD14C416A644C30044CF33 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		C8AD237216F99FED0033C2F9 /* XAppXMLParserSchema1_0_Privates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAppXMLParserSchema1_0_Privates.h; sourceTree = "<group>"; };
+		C8AD237216F99FED0033C2F9 /* XAppXMLParser_Legacy_Privates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAppXMLParser_Legacy_Privates.h; sourceTree = "<group>"; };
 		C8AD237716F9AF1E0033C2F9 /* XNativeApplication_Privates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNativeApplication_Privates.h; sourceTree = "<group>"; };
 		C8ADB51B172B635900BF88D8 /* NSString+XStartParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XStartParams.h"; sourceTree = "<group>"; };
 		C8ADB51D172B636D00BF88D8 /* NSString+XStartParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XStartParams.m"; sourceTree = "<group>"; };
@@ -1292,8 +1285,7 @@
 			isa = PBXGroup;
 			children = (
 				7E3A6ADE15D39CBC009DC740 /* XAppXMLParserFactoryLogicTests.m */,
-				7E3A6ADF15D39CBC009DC740 /* XAppXMLParserNoSchemaLogicTests.m */,
-				7E3A6AE015D39CBC009DC740 /* XAppXMLParserSchema1_0LogicTests.m */,
+				7E3A6AE015D39CBC009DC740 /* XAppXMLParser_LegacyLogicTests.m */,
 				7E3A6ADC15D39BCE009DC740 /* XAppXMLParserLogicTests.m */,
 			);
 			name = appXML;
@@ -1498,8 +1490,7 @@
 				C835DF821598545800C41568 /* XAppPreinstallListener.h */,
 				C835DF841598545800C41568 /* XInstallListener.h */,
 				7EBDA8C215D0EF6100B6F6B2 /* XAppXMLParser.h */,
-				7E943B2815D23F5500046170 /* XAppXMLParserSchema1_0.h */,
-				7E280DA315D1FEA200C2F38A /* XAppXMLParserNoSchema.h */,
+				7E943B2815D23F5500046170 /* XAppXMLParser_Legacy.h */,
 				7E943B2415D228A100046170 /* XAppXMLParserFactory.h */,
 				7E747BE115D2809500FB4229 /* XAppXMLTagDefine.h */,
 				C8C63794170BBEB600307DBD /* XAppInstallerProtocol.h */,
@@ -1677,8 +1668,7 @@
 				C835DFC91598545800C41568 /* XAppPreinstallListener.m */,
 				7E943B2B15D23F9400046170 /* XAppXMLParserFactory.m */,
 				7E943B2A15D23F9400046170 /* XAppXMLParser.m */,
-				7E943B2D15D23F9400046170 /* XAppXMLParserSchema1_0.m */,
-				7E943B2C15D23F9400046170 /* XAppXMLParserNoSchema.m */,
+				7E943B2D15D23F9400046170 /* XAppXMLParser_Legacy.m */,
 			);
 			path = ams;
 			sourceTree = "<group>";
@@ -1964,7 +1954,7 @@
 				C8E47D7A15A3E1AB0049DD82 /* XAppManagement_Privates.h */,
 				CA7A380115C9199D00B12FE4 /* XAppInstaller_Privates.h */,
 				7E943B3615D257BB00046170 /* XAppXMLParserFactory_Privates.h */,
-				C8AD237216F99FED0033C2F9 /* XAppXMLParserSchema1_0_Privates.h */,
+				C8AD237216F99FED0033C2F9 /* XAppXMLParser_Legacy_Privates.h */,
 				C8C637AA170BD24800307DBD /* XLightweightAppInstaller_Privates.h */,
 			);
 			path = private;
@@ -2142,9 +2132,8 @@
 				CA7B3A4C15B6824F00F977E0 /* XJsCallback.h in Headers */,
 				D8A5423E15CA53E800339364 /* XFileTransferExt_Privates.h in Headers */,
 				7EBDA8C415D0EF6100B6F6B2 /* XAppXMLParser.h in Headers */,
-				7E280DA515D1FEA200C2F38A /* XAppXMLParserNoSchema.h in Headers */,
 				7E943B2615D228A200046170 /* XAppXMLParserFactory.h in Headers */,
-				7E943B2915D23F5600046170 /* XAppXMLParserSchema1_0.h in Headers */,
+				7E943B2915D23F5600046170 /* XAppXMLParser_Legacy.h in Headers */,
 				7E747BE215D2809500FB4229 /* XAppXMLTagDefine.h in Headers */,
 				C80FA3DB15D9F30600AE4729 /* XNetworkConnectionExt_Privates.h in Headers */,
 				4AC6DAC215D8AE85001599B6 /* XAppUpdater.h in Headers */,
@@ -2230,7 +2219,7 @@
 				64369FAB16E729ED00FFF208 /* XOnlineMode_Privates.h in Headers */,
 				C8A910D416F2B63A00816454 /* XWhitelist.h in Headers */,
 				C828F39116F2BCBA008C3743 /* XWhitelist_Privates.h in Headers */,
-				C8AD237316F99FED0033C2F9 /* XAppXMLParserSchema1_0_Privates.h in Headers */,
+				C8AD237316F99FED0033C2F9 /* XAppXMLParser_Legacy_Privates.h in Headers */,
 				C8AD237816F9AF1E0033C2F9 /* XNativeApplication_Privates.h in Headers */,
 				643E119216FC2924001B2FDB /* XInAppBrowserExt_Privates.h in Headers */,
 				C8904D641701336D0027AAC3 /* XSplashScreenExt_Privates.h in Headers */,
@@ -2272,7 +2261,7 @@
 				649A10B51779994F00FF9AC2 /* XMutableURLRequest.h in Headers */,
 				649A10B61779994F00FF9AC2 /* XXMLHttpRequestExt.h in Headers */,
 				6485BAFE177BDFAA00E1D6C3 /* XHTTPSURLProtocol.h in Headers */,
-                                644AF1C7178BB7D700A04AC5 /* XInAppBrowserXHRURLProtocol.h in Headers */,
+				644AF1C7178BB7D700A04AC5 /* XInAppBrowserXHRURLProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2474,8 +2463,7 @@
 				4ACE127A15B8FE63009C41AE /* XAppViewStub.m in Sources */,
 				7E943B2E15D23F9400046170 /* XAppXMLParser.m in Sources */,
 				7E943B2F15D23F9400046170 /* XAppXMLParserFactory.m in Sources */,
-				7E943B3015D23F9400046170 /* XAppXMLParserNoSchema.m in Sources */,
-				7E943B3115D23F9400046170 /* XAppXMLParserSchema1_0.m in Sources */,
+				7E943B3115D23F9400046170 /* XAppXMLParser_Legacy.m in Sources */,
 				4AC6DAC515D8CBFC001599B6 /* XAppUpdater.m in Sources */,
 				7E5C22A415DA6032005DFE76 /* XAudioRecorderViewController.m in Sources */,
 				0A3B399115ECA8BC00D88B03 /* XPushNotificationExt.m in Sources */,
@@ -2543,7 +2531,7 @@
 				649A10BA177999A800FF9AC2 /* XMutableURLRequest.m in Sources */,
 				649A10BC177999A800FF9AC2 /* XXMLHttpRequestExt.m in Sources */,
 				6485BB02177BDFE800E1D6C3 /* XHTTPSURLProtocol.m in Sources */,
-                                644AF1C5178BB7BB00A04AC5 /* XInAppBrowserXHRURLProtocol.m in Sources */,
+				644AF1C5178BB7BB00A04AC5 /* XInAppBrowserXHRURLProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2645,12 +2633,10 @@
 				CA79284515B8EC8800B3B0F4 /* XJsCallbackLogicTests.m in Sources */,
 				7E3A6AD215D39AD5009DC740 /* XAppXMLParserFactory.m in Sources */,
 				7E3A6AD415D39AE9009DC740 /* XAppXMLParser.m in Sources */,
-				7E3A6AD515D39AEC009DC740 /* XAppXMLParserSchema1_0.m in Sources */,
-				7E3A6AD615D39AF1009DC740 /* XAppXMLParserNoSchema.m in Sources */,
+				7E3A6AD515D39AEC009DC740 /* XAppXMLParser_Legacy.m in Sources */,
 				7E3A6ADD15D39BCE009DC740 /* XAppXMLParserLogicTests.m in Sources */,
 				7E3A6AE115D39CBC009DC740 /* XAppXMLParserFactoryLogicTests.m in Sources */,
-				7E3A6AE215D39CBC009DC740 /* XAppXMLParserNoSchemaLogicTests.m in Sources */,
-				7E3A6AE315D39CBC009DC740 /* XAppXMLParserSchema1_0LogicTests.m in Sources */,
+				7E3A6AE315D39CBC009DC740 /* XAppXMLParser_LegacyLogicTests.m in Sources */,
 				7E5C227915DA01E0005DFE76 /* XCameraExtLogicTests.m in Sources */,
 				7E42184D15DB42DF00C1896F /* XAudioRecorderViewController.m in Sources */,
 				7E42184E15DB48BB00C1896F /* XCaptureExtLogicTests.m in Sources */,
@@ -2743,7 +2729,7 @@
 				649A10BB177999A800FF9AC2 /* XMutableURLRequest.m in Sources */,
 				649A10BD177999A800FF9AC2 /* XXMLHttpRequestExt.m in Sources */,
 				6485BB03177BDFE800E1D6C3 /* XHTTPSURLProtocol.m in Sources */,
-                                644AF1C8178C031900A04AC5 /* XInAppBrowserXHRURLProtocol.m in Sources */,
+				644AF1C8178C031900A04AC5 /* XInAppBrowserXHRURLProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

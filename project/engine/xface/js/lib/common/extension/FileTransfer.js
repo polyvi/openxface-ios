@@ -72,7 +72,7 @@ var FileTransfer = function() {
         var fileTransfer = new FileTransfer();
         var remoteFile = "http://192.168.2.245/develop/test/test.css";
         var localFileName = "test.css";
-		fileTransfer.download(remoteFile,localFileName,success,fail);
+        fileTransfer.download(remoteFile,localFileName,success,fail);
         fileTransfer.onprogress = function(evt) {
             var progress  = evt.loaded / evt.total;
         };

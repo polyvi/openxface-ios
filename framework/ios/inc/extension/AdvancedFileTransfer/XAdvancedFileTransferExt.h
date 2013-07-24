@@ -33,6 +33,7 @@
 @interface XAdvancedFileTransferExt : XExtension
 {
     XFileDownloaderManager *downloaderManager;
+    XMessenger             *messenger;          /**< 用于发送消息给 message handler */
 }
 
 /**
