@@ -45,6 +45,7 @@
 #import "XURLProtocol.h"
 #import "XAppController.h"
 #import "XHTTPSURLProtocol.h"
+#import "XResourceURLProtocol.h"
 
 @implementation XWebApplication
 
@@ -60,6 +61,7 @@
 +(void)initialize
 {
     [NSURLProtocol registerClass:[XHTTPSURLProtocol class]];
+    [NSURLProtocol registerClass:[XResourceURLProtocol class]];
 }
 
 - (id) initWithAppInfo:(XAppInfo *)applicationInfo

@@ -77,7 +77,7 @@ function Device() {
      */
     this.platform = null;
     /**
-     * 用于标识设备的操作系统版本（Android, iOS, WP8）
+     * 用于标识设备的操作系统版本号（Android, iOS, WP8）
      * @property version
      * @default null
      * @type String
@@ -122,7 +122,7 @@ function Device() {
      */
     this.imsi = null;
     /**
-     * 用于标识xFace的版本号（Android, iOS, WP8）
+     * 用于标识xFace的引擎版本号（Android, iOS, WP8）
      * @property xFaceVersion
      * @default null
      * @type String
@@ -131,7 +131,7 @@ function Device() {
      */
     this.xFaceVersion = null;
     /**
-     * 用于标识程序包的产品名称，其值就是<manifest> 的标签versionName属性值（Android, iOS, WP8）
+     * 用于标识程序包的产品版本号（应用版本号），可显示在设备系统软件安装列表中（Android, iOS, WP8）
      * @property productVersion
      * @default null
      * @type String

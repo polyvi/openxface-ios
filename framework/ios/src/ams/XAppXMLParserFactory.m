@@ -29,6 +29,7 @@
 #import "APDocument+XAPDocument.h"
 #import "APXML.h"
 #import "XAPElement.h"
+#import "XAppXMLParser.h"
 #import "XAppXMLParser_Legacy.h"
 #import "XAppInfo.h"
 #import "XAppXMLParserFactory_Privates.h"
@@ -49,7 +50,7 @@
 }
 
 //判断，选择解析appxml 的对象
-+(XAppXMLParser*) createAppXMLParserWithXMLData:(NSData *)xmlData
++(id<XAppXMLParser>) createAppXMLParserWithXMLData:(NSData *)xmlData
 {
     NSString* schemaValue = [self getSchemaValueFromXMLData:xmlData];
     if ([schemaValue isEqualToString:SCHEMA_1_0])
@@ -59,8 +60,8 @@
     }
     else if(nil == schemaValue)
     {
-        //TODO: 返回新版本的parser
-        return nil;
+        // 返回新版本的parser
+        return [[XAppXMLParser alloc] initWithXMLData:xmlData];
     }
     else
     {

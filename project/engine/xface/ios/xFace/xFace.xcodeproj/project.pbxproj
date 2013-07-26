@@ -75,7 +75,6 @@
 		C8EF6B961689974000B2196B /* xface_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8EF6B911689974000B2196B /* xface_logo@2x.png */; };
 		C8F444D715E32CE4007B2B9E /* XApplicationPersistenceApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F444D615E32CE4007B2B9E /* XApplicationPersistenceApplicationTests.m */; };
 		C8FCF20115AAE49400899F15 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FCF20015AAE49400899F15 /* QuartzCore.framework */; };
-		CA7A380415C9305F00B12FE4 /* XFileUtilsApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7A380315C9305F00B12FE4 /* XFileUtilsApplicationTests.m */; };
 		CA7A8FA515CBB529006B201E /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7A8FA115CBB529006B201E /* Icon-72.png */; };
 		CA7A8FA615CBB529006B201E /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7A8FA215CBB529006B201E /* Icon-72@2x.png */; };
 		CA7A8FA715CBB529006B201E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7A8FA315CBB529006B201E /* Icon.png */; };
@@ -235,7 +234,6 @@
 		C8EF6B911689974000B2196B /* xface_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xface_logo@2x.png"; sourceTree = "<group>"; };
 		C8F444D615E32CE4007B2B9E /* XApplicationPersistenceApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XApplicationPersistenceApplicationTests.m; path = utils/XApplicationPersistenceApplicationTests.m; sourceTree = "<group>"; };
 		C8FCF20015AAE49400899F15 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		CA7A380315C9305F00B12FE4 /* XFileUtilsApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XFileUtilsApplicationTests.m; path = utils/XFileUtilsApplicationTests.m; sourceTree = "<group>"; };
 		CA7A8FA115CBB529006B201E /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		CA7A8FA215CBB529006B201E /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		CA7A8FA315CBB529006B201E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -479,7 +477,6 @@
 				644A7F1E17043A060031410D /* XDevicePropertiesApplicationTests.m */,
 				C8075B2415D51A0F00216226 /* XApplicationTests.h */,
 				C8075B2515D51A0F00216226 /* XApplicationTests.m */,
-				CA7A380315C9305F00B12FE4 /* XFileUtilsApplicationTests.m */,
 				C8F444D615E32CE4007B2B9E /* XApplicationPersistenceApplicationTests.m */,
 				C899A251168941FE0012BA92 /* XUtilsApplicationTests.m */,
 			);
@@ -613,7 +610,7 @@
 				D7202C351712A2AC0000D069 /* xface_logo-Landscape@2x~ipad.png in Resources */,
 				D7202C361712A2AC0000D069 /* xface_logo-Landscape~ipad.png in Resources */,
 				C8E348961762CC74009229CA /* config.xml in Resources */,
-                6485BAED177ACCC600E1D6C3 /* assets in Resources */,
+				6485BAED177ACCC600E1D6C3 /* assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,7 +639,6 @@
 			files = (
 				C80584CB15ADE02C00E814E4 /* XAppWebViewApplicationTests.m in Sources */,
 				C8E8892815B6A0C800FDED7B /* XAppExtApplicationTests.m in Sources */,
-				CA7A380415C9305F00B12FE4 /* XFileUtilsApplicationTests.m in Sources */,
 				C8075B2615D51A1000216226 /* XApplicationTests.m in Sources */,
 				C80FA3DE15D9F3CE00AE4729 /* XNetworkConnectionExtApplicationTests.m in Sources */,
 				4AC6DADD15DA03DF001599B6 /* XAppUpdaterApplicationTests.m in Sources */,

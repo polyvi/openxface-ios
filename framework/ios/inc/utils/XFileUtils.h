@@ -94,13 +94,6 @@ typedef int XFileTransferError;
 + (BOOL)copyItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath error:(NSError **)error;
 
 /**
-    拷贝内置js文件到指定应用根目录下
-    @param srcJsFileName 源框架js文件的名称，必须在ios程序的根目录下
-    @param appId 目标应用
- */
-+ (void)copyEmbeddedJsFile:(NSString *)srcJsFileName withAppId:(NSString *)appId;
-
-/**
     根据指定的路径创建文件夹
     @param Path      文件(夹)路径(完整路径)
         - 1)  fullPath 是文件: ~/workspace/foldernotexist/app.zip  <br />

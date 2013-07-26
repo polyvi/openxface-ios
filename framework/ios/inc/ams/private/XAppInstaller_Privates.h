@@ -41,10 +41,4 @@
  */
 - (void) moveAppIconWithAppInfo:(XAppInfo *)appInfo;
 
-/**
-  拷贝xface.js文件到指定的应用根目录下
-  @param appId 目标应用
- */
-- (void) copyEmbeddedJsFileToApp:(NSString *)appId;
-
 @end

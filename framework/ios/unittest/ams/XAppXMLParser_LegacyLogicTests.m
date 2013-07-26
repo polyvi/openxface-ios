@@ -71,7 +71,6 @@
     STAssertEqualObjects(@"0xFFFFFFF", self->xmlParserForWebApp.appInfo.iconBgColor, nil);
     STAssertEqualObjects(@"3.0", self->xmlParserForWebApp.appInfo.version, nil);
     STAssertEqualObjects(@"startapp", self->xmlParserForWebApp.appInfo.name, nil);
-    STAssertEqualObjects(@"1", self->xmlParserForWebApp.appInfo.engineType, nil);
     STAssertEqualObjects(@"online", self->xmlParserForWebApp.appInfo.runningMode, nil);
     STAssertNil(self->xmlParserForWebApp.appInfo.prefRemotePkg, nil);
 }
@@ -85,41 +84,6 @@
     STAssertEqualObjects(@"*", self->xmlParserForWebApp.appInfo.whitelistHosts[2], nil);
 }
 
--(void) testParseDisplayElementForWebApp
-{
-    APElement *rootElem = [self->xmlParserForWebApp.doc rootElement];
-    APElement *appElem = [rootElem firstChildElementNamed:TAG_APP];
-    APElement *descriptionElement = [appElem firstChildElementNamed:TAG_DESCRIPTION];
-    APElement *displayElem = [descriptionElement firstChildElementNamed:TAG_DISPLAY];
-    [self->xmlParserForWebApp parseDisplayElement:displayElem];
-
-    STAssertEqualObjects(@"fullscreen", self->xmlParserForWebApp.appInfo.displayMode, nil);
-    STAssertEquals(480, self->xmlParserForWebApp.appInfo.width, nil);
-    STAssertEquals(640, self->xmlParserForWebApp.appInfo.height, nil);
-}
-
--(void) testParsePackageElementForWebApp
-{
-    APElement *rootElem = [self->xmlParserForWebApp.doc rootElement];
-    APElement *appElem = [rootElem firstChildElementNamed:TAG_APP];
-    APElement *distributionElement = [appElem firstChildElementNamed:TAG_DISTRIBUTION];
-    APElement *packageElem = [distributionElement firstChildElementNamed:TAG_PACKAGE];
-    [self->xmlParserForWebApp parsePackageElement:packageElem];
-
-    STAssertFalse(self->xmlParserForWebApp.appInfo.isEncrypted, nil);
-}
-
--(void) testParseChannelElementForWebApp
-{
-    APElement *rootElem = [self->xmlParserForWebApp.doc rootElement];
-    APElement *appElem = [rootElem firstChildElementNamed:TAG_APP];
-    APElement *distributionElement = [appElem firstChildElementNamed:TAG_DISTRIBUTION];
-    APElement *channelElem = [distributionElement firstChildElementNamed:TAG_CHANNEL];
-    [self->xmlParserForWebApp parseChannelElement:channelElem];
-
-    STAssertEqualObjects(@"cupmp_1000", self->xmlParserForWebApp.appInfo.channelId, nil);
-    STAssertEqualObjects(@"中联正式渠道", self->xmlParserForWebApp.appInfo.channelName, nil);
-}
 
 -(void) testParseDescriptionTagForNativeApp
 {

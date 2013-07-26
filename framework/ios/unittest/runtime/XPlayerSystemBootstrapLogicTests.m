@@ -61,11 +61,6 @@
     [[NSFileManager defaultManager] removeItemAtPath:[[XConfiguration getInstance] systemWorkspace] error:nil];
 }
 
-- (void)testRemoveEmbeddedJsFile
-{
-    STAssertTrueNoThrow([self->playerSystemBootstrap removeEmbeddedJsFile], nil);
-}
-
 - (void)testPrepareForMergingUserDataWhenNeedingMergingIsFalse
 {
     BOOL ret = NO;

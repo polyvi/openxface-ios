@@ -516,42 +516,6 @@
     [XFileUtils removeContentOfDirectoryAtPath:fullPath error:nil];
 }
 
-- (void) testCopyEmbeddedJsFileWhenDstNonexistent
-{
-    NSString *testAppId = @"test_app_id_111";
-    XConfiguration *config = [XConfiguration getInstance];
-    NSString *appDirPath = [[config appInstallationDir] stringByAppendingPathComponent:testAppId];
-    NSFileManager *manager = [NSFileManager defaultManager];
-    [manager createDirectoryAtPath:appDirPath withIntermediateDirectories:YES attributes:nil error:nil];
-    NSString *dstJsPath = [appDirPath stringByAppendingPathComponent:XFACE_JS_FILE_NAME];
-    STAssertFalse([manager fileExistsAtPath:dstJsPath], nil);
-
-    [XFileUtils copyEmbeddedJsFile:XFACE_JS_FILE_NAME withAppId:testAppId];
-    STAssertTrue([manager fileExistsAtPath:dstJsPath], nil);
-
-    [manager removeItemAtPath:appDirPath error:nil];
-}
-
-- (void) testCopyEmbeddedJsFileWhenDstExistent
-{
-    NSString *testAppId = @"test_app_id_111";
-    XConfiguration *config = [XConfiguration getInstance];
-    NSString *appDirPath = [[config appInstallationDir] stringByAppendingPathComponent:testAppId];
-    NSFileManager *manager = [NSFileManager defaultManager];
-    [manager createDirectoryAtPath:appDirPath withIntermediateDirectories:YES attributes:nil error:nil];
-    NSString *dstJsPath = [appDirPath stringByAppendingPathComponent:XFACE_JS_FILE_NAME];
-    STAssertFalse([manager fileExistsAtPath:dstJsPath], nil);
-
-    [XFileUtils copyEmbeddedJsFile:XFACE_JS_FILE_NAME withAppId:testAppId];
-    STAssertTrue([manager fileExistsAtPath:dstJsPath], nil);
-
-    //测试dstJs已经存在的情况
-    [XFileUtils copyEmbeddedJsFile:XFACE_JS_FILE_NAME withAppId:testAppId];
-    STAssertTrue([manager fileExistsAtPath:dstJsPath], nil);
-
-    [manager removeItemAtPath:appDirPath error:nil];
-}
-
 -(void)doAssertForCopyFileRecursively
 {
     XConfiguration* config = [XConfiguration getInstance];

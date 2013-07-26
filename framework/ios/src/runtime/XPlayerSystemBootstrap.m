@@ -64,27 +64,14 @@
 
 -(void)syncDidFinish
 {
-    BOOL ret = YES;
-    NSString* errorDescription = [[NSString alloc] init];
-    if (NO == (ret = [self removeEmbeddedJsFile]))
-    {
-        errorDescription= @"fail to removeEmbeddedJsFile";
-    }
-
     // 执行资源部署
-    if (ret && (NO == (ret = [self deployResources])))
+    if ([self deployResources])
     {
-        errorDescription= @"fail to deployResources";
-    }
-
-    if (ret)
-    {
-        [XFileUtils copyEmbeddedJsFile:XFACE_JS_FILE_NAME withAppId:DEFAULT_APP_ID_FOR_PLAYER];
         [[self bootDelegate] didFinishPreparingWorkEnvironment];
     }
     else
     {
-        NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : errorDescription};
+        NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : @"fail to deployResources"};
         NSError *anError = [[NSError alloc] initWithDomain:@"xface" code:0 userInfo:errorDictionary];
         [[self bootDelegate] didFailToPrepareEnvironmentWithError:anError];
     }
@@ -161,16 +148,6 @@
         }
         return ret;
     }
-}
-
-- (BOOL) removeEmbeddedJsFile
-{
-    // 删除app目录下的xface.js文件，此文件在资源部署完成后会被重新创建
-    NSString *appsDirPath = [[XConfiguration getInstance] appInstallationDir];
-    NSString *embeddedJsFilePath = [appsDirPath stringByAppendingFormat:@"%@%@%@", DEFAULT_APP_ID_FOR_PLAYER, FILE_SEPARATOR, XFACE_JS_FILE_NAME];
-
-    BOOL ret = [XFileUtils removeItemAtPath:embeddedJsFilePath error:nil];
-    return ret;
 }
 
 - (BOOL) prepareForMergingUserData:(BOOL *)needMerging

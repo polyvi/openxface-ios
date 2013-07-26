@@ -26,8 +26,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XAppXMLParser.h"
 
-@class XAppXMLParser;
 @class APDocument;
 
 @interface XAppXMLParserFactory : NSObject
@@ -38,6 +38,6 @@
     创建解析app.xml的对象
     @returns 成功返回解析app.xml的XAppXMLParser对象
  */
-+(XAppXMLParser*) createAppXMLParserWithXMLData:(NSData *)xmlData;
++(id<XAppXMLParser>) createAppXMLParserWithXMLData:(NSData *)xmlData;
 
 @end

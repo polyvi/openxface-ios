@@ -189,39 +189,6 @@
     return ret;
 }
 
-+ (void)copyEmbeddedJsFile:(NSString *)srcJsFileName withAppId:(NSString *)appId
-{
-    NSString *srcJsPath = [[NSBundle bundleForClass:[self class]] pathForResource:srcJsFileName ofType:nil];
-    NSString *appsDirPath = [[XConfiguration getInstance] appInstallationDir];
-    NSString *destJsPath = [appsDirPath stringByAppendingFormat:@"%@%@%@", appId, FILE_SEPARATOR, srcJsFileName];
-
-    NSFileManager *manager = [NSFileManager defaultManager];
-    __autoreleasing NSError *error = nil;
-
-    //处理源文件不存在
-    if(![manager fileExistsAtPath:srcJsPath])
-    {
-        //这里本来应该直接报错，
-        //但是非player需要一个空的xdebug.js，所以在这里处理一下，
-        //如果是xdebug.js，就创建个空的文件；其他文件都报错.
-        NSAssert(NSOrderedSame ==[srcJsFileName compare:XDEBUG_JS_FILE_NAME], @"The src js file is not exist!!!");
-        [manager createFileAtPath:destJsPath contents:nil attributes:nil];
-        return;
-    }
-
-    if(![XFileUtils removeItemAtPath:destJsPath error:&error])
-    {
-        XLogE(@"[%@] Delete file: %@ failed, error info: %@!", NSStringFromSelector(_cmd), destJsPath, [error localizedDescription]);
-        return;
-    }
-
-    if(![manager copyItemAtPath:srcJsPath toPath:destJsPath error:&error])
-    {
-        XLogE(@"Copy embedded js file to: %@ failed, error info: %@!", destJsPath, [error localizedDescription]);
-        return;
-    }
-}
-
 + (BOOL) createFolder:(NSString*)fullPath
 {
     BOOL result = NO;

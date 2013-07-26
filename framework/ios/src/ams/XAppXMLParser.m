@@ -52,44 +52,41 @@
 //app.xml 解析的公共入口空实现,子类实现
 -(XAppInfo*) parseAppXML
 {
-    [self parseAppTag];
-    [self parseDescriptionTag];
-    [self parseExtensionsTag];
-
-    if (NO == [self checkTagVerify]) {
-        return nil;
-    }
+    [self parseAllTag];
     return self.appInfo;
 }
 
-//空实现,子类实现
--(void) parseAppTag
+#pragma mark - private API
+
+-(void) parseAllTag
 {
+    APElement *root = [self.doc rootElement];
+
+    self.appInfo.appId = [root valueForAttributeNamed:ATTR_ID];
+    self.appInfo.version = [root valueForAttributeNamed:ATTR_VERSION];
+
+    // TODO:由于author,license还未使用，相应的配置信息暂时不解析
+
+    APElement *nameElem = [root firstChildElementNamed:TAG_NAME];
+    self.appInfo.name = [nameElem value];
+
+    APElement *entryElem = [root firstChildElementNamed:TAG_CONTENT];
+    self.appInfo.entry = [entryElem valueForAttributeNamed:ATTR_SRC];
+
+    APElement *iconElem = [root firstChildElementNamed:TAG_ICON];
+    self.appInfo.icon = [iconElem valueForAttributeNamed:ATTR_SRC];
+    self.appInfo.iconBgColor = [iconElem valueForAttributeNamed:ATTR_BACKGROUND_COLOR];
+
+    self.appInfo.type = [self valueForPreference:PREFERENCE_TYPE];
+    self.appInfo.runningMode = [self valueForPreference:PREFERENCE_MODE];
+    self.appInfo.prefRemotePkg  = [self valueForPreference:PREFERENCE_REMOTE_PKG];
+    self.appInfo.appleId  = [self valueForPreference:PREFERENCE_APPLE_ID];
 }
 
-//空实现,子类实现
--(void) parseDescriptionTag
+-(NSString*) valueForPreference:(NSString*)name
 {
-}
-
-//空实现,子类实现
--(void) parseExtensionsTag
-{
-}
-
-//解析app元素标签，以及子节点的属性和值
--(void) parseAppElement:(APElement*)appElement
-{
-    self.appInfo.appId = [appElement valueForAttributeNamed:ATTR_ID];
-}
-
--(BOOL) checkTagVerify
-{
-    // check appID
-    if (nil == self.appInfo.appId) {
-        return NO;
-    }
-    return YES;
+    APElement *prefElem = [[self.doc rootElement] elementNamed:TAG_PREFERENCE attribute:ATTR_NAME withValue:name];
+    return [prefElem valueForAttributeNamed:ATTR_VALUE];
 }
 
 @end

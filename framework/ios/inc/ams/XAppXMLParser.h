@@ -29,15 +29,12 @@
 
 @class APDocument;
 @class XAppInfo;
-@class APElement;
 
 /**
-    app.xml解析的基类,解析app.xml保存到appInfo
-    供解析具体版本的app.xml的类继承
+    app.xml解析的接口, 解析app.xml保存到appInfo,
+    由解析具体版本的app.xml的类实现
  */
-@interface XAppXMLParser : NSObject
-{
-}
+@protocol XAppXMLParser <NSObject>
 
 /**
     记录应用相关信息的对象.
@@ -63,30 +60,13 @@
  */
 -(XAppInfo*) parseAppXML;
 
-/**
-    解析app元素标签，以及子节点的属性和值
-    @param appElement 含app标签的APElement对象
- */
--(void) parseAppElement:(APElement*)appElement;
+@end
 
 /**
-    解析app标签
+    解析符合http://www.w3.org/ns/widgets规范的app.xml的类
  */
--(void) parseAppTag;
-
-/**
-    解析Description标签
- */
--(void) parseDescriptionTag;
-
-/**
-    解析Extensions标签
- */
--(void) parseExtensionsTag;
-
-/**
- 检查关键标签合法性
- */
--(BOOL) checkTagVerify;
+@interface XAppXMLParser : NSObject <XAppXMLParser>
+{
+}
 
 @end

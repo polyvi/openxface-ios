@@ -38,7 +38,6 @@
 #define DEFAULT_APP_ID_FOR_PLAYER                @"app"
 #define DEFAULT_APP_START_PAGE                   @"index.html"
 #define XFACE_JS_FILE_NAME                       @"xface.js"
-#define XDEBUG_JS_FILE_NAME                      @"xdebug.js"
 #define XFACE_DATA_PLIST_NAME                    @"data.plist"
 #define APPLICATION_KEY                          @"app"
 #define JS_CALLBACK_KEY                          @"callback"

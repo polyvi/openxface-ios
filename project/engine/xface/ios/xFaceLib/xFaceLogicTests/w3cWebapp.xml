@@ -1,0 +1,19 @@
+﻿<widget id="myappid" version="2.0">
+
+    <name short="myphone">myphone</name>
+    <icon src="icon.png"/>
+    <content src="index.html" encoding="UTF-8"/>
+
+    <preference name="type" value="xapp" readonly="true" />
+    <preference name="mode" value="online" readonly="true" />
+
+    <description>
+        A sample widget to demonstrate some of the possibilities.
+    </description>
+
+    <author href="http://polyvi.com/"
+        email="foo-bar@polyvi.com/">polyvi</author>
+
+    <license> C  opyright 2012-2013, Polyvi Inc. </license>
+
+</widget>

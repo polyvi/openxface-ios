@@ -36,23 +36,35 @@
 
 @implementation XAppXMLParser_Legacy
 
+@synthesize appInfo;
+@synthesize doc;
+
+-(id) initWithXMLData:(NSData *)xmlData
+{
+    self = [super init];
+    if (self)
+    {
+        self.appInfo = [[XAppInfo alloc] init];
+        NSString *xmlStr = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
+        self.doc = [APDocument documentWithXMLString:xmlStr];
+    }
+    return self;
+}
+
 //app.xml 解析的工作
 -(XAppInfo*) parseAppXML
 {
-    [super parseAppXML];
-    [self parseDistributionTag];
+    [self parseAppTag];
+    [self parseDescriptionTag];
     [self parseAccessTag];
-
-    if (NO == [self checkTagVerify]) {
-        return nil;
-    }
     return self.appInfo;
 }
 
-//解析app元素标签，以及子节点的属性和值
 -(void) parseAppTag
 {
-    [super parseAppElement:[self getAppTagElement]];
+    APElement *rootElem = [self.doc rootElement];
+    APElement *appElem = [rootElem firstChildElementNamed:TAG_APP];
+    self.appInfo.appId = [appElem valueForAttributeNamed:ATTR_ID];
 }
 
 //解析description元素标签，以及子节点的属性和值
@@ -75,35 +87,11 @@
     APElement *nameElem = [descriptionElement firstChildElementNamed:TAG_NAME];
     self.appInfo.name = [nameElem value];
 
-    APElement *displayElem = [descriptionElement firstChildElementNamed:TAG_DISPLAY];
-    [self parseDisplayElement:displayElem];
-
-    APElement *runtimeElem = [descriptionElement firstChildElementNamed:TAG_RUN_TIME];
-    self.appInfo.engineType = [runtimeElem value];
-
-    APElement *copyrightElem = [descriptionElement firstChildElementNamed:TAG_COPY_RIGHT];
-    [self parseCopyRightElement:copyrightElem];
-
     APElement *runningModeElem = [descriptionElement firstChildElementNamed:TAG_RUNNING_MODE];
     self.appInfo.runningMode = [runningModeElem valueForAttributeNamed:ATTR_VALUE];
 
-    APElement *prefRemotePkgElem = [descriptionElement elementNamed:TAG_PREFERENCE attribute:ATTR_NAME withValue:ATTR_VALUE_REMOTE_PKG];
-    self.appInfo.prefRemotePkg = [prefRemotePkgElem valueForAttributeNamed:ATTR_VALUE];
-
-    APElement *prefAppleIdElem = [descriptionElement elementNamed:TAG_PREFERENCE attribute:ATTR_NAME withValue:ATTR_VALUE_APPLE_ID];
-    self.appInfo.appleId = [prefAppleIdElem valueForAttributeNamed:ATTR_VALUE];
-}
-
-//解析distribution元素标签，以及子节点的属性和值
--(void) parseDistributionTag
-{
-    APElement *distributionElement = [[self getAppTagElement] firstChildElementNamed:TAG_DISTRIBUTION];
-
-    APElement *packageElem = [distributionElement firstChildElementNamed:TAG_PACKAGE];
-    [self parsePackageElement:packageElem];
-
-    APElement *channelElem = [distributionElement firstChildElementNamed:TAG_CHANNEL];
-    [self parseChannelElement:channelElem];
+    self.appInfo.prefRemotePkg  = [self valueForPreference:PREFERENCE_REMOTE_PKG];
+    self.appInfo.appleId  = [self valueForPreference:PREFERENCE_APPLE_ID];
 }
 
 -(void) parseAccessTag
@@ -125,46 +113,16 @@
     return appElem;
 }
 
-//解析display元素标签
--(void) parseDisplayElement:(APElement*)displayElement
-{
-    self.appInfo.displayMode = [displayElement valueForAttributeNamed:ATTR_TYPE];
-
-    APElement *widthElem = [displayElement firstChildElementNamed:TAG_WIDTH];
-    self.appInfo.width = [[widthElem value] intValue];
-
-    APElement *heightElem = [displayElement firstChildElementNamed:TAG_HEIGHT];
-    self.appInfo.height = [[heightElem value] intValue];
-}
-
 -(void) parseCopyRightElement:(APElement *)copyrightElement
 {
-    // FIXME:由于author,license还未使用，相应的配置信息暂时不解析
+    // TODO:由于author,license还未使用，相应的配置信息暂时不解析
 }
 
-//解析package元素标签
--(void) parsePackageElement:(APElement*)packageElement
+-(NSString*) valueForPreference:(NSString*)name
 {
-    APElement *encryptElem = [packageElement firstChildElementNamed:TAG_ENCRYPT];
-    self.appInfo.isEncrypted = [[encryptElem value] boolValue];
-}
-
-//解析channel元素标签
--(void) parseChannelElement:(APElement*)channelElement
-{
-    self.appInfo.channelId = [channelElement valueForAttributeNamed:ATTR_ID];
-
-    APElement *nameElem = [channelElement firstChildElementNamed:TAG_NAME];
-    self.appInfo.channelName = [nameElem value];
-}
-
--(BOOL) checkTagVerify
-{
-    if (NO == [super checkTagVerify]) {
-        return NO;
-    }
-    // TODO:check scheme 1.0 tag
-    return YES;
+    APElement *descriptionElement = [[self getAppTagElement] firstChildElementNamed:TAG_DESCRIPTION];
+    APElement *prefElem = [descriptionElement elementNamed:TAG_PREFERENCE attribute:ATTR_NAME withValue:name];
+    return [prefElem valueForAttributeNamed:ATTR_VALUE];
 }
 
 @end

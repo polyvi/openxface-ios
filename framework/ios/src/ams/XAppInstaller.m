@@ -112,8 +112,6 @@
         // 将应用图标移动到<Applilcation_Home>/Documents/xface3/app_icons/appId/目录下，便于默认应用访问
         [self moveAppIconWithAppInfo:appInfo];
 
-        [self copyEmbeddedJsFileToApp:appId];
-
         // 更新配置文件
         [listener onProgressUpdated:INSTALL withStatus:UPDATING_CONFIGURATION];
         [self->appPersistence addAppToConfig:app];
@@ -208,9 +206,6 @@
         // 将应用图标移动到<Applilcation_Home>/Documents/xface3/app_icons/appId/目录下，便于默认应用访问
         [self moveAppIconWithAppInfo:appInfo];
 
-        // 为了保证与老版本兼容，重新创建xface.js的符号链接文件
-        [self copyEmbeddedJsFileToApp:appId];
-
         [listener onProgressUpdated:UPDATE withStatus:FINISHED];
 
         // 删除应用更新包
@@ -293,13 +288,6 @@
         XLogE(@"Failed to move app icon at path:%@ to path:%@ with error:%@", iconSrcPath, iconDstPath, [error localizedDescription]);
     }
     return;
-}
-
-- (void) copyEmbeddedJsFileToApp:(NSString *)appId
-{
-    NSAssert([appId length], nil);
-    [XFileUtils copyEmbeddedJsFile:XFACE_JS_FILE_NAME withAppId:appId];
-    [XFileUtils copyEmbeddedJsFile:XDEBUG_JS_FILE_NAME withAppId:appId];
 }
 
 @end

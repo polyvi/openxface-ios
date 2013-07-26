@@ -35,7 +35,8 @@
 @interface XAppXMLParserLogicTests : SenTestCase
 {
     @private
-    XAppXMLParser *appXMLParser;
+    XAppXMLParser* xmlParserForWebApp;
+    XAppXMLParser* xmlParserForNativeApp;
 }
 
 @end
@@ -46,22 +47,85 @@
     [super setUp];
     NSLog(@"%@ setUp", self.name);
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString* appXMLPath = [bundle pathForResource:@"app.xml" ofType:nil];
+    NSString* webAppXMLPath = [bundle pathForResource:@"w3cWebapp.xml" ofType:nil];
+    NSString* nativeAppXMLPath = [bundle pathForResource:@"w3cNativeApp.xml" ofType:nil];
     NSFileManager *fileMgr = [NSFileManager defaultManager];
-    NSData *xmlData = [fileMgr contentsAtPath:appXMLPath];
-    self->appXMLParser = [[XAppXMLParser alloc] initWithXMLData:xmlData];
+    NSData *xmlDataForWebApp = [fileMgr contentsAtPath:webAppXMLPath];
+    self->xmlParserForWebApp = [[XAppXMLParser alloc] initWithXMLData:xmlDataForWebApp];
+    STAssertNotNil(self->xmlParserForWebApp, @"Failed to create app xml parser instance");
 
-    STAssertNotNil(self->appXMLParser, @"Failed to create device extension instance");
+    NSData *xmlDataForNativeApp = [fileMgr contentsAtPath:nativeAppXMLPath];
+    self->xmlParserForNativeApp = [[XAppXMLParser alloc] initWithXMLData:xmlDataForNativeApp];
+    STAssertNotNil(self->xmlParserForNativeApp, @"Failed to create app xml parser instance");
 }
 
--(void) testParseAppElement
+-(void) testParseWebAppXML
 {
-    APElement* appElement = [appXMLParser.doc rootElement];
-    [self->appXMLParser parseAppElement:appElement];
-    //测试取出来的appId 等于预期结果
-    NSString* appId = @"storage";
+    XAppInfo* appInfo = [self->xmlParserForWebApp parseAppXML];
 
-    STAssertEqualObjects(appId,appXMLParser.appInfo.appId, @"parseAppElement error");
+    STAssertEqualObjects(@"myappid", appInfo.appId, nil);
+    STAssertEqualObjects(@"xapp", appInfo.type, nil);
+
+    STAssertEqualObjects(@"index.html", appInfo.entry, nil);
+    STAssertEqualObjects(@"icon.png", appInfo.icon, nil);
+    STAssertEqualObjects(@"2.0", appInfo.version, nil);
+    STAssertEqualObjects(@"myphone",appInfo.name, nil);
+    STAssertEqualObjects(@"online",appInfo.runningMode, nil);
+}
+
+-(void) testParseNativeAppXML
+{
+    XAppInfo* appInfo = [self->xmlParserForNativeApp parseAppXML];
+
+    STAssertEqualObjects(@"napp", appInfo.type, nil);
+    STAssertEqualObjects(@"com.polyvi.xface", appInfo.entry, nil);
+    STAssertEqualObjects(@"icon.png", appInfo.icon, nil);
+    STAssertEqualObjects(@"2.0", appInfo.version, nil);
+    STAssertEqualObjects(@"myphone", appInfo.name, nil);
+    STAssertEqualObjects(@"http://itunes.apple.com/cn/app/xin-tong-jiao-yu-wu-xian/id501656736?mt=8", appInfo.prefRemotePkg, nil);
+    STAssertEqualObjects(@"409547517", appInfo.appleId, nil);
+}
+
+-(void) testParseXMLWithNilData
+{
+    XAppXMLParser* xmlParser;
+    STAssertNoThrow((xmlParser = [[XAppXMLParser alloc] initWithXMLData:nil]), nil);
+
+    XAppInfo* appInfo;
+    STAssertNoThrow((appInfo = [xmlParser parseAppXML]), nil);
+
+    STAssertNil(appInfo.type, nil);
+    STAssertEqualObjects(@"index.html", appInfo.entry, nil);
+    STAssertNil(appInfo.icon, nil);
+    STAssertNil(appInfo.version, nil);
+    STAssertNil(appInfo.name, nil);
+    STAssertNil(appInfo.prefRemotePkg, nil);
+    STAssertNil(appInfo.appleId, nil);
+}
+
+
+-(void) testParseXMLWithWrongData
+{
+    XAppXMLParser* xmlParser;
+    NSString* xmlString =
+    @"<widget id='myappid' version='2.0'>\
+    <name short='myphone'>myphone</name>\
+    <icon src='icon.png'/\
+    <content src='index.html' encoding='UTF-8'/>\
+    </widget>";
+    NSData* xmlData = [xmlString dataUsingEncoding:NSUTF8StringEncoding];
+    STAssertNoThrow((xmlParser = [[XAppXMLParser alloc] initWithXMLData:xmlData]), nil);
+
+    XAppInfo* appInfo;
+    STAssertNoThrow((appInfo = [xmlParser parseAppXML]), nil);
+
+    STAssertNotNil(appInfo.appId, nil);
+    STAssertEqualObjects(@"index.html", appInfo.entry, nil);
+    STAssertNotNil(appInfo.version, nil);
+    STAssertNotNil(appInfo.name, nil);
+    STAssertNil(appInfo.icon, nil);
+    STAssertNil(appInfo.prefRemotePkg, nil);
+    STAssertNil(appInfo.appleId, nil);
 }
 
 @end

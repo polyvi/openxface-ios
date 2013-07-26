@@ -28,6 +28,8 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "XAppXMLParserFactory.h"
 #import "XAppXMLParserFactory_Privates.h"
+#import "XAppXMLParser.h"
+#import "XAppXMLParser_Legacy.h"
 
 @interface XAppXMLParserFactoryLogicTests : SenTestCase
 {
@@ -52,8 +54,16 @@
     NSString* appXMLPath = [bundle pathForResource:@"appschema.xml" ofType:nil];
     NSFileManager *fileMgr = [NSFileManager defaultManager];
     NSData *xmlData = [fileMgr contentsAtPath:appXMLPath];
-    XAppXMLParser *parser = [XAppXMLParserFactory createAppXMLParserWithXMLData:xmlData];
+    id<XAppXMLParser> parser = [XAppXMLParserFactory createAppXMLParserWithXMLData:xmlData];
     STAssertNotNil(parser, nil);
+    STAssertTrue([parser isKindOfClass:[XAppXMLParser_Legacy class]], nil);
+
+    appXMLPath = [bundle pathForResource:@"w3cWebapp.xml" ofType:nil];
+    xmlData = [fileMgr contentsAtPath:appXMLPath];
+    parser = [XAppXMLParserFactory createAppXMLParserWithXMLData:xmlData];
+    STAssertNotNil(parser, nil);
+    STAssertTrue([parser isKindOfClass:[XAppXMLParser class]], nil);
+
 }
 
 @end

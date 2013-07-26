@@ -124,7 +124,7 @@ static XUtils* sSelPerformer = nil;
 
 + (XAppInfo *) getAppInfoFromAppXMLData:(NSData *)xmlData
 {
-    XAppXMLParser * appXMLParser = [XAppXMLParserFactory createAppXMLParserWithXMLData:xmlData];
+    id<XAppXMLParser> appXMLParser = [XAppXMLParserFactory createAppXMLParserWithXMLData:xmlData];
     if (appXMLParser)
     {
         XAppInfo *appInfo = [appXMLParser parseAppXML];

@@ -39,13 +39,6 @@
  */
 - (BOOL) deployResources;
 
-
-/**
-    移除app目录下的xface.js文件
-    @returns 文件不存在或移除成功时返回YES，否则返回NO
- */
-- (BOOL) removeEmbeddedJsFile;
-
 /**
     为合并user data做准备工作：如迁移app下的workspace、data目录到上级目录
     @param needMerging 输出参数，用于标识是否需要对user data进行合并.当user data目录存在时返回YES,否则返回NO

@@ -167,9 +167,14 @@
 		649BB0DD1734C81600C8BDEE /* md5.m in Sources */ = {isa = PBXBuildFile; fileRef = 649BB0DC1734C81600C8BDEE /* md5.m */; };
 		649BB0DE1734C81600C8BDEE /* md5.m in Sources */ = {isa = PBXBuildFile; fileRef = 649BB0DC1734C81600C8BDEE /* md5.m */; };
 		649BB0E11734C82E00C8BDEE /* md5LogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 649BB0DF1734C82E00C8BDEE /* md5LogicTests.m */; };
+		649C6E5F17A0CA6700774D50 /* XResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 649C6E5E17A0CA6700774D50 /* XResourceURLProtocol.m */; };
+		649C6E6017A0CA6700774D50 /* XResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 649C6E5E17A0CA6700774D50 /* XResourceURLProtocol.m */; };
+		649C6E6217A0CA8200774D50 /* XResourceURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 649C6E6117A0CA8200774D50 /* XResourceURLProtocol.h */; };
 		64AA1DB71773FBB500FB2A28 /* XAppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 64AA1DB51773FBB500FB2A28 /* XAppController.h */; };
 		64AA1DBB1773FBD100FB2A28 /* XAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AA1DBA1773FBD100FB2A28 /* XAppController.m */; };
 		64AA1DBC1773FBD100FB2A28 /* XAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AA1DBA1773FBD100FB2A28 /* XAppController.m */; };
+		64AB9AE7179FC4E80089AD30 /* w3cWebapp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 64AB9AE6179FC4E80089AD30 /* w3cWebapp.xml */; };
+		64AB9AE9179FD2460089AD30 /* w3cNativeApp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 64AB9AE8179FD2460089AD30 /* w3cNativeApp.xml */; };
 		64B889E0159AA936004F6409 /* XCaptureExt.h in Headers */ = {isa = PBXBuildFile; fileRef = 64B889DE159AA936004F6409 /* XCaptureExt.h */; };
 		64B889E4159AA9A2004F6409 /* XCaptureExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B889E3159AA9A2004F6409 /* XCaptureExt.m */; };
 		64B88A06159D58B6004F6409 /* XCaptureExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B889E3159AA9A2004F6409 /* XCaptureExt.m */; };
@@ -725,8 +730,12 @@
 		649BB0DA1734C80600C8BDEE /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
 		649BB0DC1734C81600C8BDEE /* md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = md5.m; sourceTree = "<group>"; };
 		649BB0DF1734C82E00C8BDEE /* md5LogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = md5LogicTests.m; sourceTree = "<group>"; };
+		649C6E5E17A0CA6700774D50 /* XResourceURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XResourceURLProtocol.m; sourceTree = "<group>"; };
+		649C6E6117A0CA8200774D50 /* XResourceURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XResourceURLProtocol.h; sourceTree = "<group>"; };
 		64AA1DB51773FBB500FB2A28 /* XAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAppController.h; sourceTree = "<group>"; };
 		64AA1DBA1773FBD100FB2A28 /* XAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppController.m; sourceTree = "<group>"; };
+		64AB9AE6179FC4E80089AD30 /* w3cWebapp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = w3cWebapp.xml; sourceTree = "<group>"; };
+		64AB9AE8179FD2460089AD30 /* w3cNativeApp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = w3cNativeApp.xml; sourceTree = "<group>"; };
 		64B889DE159AA936004F6409 /* XCaptureExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCaptureExt.h; sourceTree = "<group>"; };
 		64B889E3159AA9A2004F6409 /* XCaptureExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = XCaptureExt.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		64B88A07159D58E2004F6409 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1552,6 +1561,7 @@
 				6441B35617003F6A00D660D4 /* XUIApplication.h */,
 				C8E38C831697F30500F65135 /* XWebApplication.h */,
 				C87E76B01663778D00B079BB /* XURLProtocol.h */,
+				649C6E6117A0CA8200774D50 /* XResourceURLProtocol.h */,
 				C8E2274016634F4900716BEA /* XCommandQueue.h */,
 				6433DC7C16704BB5005A0AC6 /* XVersionLableFactory.h */,
 				6413919A164CE9E500B15FCC /* XSystemBootstrap.h */,
@@ -1726,6 +1736,7 @@
 				C8E38C851697F33600F65135 /* XWebApplication.m */,
 				C81C51871665E0F6008EFAD2 /* XHTTPURLResponse.m */,
 				C87E76B31663779900B079BB /* XURLProtocol.m */,
+				649C6E5E17A0CA6700774D50 /* XResourceURLProtocol.m */,
 				6433DC7816704B53005A0AC6 /* XVersionLableFactory.m */,
 				C8E2274316634F5800716BEA /* XCommandQueue.m */,
 				641391B31651DF4900B15FCC /* XSystemWorkspaceFactory.m */,
@@ -1802,6 +1813,8 @@
 				C8F7C103165E0B3C0006B0CF /* xface.js */,
 				C8F444F815E36BF5007B2B9E /* www */,
 				7E3A6AE415D3AC3A009DC740 /* app.xml */,
+				64AB9AE6179FC4E80089AD30 /* w3cWebapp.xml */,
+				64AB9AE8179FD2460089AD30 /* w3cNativeApp.xml */,
 				C898A13A169937F100CD6AFA /* nativeapp.xml */,
 				7E3A6AE515D3AC3A009DC740 /* appschema.xml */,
 				C835E0DA1598565600C41568 /* xFaceLogicTests-Info.plist */,
@@ -2051,6 +2064,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C835E0011598545900C41568 /* APAttribute.h in Headers */,
+				649C6E6217A0CA8200774D50 /* XResourceURLProtocol.h in Headers */,
 				C835E0031598545900C41568 /* APDocument.h in Headers */,
 				C835E0051598545900C41568 /* APElement.h in Headers */,
 				C835E0071598545900C41568 /* APXML.h in Headers */,
@@ -2342,8 +2356,10 @@
 				C835E0DD1598565600C41568 /* InfoPlist.strings in Resources */,
 				7E3A6AE615D3AC3A009DC740 /* app.xml in Resources */,
 				7E3A6AE715D3AC3A009DC740 /* appschema.xml in Resources */,
+				64AB9AE7179FC4E80089AD30 /* w3cWebapp.xml in Resources */,
 				C8F444F915E36BF5007B2B9E /* www in Resources */,
 				C898A13B169937F200CD6AFA /* nativeapp.xml in Resources */,
+				64AB9AE9179FD2460089AD30 /* w3cNativeApp.xml in Resources */,
 				C8E348EF17630459009229CA /* config.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2425,6 +2441,7 @@
 				C835E0A01598545900C41568 /* XFileTransferExt.m in Sources */,
 				C835E0A21598545900C41568 /* XNetworkConnectionExt.m in Sources */,
 				C835E0A31598545900C41568 /* XNetworkReachability.m in Sources */,
+				649C6E5F17A0CA6700774D50 /* XResourceURLProtocol.m in Sources */,
 				C835E0A41598545900C41568 /* XTelephonyExt.m in Sources */,
 				C835E0A61598545900C41568 /* XAppInfo.m in Sources */,
 				C835E0A81598545900C41568 /* XAppList.m in Sources */,
@@ -2625,6 +2642,7 @@
 				D8AA0B6F15B52FC0005FA4C5 /* XAdvancedFileTransferExt.m in Sources */,
 				D8AA0B7715B53CE8005FA4C5 /* XFileDownloadInfoLogicTests.m in Sources */,
 				D8AA0B9B15B55A12005FA4C5 /* XAPElementLogicTests.m in Sources */,
+				649C6E6017A0CA6700774D50 /* XResourceURLProtocol.m in Sources */,
 				D8AA0BED15B69F95005FA4C5 /* XFileUtils.m in Sources */,
 				D8AA0BF315B6A28F005FA4C5 /* XFileUtilsLogicTests.m in Sources */,
 				D8AA0C2615B6B991005FA4C5 /* XFileDownloader.m in Sources */,

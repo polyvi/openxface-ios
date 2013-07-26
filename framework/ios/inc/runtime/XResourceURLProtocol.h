@@ -17,37 +17,18 @@
 
  You should have received a copy of the GNU General Public License
  along with xFace.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 //
-//  XAppXMLParser_Legacy.h
+//  XResourceURLProtocol.h
 //  xFaceLib
 //
 //
 
-#import "XAppXMLParser.h"
+#import <Foundation/Foundation.h>
 
-/**
-    解析含schema标签的1.0版本的app.xml的类,
- */
-@interface XAppXMLParser_Legacy : NSObject <XAppXMLParser>
-{
-}
+//该类用于处理本地资源的请求
 
-/**
-    app.xml 解析的工作
-    @returns 返回保存了xml中解析出来的appInfo
- */
--(XAppInfo*) parseAppXML;
-
-/**
-    解析app标签
- */
--(void) parseAppTag;
-
-/**
-    解析Description标签
- */
--(void) parseDescriptionTag;
+@interface XResourceURLProtocol : NSURLProtocol
 
 @end

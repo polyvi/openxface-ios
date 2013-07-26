@@ -35,38 +35,15 @@
 -(void) parseAccessTag;
 
 /**
-    解析distribution标签
- */
--(void) parseDistributionTag;
-
-/**
     获取appTag的APElement对象
     @returns 返回APElement对象
  */
 -(APElement*) getAppTagElement;
 
 /**
-    解析display元素标签
-    @param displayElement 含display元素标签的APElement对象
- */
--(void) parseDisplayElement:(APElement*)displayElement;
-
-/**
     解析copyright元素标签
     @param copyrightElement 含copyright元素标签的APElement对象
  */
 -(void) parseCopyRightElement:(APElement *)copyrightElement;
-
-/**
-    解析package元素标签
-    @param packageElement 含package元素标签的APElement对象
- */
--(void) parsePackageElement:(APElement*)packageElement;
-
-/**
-    解析channel元素标签
-    @param channelElement 含channel元素标签的APElement对象
- */
--(void) parseChannelElement:(APElement*)channelElement;
 
 @end

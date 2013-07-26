@@ -46,8 +46,6 @@
 #define XUTILS_LOGIC_TESTS_APP_ID                               @"appId"
 #define XUTILS_LOGIC_TESTS_APP_PACKAGE_APP_ID                   @"testAppId"
 #define XUTILS_LOGIC_TESTS_APP_VERSION                          @"2.0.20801"
-#define XUTILS_LOGIC_TESTS_APP_WIDTH                            480
-#define XUTILS_LOGIC_TESTS_APP_HEIGHT                           640
 #define XUTILS_LOGIC_TESTS_APP_NAME                             @"日期控件"
 #define XUTILS_LOGIC_TESTS_APP_ENTRY                            @"index.html"
 #define XUTILS_LOGIC_TESTS_APP_ICON                             @"//image/icon.png"
@@ -391,8 +389,6 @@
     // 测试后检查
     STAssertTrueNoThrow([[appInfo appId] isEqualToString:XUTILS_LOGIC_TESTS_APP_PACKAGE_APP_ID], nil);
     STAssertTrueNoThrow([[appInfo version] isEqualToString:XUTILS_LOGIC_TESTS_APP_VERSION], nil);
-    STAssertTrueNoThrow((XUTILS_LOGIC_TESTS_APP_WIDTH == [appInfo width]), nil);
-    STAssertTrueNoThrow((XUTILS_LOGIC_TESTS_APP_HEIGHT == [appInfo height]), nil);
     STAssertFalse([appInfo isEncrypted], nil);
     STAssertTrueNoThrow([[appInfo name] isEqualToString:XUTILS_LOGIC_TESTS_APP_NAME], nil);
     STAssertTrueNoThrow([[appInfo entry] isEqualToString:XUTILS_LOGIC_TESTS_APP_ENTRY], nil);

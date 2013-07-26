@@ -1,0 +1,21 @@
+﻿<widget id="nativeAppId" version="2.0">
+
+    <name short="myphone">myphone</name>
+    <icon src="icon.png"/>
+    <content src="com.polyvi.xface" encoding="UTF-8"/>
+
+    <preference name="type" value="napp" readonly="true" />
+    <preference name = "remote-pkg"  value = "http://itunes.apple.com/cn/app/xin-tong-jiao-yu-wu-xian/id501656736?mt=8"  readonly = "true"/>
+    <!-- value表示native app的iTunes identifier(iOS only and optional，由于企业版应用没有appleID,所以apple-id为可选)-->
+    <preference name = "apple-id"  value = "409547517"  readonly = "true"/>
+
+    <description>
+        A sample widget to demonstrate some of the possibilities.
+    </description>
+
+    <author href="http://polyvi.com/"
+        email="foo-bar@polyvi.com/">polyvi</author>
+
+    <license> C  opyright 2012-2013, Polyvi Inc. </license>
+
+</widget>
