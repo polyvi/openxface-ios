@@ -20,6 +20,9 @@ def generateXFaceJs():
         print "args error: dest path is none "
         return False
     print "Js file dest path: %s\n"%destPath
+    if os.path.isdir(destPath):
+        os.rmdir(destPath)
+        
     old_cur = os.getcwd()
     commandDir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     os.chdir(commandDir)
