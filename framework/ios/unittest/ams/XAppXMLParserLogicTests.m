@@ -95,7 +95,7 @@
     STAssertNoThrow((appInfo = [xmlParser parseAppXML]), nil);
 
     STAssertNil(appInfo.type, nil);
-    STAssertEqualObjects(@"index.html", appInfo.entry, nil);
+    STAssertNil(appInfo.entry, nil);
     STAssertNil(appInfo.icon, nil);
     STAssertNil(appInfo.version, nil);
     STAssertNil(appInfo.name, nil);
@@ -120,7 +120,7 @@
     STAssertNoThrow((appInfo = [xmlParser parseAppXML]), nil);
 
     STAssertNotNil(appInfo.appId, nil);
-    STAssertEqualObjects(@"index.html", appInfo.entry, nil);
+    STAssertNil(appInfo.entry, nil);
     STAssertNotNil(appInfo.version, nil);
     STAssertNotNil(appInfo.name, nil);
     STAssertNil(appInfo.icon, nil);

@@ -68,6 +68,7 @@
 {
     XAppInfo *appInfo = [[XAppInfo alloc] init];
     [appInfo setAppId:XLOCAL_MODE_LOGIC_TESTS_APP_ID];
+    [appInfo setEntry:DEFAULT_APP_START_PAGE];
     id<XApplication> app = [XApplicationFactory create:appInfo];
     NSURL *url = [self->localMode getURL:app];
     NSURL *expected = [NSURL fileURLWithPath:[[[XConfiguration getInstance] appInstallationDir] stringByAppendingFormat:@"%@%@%@", XLOCAL_MODE_LOGIC_TESTS_APP_ID, FILE_SEPARATOR, DEFAULT_APP_START_PAGE]];
@@ -87,6 +88,7 @@
 {
     XAppInfo *appInfo = [[XAppInfo alloc] init];
     [appInfo setAppId:XLOCAL_MODE_LOGIC_TESTS_APP_ID];
+    [appInfo setEntry:DEFAULT_APP_START_PAGE];
 
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSString *bundlePath = [NSString stringWithFormat:@"%@%@%@%@%@", APPLICATION_PREPACKED_PACKAGE_FOLDER, FILE_SEPARATOR, XFACE_WORKSPACE_NAME_UNDER_APP, FILE_SEPARATOR, APPLICATION_INSTALLATION_FOLDER];

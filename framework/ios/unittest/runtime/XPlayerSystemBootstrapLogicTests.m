@@ -26,17 +26,42 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#include "XPlayerSystemBootstrap.h"
-#include "XPlayerSystemBootstrap_Privates.h"
-#include "XConfiguration.h"
-#include "XConstants.h"
-#include "XFileUtils.h"
+#import "XPlayerSystemBootstrap.h"
+#import "XPlayerSystemBootstrap_Privates.h"
+#import "XConfiguration.h"
+#import "XConstants.h"
+#import "XFileUtils.h"
+#import "XApplication.h"
+#import "XAppInfo.h"
+#import "XAppRunningMode.h"
+#import "XUtils.h"
+#import "XLogicTests.h"
 
 #define XPLAYER_LOGIC_TESTS_APP_PACKAGE_FILE_NAME                 @"app.zip"
 #define XPLAYER_LOGIC_TESTS_APP_UPDATE_PACKAGE_FILE_NAME          @"updateApp.zip"
 #define XPLAYER_LOGIC_TESTS_APP_PACKAGE_FOLDER                    @"www"
 
-@interface XPlayerSystemBootstrapLogicTests : SenTestCase
+#define kOnlineAppXML @"\
+<config schema='1.0'>\
+<app id='app'>\
+<description>\
+<type>xapp</type>\
+<running_mode value='online'/>\
+<entry src='www.polyvi.com' />\
+<icon background-color='0xFFFFFFF' src='icon.png' />\
+<version>1.1</version>\
+<name>Telephony</name>\
+<copyright>\
+<author href='www.polyvi.com' email=''>polyvi</author>\
+<license href='www.polyvi.com'>tie</license>\
+</copyright>\
+</description>\
+</app>\
+</config>"
+
+#define kOnlineEntry @"www.polyvi.com"
+
+@interface XPlayerSystemBootstrapLogicTests : XLogicTests
 {
 @private
     XPlayerSystemBootstrap *playerSystemBootstrap;
@@ -274,5 +299,37 @@
     //环境清理
     [fileManager removeItemAtPath:destPath error:nil];
 }
+
+- (void) testCreateDefaultAppWithDefaultAppInfo
+{
+    id<XApplication> app = [playerSystemBootstrap createDefaultApp];
+    XAppInfo* info = app.appInfo;
+
+    STAssertTrue([info.appId isEqualToString:DEFAULT_APP_ID_FOR_PLAYER], nil);;
+    STAssertTrue(info.isEncrypted == NO, nil);
+    STAssertTrue([info.entry isEqualToString:DEFAULT_APP_START_PAGE], nil);
+    STAssertTrue([info.type isEqualToString:APP_TYPE_XAPP], nil);
+}
+
+- (void) testCreateDefaultOnlineApp
+{
+    NSString *appRoot = [[[XConfiguration getInstance] appInstallationDir] stringByAppendingPathComponent:DEFAULT_APP_ID_FOR_PLAYER];
+    NSString *appConfigFilePath = [appRoot stringByAppendingPathComponent:APPLICATION_CONFIG_FILE_NAME];
+    STAssertTrue([[NSFileManager defaultManager] createDirectoryAtPath:appRoot withIntermediateDirectories:YES attributes:nil error:nil], nil);
+    STAssertTrue([kOnlineAppXML writeToFile:appConfigFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil], nil);
+
+    id<XApplication> olineApp = [playerSystemBootstrap createDefaultApp];
+    XAppInfo* info = olineApp.appInfo;
+
+    STAssertTrue([info.appId isEqualToString:DEFAULT_APP_ID_FOR_PLAYER], nil);;
+    STAssertTrue(info.isEncrypted == NO, nil);
+    STAssertTrue([info.entry isEqualToString:kOnlineEntry], nil);
+    STAssertTrue([info.type isEqualToString:APP_TYPE_XAPP], nil);
+    STAssertTrue([info.entry isEqualToString:kOnlineEntry], nil);
+    STAssertTrue([info.runningMode isEqualToString:ONLINE_RUNNING_MODE], nil);
+
+    STAssertTrue([[NSFileManager defaultManager] removeItemAtPath:appConfigFilePath error:nil], nil);
+}
+
 
 @end

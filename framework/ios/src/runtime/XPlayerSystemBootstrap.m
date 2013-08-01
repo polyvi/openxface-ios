@@ -85,16 +85,11 @@
     //清空所有缓存的response数据
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 
-    XAppInfo *info = [[XAppInfo alloc] init];
-    info.appId = DEFAULT_APP_ID_FOR_PLAYER;
-    info.isEncrypted = NO;
-    info.entry = DEFAULT_APP_START_PAGE;
-    info.type = APP_TYPE_XAPP;
+    id<XApplication> app = [self createDefaultApp];
 
-    id<XApplication> app = [XApplicationFactory create:info];
     XAppList *appList = [appManagement appList];
     [appList add:app];
-    [appList markAsDefaultApp:info.appId];
+    [appList markAsDefaultApp:[app getAppId]];
 
     // 创建ams扩展,并交给扩展管理器进行管理
     XAmsImpl *amsImpl = [[XAmsImpl alloc] init:appManagement];
@@ -206,6 +201,23 @@
         }
     }
     return ret;
+}
+
+- (id<XApplication>)createDefaultApp
+{
+    NSString *appRoot = [[[XConfiguration getInstance] appInstallationDir] stringByAppendingPathComponent:DEFAULT_APP_ID_FOR_PLAYER];
+    NSString *appConfigFilePath = [appRoot stringByAppendingPathComponent:APPLICATION_CONFIG_FILE_NAME];
+    XAppInfo* info = [XUtils getAppInfoFromConfigFileAtPath:appConfigFilePath];
+
+    if (info == nil) {
+        info = [[XAppInfo alloc] init];
+        info.appId = DEFAULT_APP_ID_FOR_PLAYER;
+        info.isEncrypted = NO;
+        info.entry = DEFAULT_APP_START_PAGE;
+        info.type = APP_TYPE_XAPP;
+    }
+
+    return [XApplicationFactory create:info];
 }
 
 @end

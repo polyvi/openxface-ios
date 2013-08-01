@@ -28,7 +28,7 @@
 
 #import "XPlayerSystemBootstrap.h"
 
-#define EMTPY_SYSTEM_CONFIG_CONTENT              @"<config>\n  <extensions>\n    <extension name=\"File\" />\n    <extension name=\"NetworkConnection\" />\n    <extension name=\"Console\" />\n  </extensions>\n</config>"
+@protocol XApplication;
 
 @interface XPlayerSystemBootstrap()
 
@@ -53,6 +53,13 @@
     @returns 成功时返回YES，否则返回NO
  */
 - (BOOL) mergeUserDataAtPath:(NSString *)srcPath toPath:(NSString *)destPath;
+
+/**
+    创建默认启动的应用
+    先尝试读取 default app根目录的app.xml, 如果有该文件就读取app info, 没有就创建默认的app info
+    @returns 默认启动应用的实例
+ */
+- (id<XApplication>)createDefaultApp;
 
 @end
 
