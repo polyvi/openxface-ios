@@ -170,6 +170,8 @@
 		649C6E5F17A0CA6700774D50 /* XResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 649C6E5E17A0CA6700774D50 /* XResourceURLProtocol.m */; };
 		649C6E6017A0CA6700774D50 /* XResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 649C6E5E17A0CA6700774D50 /* XResourceURLProtocol.m */; };
 		649C6E6217A0CA8200774D50 /* XResourceURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 649C6E6117A0CA8200774D50 /* XResourceURLProtocol.h */; };
+		64A2618017A2745500AE415F /* XCredentialManagerLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2617F17A2745500AE415F /* XCredentialManagerLogicTests.m */; };
+		64A2618217A277E700AE415F /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 64A2618117A277E700AE415F /* assets */; };
 		64AA1DB71773FBB500FB2A28 /* XAppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 64AA1DB51773FBB500FB2A28 /* XAppController.h */; };
 		64AA1DBB1773FBD100FB2A28 /* XAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AA1DBA1773FBD100FB2A28 /* XAppController.m */; };
 		64AA1DBC1773FBD100FB2A28 /* XAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AA1DBA1773FBD100FB2A28 /* XAppController.m */; };
@@ -732,6 +734,8 @@
 		649BB0DF1734C82E00C8BDEE /* md5LogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = md5LogicTests.m; sourceTree = "<group>"; };
 		649C6E5E17A0CA6700774D50 /* XResourceURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XResourceURLProtocol.m; sourceTree = "<group>"; };
 		649C6E6117A0CA8200774D50 /* XResourceURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XResourceURLProtocol.h; sourceTree = "<group>"; };
+		64A2617F17A2745500AE415F /* XCredentialManagerLogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCredentialManagerLogicTests.m; sourceTree = "<group>"; };
+		64A2618117A277E700AE415F /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		64AA1DB51773FBB500FB2A28 /* XAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAppController.h; sourceTree = "<group>"; };
 		64AA1DBA1773FBD100FB2A28 /* XAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAppController.m; sourceTree = "<group>"; };
 		64AB9AE6179FC4E80089AD30 /* w3cWebapp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = w3cWebapp.xml; sourceTree = "<group>"; };
@@ -1290,6 +1294,14 @@
 			path = InAppBrowser;
 			sourceTree = "<group>";
 		};
+		64A2617E17A2745500AE415F /* security */ = {
+			isa = PBXGroup;
+			children = (
+				64A2617F17A2745500AE415F /* XCredentialManagerLogicTests.m */,
+			);
+			path = security;
+			sourceTree = "<group>";
+		};
 		7E3A6AD715D39B07009DC740 /* appXML */ = {
 			isa = PBXGroup;
 			children = (
@@ -1809,6 +1821,7 @@
 		C835E0D91598565600C41568 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				64A2618117A277E700AE415F /* assets */,
 				C8E348EE17630459009229CA /* config.xml */,
 				C8F7C103165E0B3C0006B0CF /* xface.js */,
 				C8F444F815E36BF5007B2B9E /* www */,
@@ -1830,6 +1843,7 @@
 				C844EAFE159C021A00F81703 /* ams */,
 				C8F1F0DC1599693600EE1434 /* extension */,
 				C835E0E7159856D000C41568 /* runtime */,
+				64A2617E17A2745500AE415F /* security */,
 				C835E0F0159856D000C41568 /* utils */,
 			);
 			name = unittest;
@@ -2357,6 +2371,7 @@
 				7E3A6AE615D3AC3A009DC740 /* app.xml in Resources */,
 				7E3A6AE715D3AC3A009DC740 /* appschema.xml in Resources */,
 				64AB9AE7179FC4E80089AD30 /* w3cWebapp.xml in Resources */,
+				64A2618217A277E700AE415F /* assets in Resources */,
 				C8F444F915E36BF5007B2B9E /* www in Resources */,
 				C898A13B169937F200CD6AFA /* nativeapp.xml in Resources */,
 				64AB9AE9179FD2460089AD30 /* w3cNativeApp.xml in Resources */,
@@ -2609,6 +2624,7 @@
 				C844EB00159C021A00F81703 /* XAppManagementLogicTests.m in Sources */,
 				D8A0D4FC15A2BD6300AA4598 /* XLocalStorageExt.m in Sources */,
 				C8D3CCE915A2F2CA00518179 /* NSMutableArray+XStackAdditionsLogicTests.m in Sources */,
+				64A2618017A2745500AE415F /* XCredentialManagerLogicTests.m in Sources */,
 				C8E47D9515A3EEB60049DD82 /* XAppViewStub.m in Sources */,
 				C8E47DBD15A422060049DD82 /* XQueuedMutableArrayLogicTests.m in Sources */,
 				D82C2C5715A42D8B0096A144 /* XMessagingExtLogicTests.m in Sources */,

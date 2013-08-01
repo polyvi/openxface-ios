@@ -30,6 +30,7 @@
 #import "APDocument.h"
 #import "APDocument+XAPDocument.h"
 #import "APElement.h"
+#import "NSData+Encoding.h"
 
 @implementation Credentials (OverwriteResetCredentials)
 
@@ -84,6 +85,17 @@ static BOOL imported = NO;
     return nil;
 }
 
++ (NSString *)getPasswordFromFile:(NSString *)path
+{
+    NSData* xmlData = [NSData dataWithContentsOfFile:path];
+    NSString* xmlStr = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
+    APDocument* doc  = [APDocument documentWithXMLString:xmlStr];
+    APElement *rootElem = [doc rootElement];
+    APElement *passwordElem = [rootElem firstChildElementNamed:@"password"];
+    NSString* password = [passwordElem value];
+    return password;
+}
+
 + (void)importPKCS12
 {
     NSBundle* main = [NSBundle mainBundle];
@@ -95,12 +107,7 @@ static BOOL imported = NO;
     }
 
     NSData* fileData = [NSData dataWithContentsOfFile:path];
-
-    APDocument* doc = [APDocument documentWithFilePath:keyPath];
-    APElement *rootElem = [doc rootElement];
-    APElement *passwordElem = [rootElem firstChildElementNamed:@"password"];
-
-    NSString* password = [passwordElem value];
+    NSString *password = [XCredentialManager getPasswordFromFile:keyPath];
 
     [self importPKCS12With:fileData password:password];
 

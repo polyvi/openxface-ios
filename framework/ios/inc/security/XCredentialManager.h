@@ -57,4 +57,6 @@ typedef enum {
 + (CredentialImportStatus)importPKCS12With:(NSData*)data password:(NSString*)pw
 ;
 
++ (NSString *)getPasswordFromFile:(NSString *)path;
+
 @end

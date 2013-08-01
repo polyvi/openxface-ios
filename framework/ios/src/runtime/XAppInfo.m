@@ -35,7 +35,7 @@
 @synthesize appId;
 @synthesize name;
 @synthesize version;
-@synthesize entry = _entry;
+@synthesize entry;
 @synthesize icon;
 @synthesize type;
 @synthesize isEncrypted;
@@ -51,16 +51,6 @@
 @synthesize srcRoot;
 @synthesize srcPath = _srcPath;
 @synthesize whitelistHosts = _whitelistHosts;
-
-
--(NSString *) entry
-{
-    if (![_entry length])
-    {
-        return DEFAULT_APP_START_PAGE;
-    }
-    return _entry;
-}
 
 -(NSString *) srcPath
 {
