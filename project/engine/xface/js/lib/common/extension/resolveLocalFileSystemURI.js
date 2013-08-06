@@ -20,11 +20,48 @@
  under the License.
 */
 
+/**
+ * @module file
+ */
 var argscheck = require('xFace/argscheck'),
     DirectoryEntry = require('xFace/extension/DirectoryEntry'),
     FileEntry = require('xFace/extension/FileEntry'),
     exec = require('xFace/exec');
 
+/**
+ * 解析给定的文件系统URI,返回文件entry对象。
+ * @example
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+        function onFileSystemSuccess(fileSystem) {
+            fileSystem.root.getFile("testDir.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+        }
+        function gotFileEntry(fileEntry) {
+            window.resolveLocalFileSystemURI("file:///testDir.txt",success, fail);
+        }
+        //解析给定的文件系统URI,返回文件entry对象
+        window.resolveLocalFileSystemURI("file:///testDir.txt",success, fail);
+        function success(entry) {
+            if("testDir.txt" == entry.name && "/testDir.txt" == entry.fullPath)
+            {
+                console.log("succeeded");
+            }
+            else {
+                console.log("failed");
+            }
+        }
+        function fail(error) {
+            console.log(error.code);
+        }
+ * @method resolveLocalFileSystemURI
+ * @param {String}     uri                   要解析的文件系统的URI
+ * @param {Function}   successCallback       成功的回调函数
+ * @param {Entry}      successCallback.entry 成功回调得到的{{#crossLink "Entry"}}{{/crossLink}}对象
+ * @param {Function}   [errorCallback]       失败回调函数
+ * @param {Number}     [errorCallback.code]  失败回调函数错误码，参见{{#crossLink "FileError"}}{{/crossLink}}对象
+ * @for   resolveLocalFileSystemURI
+ * @platform Android, iOS, WP8
+ * @since 3.0.0
+ */
 var resolveLocalFileSystemURI = function(uri, successCallback, errorCallback) {
     argscheck.checkArgs('sfF', 'resolveLocalFileSystemURI', arguments);
     var fail = function(error) {

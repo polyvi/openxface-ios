@@ -20,6 +20,9 @@
  under the License.
 */
 
+/**
+ * @module file
+ */
 var argscheck = require('xFace/argscheck'),
     FileError = require('xFace/extension/FileError'),
     FileSystem = require('xFace/extension/FileSystem'),
@@ -27,10 +30,26 @@ var argscheck = require('xFace/argscheck'),
 
 /**
  * 请求一个文件系统来存储应用数据
- * @param type  文件系统的类型
- * @param size  指示应用期望的存储大小（bytes）
- * @param successCallback  成功的回调函数
- * @param [errorCallback]    失败的回调函数
+ * @example
+        function onFileSystemSuccess(fileSystem) {
+            console.log(fileSystem.name);
+            console.log(fileSystem.root);
+        }
+        var fail = function(error) {
+            console.log(error.code);
+        }
+        //请求一个文件系统来存储应用数据
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+ * @method requestFileSystem
+ * @param {Number}     type  文件系统的类型，参见{{#crossLink "LocalFileSystem"}}{{/crossLink}}
+ * @param {Number}     size  指示应用期望的存储大小（bytes）
+ * @param {Function}   successCallback             成功的回调函数
+ * @param {FileSystem} successCallback.fileSystem  成功回调得到的{{#crossLink "FileSystem"}}{{/crossLink}}对象
+ * @param {Function}   [errorCallback]             失败回调函数
+ * @param {Number}     [errorCallback.code]        失败回调函数错误码，参见{{#crossLink "FileError"}}{{/crossLink}}对象
+ * @for   requestFileSystem
+ * @platform Android, iOS, WP8
+ * @since 3.0.0
  */
 var requestFileSystem = function(type, size, successCallback, errorCallback) {
     argscheck.checkArgs('nnfF', 'requestFileSystem', arguments);
