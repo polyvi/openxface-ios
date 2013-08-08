@@ -20,7 +20,7 @@
  under the License.
 */
 
-﻿    /**
+    /**
      * browser提供内置浏览器的功能
      * @module browser
      * @main browser
@@ -31,15 +31,14 @@
     /**
      * InAppBrowser提供内置浏览器的功能(Android, iOS, WP8)<br/>
      * 该类不能通过new来创建相应的对象，只能通过调用window.open方法返回该类的实例对象，<br/>
-     * window.open与{{#crossLink "InAppBrowser/open"}}{{/crossLink}}函数用法一样
-     * @class InAppBrowser
+     * window.open与{{#crossLink "InAppBrowser/open"}}{{/crossLink}}函数用法一�     * @class InAppBrowser
      * @static
      * @platform Android, iOS, WP8
      * @since 3.0.0
      */
 
      /**
-     * 当页面开始加载时，该事件被触发（Android, iOS, WP8）<br/>
+     * 当页面开始加载时，该事件被触发（Android, iOS, WP8�br/>
      * @example
             var inAppBrowser = window.open('http://baidu.com', 'random_string');
             function handler(event) {
@@ -55,7 +54,7 @@
      */
 
      /**
-     * 当页面开始停止加载时，该事件被触发（Android, iOS, WP8）<br/>
+     * 当页面开始停止加载时，该事件被触发（Android, iOS, WP8�br/>
      * @example
             var inAppBrowser = window.open('http://baidu.com', 'random_string');
             function handler(event) {
@@ -71,7 +70,7 @@
      */
 
      /**
-     * 当退出InAppBrowser时，该事件被触发（Android, iOS, WP8）<br/>
+     * 当退出InAppBrowser时，该事件被触发（Android, iOS, WP8�br/>
      * @example
             var inAppBrowser = window.open('http://baidu.com', 'random_string');
             function handler(event) {
@@ -101,9 +100,9 @@
         if (event.type in this.channels) {
             this.channels[event.type].fire(event);
         }
-    }
+    };
     /**
-     * 打开一个网页，通过window.open调用该方法
+     * 打开一个网页，通过window.open调用该方法（Android, iOS, WP8�
      @example
           function openInAppBrowser() {
           var browser = window.open('http://baidu.com', 'random_string');
@@ -134,11 +133,11 @@
           }
      * @method open
      * @param {String} strUrl 要打开的网页地址
-     * @param {String} [strWindowName="_self"] 打开网页的目标窗口。参数值说明: <br/>
+     * @param {String} [strWindowName="_self"] 打开网页的目标窗口。参数值说� <br/>
                              "\_self":    表示在当前xface页面打开<br/>
                              "\_system":  表示在系统浏览器打开<br/>
-                             "\_blank"或其他未定义的值: 表示在内置的浏览器打开，也就是在新的窗口打开<br/>
-     * @param {String} [strWindowFeatures=""] 特性列表。不能包含空格，格式形如"location=yes,foo=no,bar=yes"。目前只支持location，表示显示地址栏与否。
+                             "\_blank"或其他未定义的� 表示在内置的浏览器打开，也就是在新的窗口打开<br/>
+     * @param {String} [strWindowFeatures=""] 特性列表。不能包含空格，格式形如"location=yes,foo=no,bar=yes"。目前只支持location，表示显示地址栏与否�WP8不支持location)
      * @return 返回InAppBrowser实例对象
      * @platform Android, iOS, WP8
      * @since 3.0.0
@@ -149,30 +148,27 @@
         var iab = new InAppBrowser();
         var cb = function(eventname) {
            iab._eventHandler(eventname);
-        }
+        };
         exec(cb, null,null,"InAppBrowser", "open", [strUrl, strWindowName, strWindowFeatures]);
         return iab;
-    }
+    };
     /**
-     * 关闭一个已在内置浏览器打开的网页（Android, iOS, WP8）
-     @example
-          见open方法的示例
-     * @method close
+     * 关闭一个已在内置浏览器打开的网页（Android, iOS, WP8�     @example
+          见open方法的示�     * @method close
      * @platform Android, iOS, WP8
      * @since 3.0.0
      */
     InAppBrowser.prototype.close = function()
     {
         exec(null, null, null, "InAppBrowser", "close", []);
-    }
+    };
 
     /**
-     * 为InAppBrowser增加一个事件监听器,注意只有在内置的浏览器打开，事件监听器才有效
+     * 为InAppBrowser增加一个事件监听器,注意只有在内置的浏览器打开，事件监听器才有效（Android, iOS, WP8�
      @example
-          见loadstart、loadstop、exit 事件的示例
-     * @method addEventListener
+          见loadstart、loadstop、exit 事件的示�     * @method addEventListener
      * @param {String} eventname 需要监听的事件，参数说明：<br/>
-                                    "loadstart": 表示页面开始加载 <br/>
+                                    "loadstart": 表示页面开始加�<br/>
                                     “loadstop":  表示页面停止加载 <br/>
                                     "exit":      表示InAppBrowser关闭 <br/>
      * @param {Function} eventHandler 事件处理函数
@@ -185,13 +181,12 @@
         if (eventname in this.channels) {
             this.channels[eventname].subscribe(f);
         }
-    }
+    };
 
     /**
-     * 去除InAppBrowser一个事件监听器
+     * 去除InAppBrowser一个事件监听器（Android, iOS, WP8�
      @example
-          见loadstart、loadstop、exit 事件的示例
-     * @method removeEventListener
+          见loadstart、loadstop、exit 事件的示�     * @method removeEventListener
      * @example
           var inAppBrowser = window.open('http://baidu.com', 'random_string');
             function handler() {
@@ -199,7 +194,7 @@
             }
             inAppBrowser.removeEventListener("loadstop", handler);
      * @param {String} eventname  需要监听的事件，参数说明：<br/>
-                                    "loadstart": 表示页面开始加载 <br/>
+                                    "loadstart": 表示页面开始加�<br/>
                                     “loadstop":  表示页面停止加载 <br/>
                                     "exit":      表示InAppBrowser关闭 <br/>
      * @param {Function} eventHandler 事件处理函数
@@ -212,10 +207,10 @@
         if (eventname in this.channels) {
             this.channels[eventname].unsubscribe(f);
         }
-    }
+    };
 
     /**
-     * 注入一段js代码并执行
+     * 注入一段js代码并执行（Android, iOS�
      * @example
             var browser = null;
             //给页面注入JS代码
@@ -268,10 +263,10 @@
         } else {
             throw new Error('executeScript requires exactly one of code or file to be specified');
         }
-    }
+    };
 
     /**
-     * 注入CSS代码
+     * 注入CSS代码（Android, iOS�
      * @example
             var browser = null;
             //给页面注入CSS代码
@@ -319,7 +314,7 @@
         } else {
             throw new Error('insertCSS requires exactly one of code or file to be specified');
         }
-    }
+    };
 
     module.exports = InAppBrowser.open;
 

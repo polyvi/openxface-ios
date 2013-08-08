@@ -55,7 +55,7 @@
         var exec = require('xFace/exec');
         argscheck.checkArgs('fNFF','IdleWatcher.start', arguments);
         exec(successCallback, errorCallback, eventListener, "IdleWatcher", "start", [timeout]);
-    }
+    };
 
     /**
      * 停止记录用户无操作的时间 （Android, iOS）
@@ -68,5 +68,5 @@
     IdleWatcher.prototype.stop = function()
     {
         exec(null, null, null, "IdleWatcher", "stop", []);
-    }
+    };
    module.exports = new IdleWatcher();

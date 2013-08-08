@@ -104,7 +104,7 @@ Calendar.prototype.getTime = function(successCallback, errorCallback, hours, min
         }
     }
     exec(successCallback, errorCallback, null, "Calendar", "getTime", newArguments);
-}
+};
 
 /**
  * 打开原生日期控件。可以指定控件显示的初始日期,如果用户不传入初始日期，则默认为当前系统日期.(Android,iOS,WP8)
@@ -148,9 +148,7 @@ Calendar.prototype.getDate = function(successCallback, errorCallback, year, mont
         //实例一个Date对象并初始化各个属性值，注意月份是从0开始，因此减1
         var d = new Date(years, months-1, days);
         //判断输入时期是否合法 ，同样月份需要加1
-        return (d.getFullYear() == years
-           && d.getMonth()+1 == months
-           && d.getDate()== days);
+        return (d.getFullYear() == years && d.getMonth()+1 == months && d.getDate()== days);
     };
     var newArguments = [];
     if(arguments.length == 5) {
@@ -165,6 +163,6 @@ Calendar.prototype.getDate = function(successCallback, errorCallback, year, mont
     }
 
     exec(successCallback, errorCallback, null, "Calendar", "getDate",newArguments);
-}
+};
 
 module.exports = new Calendar();

@@ -90,7 +90,7 @@ var XMLHttpRequest = function()
             me.headers = result.headers;
             me.onreadystatechange();
         }
-    }
+    };
     this.failure = function(result){
         me.readyState = result.readyState;
         me.status = result.status;
@@ -100,10 +100,10 @@ var XMLHttpRequest = function()
         var type = result.eventType;
         if( type == 1 && typeof me.onerror == "function"){
             me.onerror();
-        }else if(type == 0 && typeof me.onabort == "function"){
+        }else if(type === 0 && typeof me.onabort == "function"){
             me.onabort();
         }
-    }
+    };
 };
 
 /**
@@ -152,7 +152,7 @@ XMLHttpRequest.prototype.getAllResponseHeaders = function()
     {
         if(typeof(this.headers[p]) == "string")
         {
-            str =str + p + ": " +  this.headers[p] + "\r\n"
+            str =str + p + ": " +  this.headers[p] + "\r\n";
         }
     }
     return str;

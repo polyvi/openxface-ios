@@ -60,6 +60,6 @@ StringEncodeType.Base64 = 1;
 * @platform Android
 * @since 3.0.0
 */
-StringEncodeType.HEX = 2
+StringEncodeType.HEX = 2;
 
 module.exports = StringEncodeType;

@@ -66,7 +66,7 @@ var Security = function() {};
  */
 Security.prototype.encrypt = function(key, plainText,  successCallback, errorCallback, options){
     argscheck.checkArgs('ssFFO', 'xFace.Security.encrypt', arguments);
-    if(key.length < 8 ||  plainText.length == 0){
+    if(key.length < 8 ||  plainText.length === 0){
         if(errorCallback) {
             errorCallback("Wrong parameter of encrypt! key length is less than 8");
         }
@@ -106,7 +106,7 @@ Security.prototype.encrypt = function(key, plainText,  successCallback, errorCal
  */
 Security.prototype.decrypt = function(key, encryptedText, successCallback, errorCallback, options){
     argscheck.checkArgs('ssFFO', 'xFace.Security.decrypt', arguments);
-    if(key.length < 8 || encryptedText.length == 0){
+    if(key.length < 8 || encryptedText.length === 0){
         if(errorCallback) {
             errorCallback("Wrong parameter of decrypt! key length is less than 8");
         }
