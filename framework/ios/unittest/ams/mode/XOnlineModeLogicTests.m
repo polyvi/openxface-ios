@@ -69,20 +69,31 @@
 
 - (void)testURL
 {
-    NSString* urlStr = @"http://polyvi.com";
+   NSURL *expected = [NSURL URLWithString:@"http://polyvi.com?platform=ios"];
     XAppInfo *appInfo = [[XAppInfo alloc] init];
     [appInfo setAppId:XONLINE_MODE_LOGIC_TESTS_APP_ID];
     [appInfo setRunningMode:ONLINE_RUNNING_MODE];
-    [appInfo setEntry:urlStr];
+    [appInfo setEntry:@"http://polyvi.com"];
 
     id<XApplication> app = [XApplicationFactory create:appInfo];
     NSURL *url = [self->onlineMode getURL:app];
-    NSURL *expected = [NSURL URLWithString:urlStr];
 
     STAssertTrue([[url absoluteString] isEqualToString:[expected absoluteString]], nil);
-
 }
 
+- (void)testURLWithQuery
+{
+    NSURL *expected = [NSURL URLWithString:@"http://polyvi.com?data=test&platform=ios"];
+    XAppInfo *appInfo = [[XAppInfo alloc] init];
+    [appInfo setAppId:XONLINE_MODE_LOGIC_TESTS_APP_ID];
+    [appInfo setRunningMode:ONLINE_RUNNING_MODE];
+    [appInfo setEntry:@"http://polyvi.com?data=test"];
+
+    id<XApplication> app = [XApplicationFactory create:appInfo];
+    NSURL *url = [self->onlineMode getURL:app];
+
+    STAssertTrue([[url absoluteString] isEqualToString:[expected absoluteString]], nil);
+}
 - (void)testGetIconURLAbnormal
 {
     XAppInfo *appInfo = [[XAppInfo alloc] init];

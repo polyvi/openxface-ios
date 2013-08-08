@@ -32,6 +32,8 @@
 #import "XOnlineMode_Privates.h"
 #import "XUtils.h"
 
+#define kPlatformQueryString @"platform=ios"
+
 @implementation XOnlineMode
 
 - (id)initWithApp:(id<XApplication>)app
@@ -76,7 +78,11 @@
 
 - (NSURL*)getURL:(id<XApplication>)app
 {
-    return [NSURL URLWithString:[[app appInfo] entry]];
+    NSString *URLString = [[app appInfo] entry];
+    URLString = [NSString stringWithFormat:@"%@%@%@", URLString,
+                           [URLString rangeOfString:@"?"].length > 0 ? @"&" : @"?", kPlatformQueryString];
+
+    return [NSURL URLWithString:URLString];
 }
 
 - (NSString*)getIconURL:(XAppInfo*)appInfo

@@ -211,12 +211,12 @@
 
     if (info == nil) {
         info = [[XAppInfo alloc] init];
-        info.appId = DEFAULT_APP_ID_FOR_PLAYER;
         info.isEncrypted = NO;
         info.entry = DEFAULT_APP_START_PAGE;
         info.type = APP_TYPE_XAPP;
     }
 
+    info.appId = DEFAULT_APP_ID_FOR_PLAYER;
     return [XApplicationFactory create:info];
 }
 

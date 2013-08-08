@@ -33,9 +33,6 @@
 #import "XAppInfo.h"
 #import "XUtils.h"
 #import "XConfiguration.h"
-#import "XNetworkConnectionExt.h"
-#import "XConsoleExt.h"
-#import "XFileExt.h"
 #import "XAppRunningMode.h"
 #import "XSecurityPolicyFactory.h"
 #import "XWhitelist.h"
@@ -248,7 +245,7 @@
 
 - (void)dealloc
 {
-     [XURLProtocol unregisterApp:self];
+    [XURLProtocol unregisterApp:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 }

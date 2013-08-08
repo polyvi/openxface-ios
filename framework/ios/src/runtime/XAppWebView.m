@@ -28,7 +28,6 @@
 
 #import "XAppWebView.h"
 #import "XUtils.h"
-#import "XURLProtocol.h"
 #import "XConstants.h"
 
 #define URL_REQUEST_TIMEOUT_INTERVAL 20.0
