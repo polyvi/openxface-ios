@@ -28,13 +28,8 @@
 #import <Foundation/Foundation.h>
 
 //用于解析启动参数字符串
-//启动参数格式形如：appid?startpage=a/b.html;data=webdata
+//启动参数格式形如：startpage=a/b.html;data=webdata
 @interface NSString (XStartParams)
-
-/**
-    启动参数中的appid字段,用于指定启动app
- */
-- (NSString *)appId;
 
 /**
     启动参数中的startpage字段，用于指定启动页面
@@ -45,11 +40,6 @@
     启动参数中的data字段，将被传递给web app
  */
 - (NSString *)data;
-
-/**
-    启动参数中除scheme外的剩余部分，将被传递给native app
- */
-- (NSString *)paramsForNative;
 
 @end
 
@@ -68,13 +58,7 @@
     @param theString 待解析的字符串
     @returns 以startpage或data为key,startpage=a/b.html或data=webdata为value的字典
  */
-- (NSDictionary *) getComponents:(NSString *)theString;
-
-/**
-    转换字符串为有效的url，即含有scheme
-    @returns 成功时返回含有scheme的url,失败时返回nil
- */
-- (NSURL *)convertToValidURL;
+- (NSDictionary *) getComponents;
 
 @end
 

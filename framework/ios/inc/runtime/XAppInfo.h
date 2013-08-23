@@ -138,4 +138,9 @@
  */
 @property (strong, nonatomic, readonly) NSString *srcPath;
 
+/**
+    app依赖引擎的最低版本号
+ */
+@property (strong, nonatomic) NSString* engineVersion;
+
 @end

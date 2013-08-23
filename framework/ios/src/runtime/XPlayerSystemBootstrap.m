@@ -55,6 +55,7 @@
  */
 -(void) prepareWorkEnvironment
 {
+    [self firstLaunch];
     [[XConfiguration getInstance] prepareSystemWorkspace];
     XSync* sync = [[XSync alloc] initWith:self];
     [sync run];
@@ -201,6 +202,11 @@
         }
     }
     return ret;
+}
+
+- (void) firstLaunch
+{
+
 }
 
 - (id<XApplication>)createDefaultApp

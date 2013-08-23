@@ -17,22 +17,52 @@ def copyXFaceJsToAppDir():
         for file in files:
             appDirPath = os.path.join(appsDir,file)
             if isCopyNeeded(appDirPath):
-                targetDir = getIndexPageDir(appDirPath)
+                if isNewFormatAppXml(os.path.join(appDirPath,APP_XML_NAME)):
+                    targetDir = getIndexPageDirForNewFormat(os.path.join(appDirPath,APP_XML_NAME))
+                else:
+                    targetDir = getIndexPageDirForOldFormat(os.path.join(appDirPath,APP_XML_NAME))
                 if targetDir is  None:
                     return False
                 shutil.copy(XFACE_JS_FILE_PATH,targetDir)
     return True
 
-def getIndexPageDir(appDirPath):
-    appXmlPath = os.path.join(appDirPath,APP_XML_NAME)
+def getIndexPageDirForOldFormat(appXmlPath):
+    if not os.path.exists(appXmlPath):
+        print "%s is not exist" % appXmlPath
+        return None
     fileObj = open(appXmlPath,"r")
     fileContent = fileObj.read()
+    fileObj.close()
     pattern = re.compile(r".*entry\s*src=\"(\S*)\s*\"",re.S)
     matches = re.match(pattern,fileContent)
     entryValue = ""
     if matches is not None:
         entryValue = matches.group(1)
-    return os.path.dirname(os.path.join(appDirPath,entryValue))
+    return os.path.dirname(os.path.join(os.path.dirname(appXmlPath),entryValue))
+
+def isNewFormatAppXml(appXmlPath):
+    if not os.path.exists(appXmlPath):
+        print "%s is not exist" % appXmlPath
+        return None
+    fileObj = open(appXmlPath,"r")
+    fileContent = fileObj.read()
+    fileObj.close()
+    pattern = re.compile(".*(</widget>)",re.S)
+    matches = re.match(pattern,fileContent)
+    return matches is not None
+
+def getIndexPageDirForNewFormat(appXmlPath):
+    if not os.path.exists(appXmlPath):
+        print "%s is not exist" % appXmlPath
+        return None
+    fileObj = open(appXmlPath,"r")
+    fileContent = fileObj.read()
+    pattern = re.compile(".*<content\s* encoding=\"UTF-8\"\s*src=\"(\S*)\s*\"",re.S)
+    matches = re.match(pattern,fileContent)
+    entryValue = ""
+    if matches is not None:
+        entryValue = matches.group(1)
+    return os.path.dirname(os.path.join(os.path.dirname(appXmlPath),entryValue))
 
 def isCopyNeeded(appDirPath):
     if os.path.isdir(appDirPath):

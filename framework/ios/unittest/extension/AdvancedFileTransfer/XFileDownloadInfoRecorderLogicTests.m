@@ -95,27 +95,6 @@
     [downloadInfoRecorder deleteDownloadInfo:url];
 }
 
-- (void) testUpdateDownloadInfo
-{
-    NSInteger totalSize = 10000;
-    NSInteger completeSize = 1000;
-    XFileDownloadInfo *downloadInfo = [[XFileDownloadInfo alloc] initWithURL:url andTotalSize:totalSize andCompleteSize:completeSize];
-    [downloadInfoRecorder saveDownloadInfo:downloadInfo];
-    BOOL hasInfo = [downloadInfoRecorder hasInfo:url];
-    STAssertTrue(hasInfo, nil);
-    downloadInfo = [downloadInfoRecorder getDownloadInfo:url];
-    STAssertEquals(totalSize, [downloadInfo totalSize], nil);
-    STAssertEquals(completeSize, [downloadInfo completeSize], nil);
-
-    completeSize = 2000;
-    [downloadInfoRecorder updateDownloadInfo:completeSize withUrl:url];
-    downloadInfo = [downloadInfoRecorder getDownloadInfo:url];
-    STAssertEquals(totalSize, [downloadInfo totalSize], nil);
-    STAssertEquals(completeSize, [downloadInfo completeSize], nil);
-
-    [downloadInfoRecorder deleteDownloadInfo:url];
-}
-
 - (void) testDeleteDownloadInfo
 {
     NSInteger totalSize = 10000;

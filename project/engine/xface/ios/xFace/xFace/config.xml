@@ -19,6 +19,9 @@
         <preference name="TopActivityIndicator" value="gray" />
         <preference name="UpdateAddress" value="" />
         <preference name="UsePlayerMode" value="false" />
+        <preference name="MediaPlaybackRequiresUserAction" value="false" />
+        <preference name="AllowInlineMediaPlayback" value="false" />
+        <preference name="EnableViewportScale" value="true" />
     </xFace>
     <extensions>
         <extension name="AMS" value="XAmsExt" />

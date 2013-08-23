@@ -31,6 +31,7 @@
 #import "XConfiguration.h"
 #import "XConstants.h"
 #import "XUtils.h"
+#import "XLocalResourceIterator.h"
 
 @implementation XLocalMode
 
@@ -76,6 +77,13 @@
 
     NSString *iconURL = (nil == iconPath) ? nil : [[NSURL fileURLWithPath:iconPath] absoluteString];
     return iconURL;
+}
+
+- (id<XResourceIterator>)getResourceIterator:(id<XApplication>)app
+{
+    NSString *appRootPath = [[[app appInfo] srcPath] length] > 0 ? [[app appInfo] srcPath] : [app installedDirectory];
+
+    return [[XLocalResourceIterator alloc] initWithAppRoot:appRootPath];
 }
 
 @end

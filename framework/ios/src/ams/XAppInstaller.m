@@ -232,8 +232,6 @@
             return;
         }
 
-       [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:XAPPLICATION_WILL_UNINSTALL_NOTIFICATION object:app]];
-
         NSError * __autoreleasing error = nil;
         NSString *installedPath = [XUtils buildWorkspaceAppSrcPath:appId];
         NSFileManager *fileMgr = [NSFileManager defaultManager];

@@ -71,6 +71,7 @@
     STAssertEqualObjects(@"2.0", appInfo.version, nil);
     STAssertEqualObjects(@"myphone",appInfo.name, nil);
     STAssertEqualObjects(@"online",appInfo.runningMode, nil);
+    STAssertEqualObjects(@"3.1.0",appInfo.engineVersion, nil);
 }
 
 -(void) testParseNativeAppXML

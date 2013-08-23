@@ -40,6 +40,7 @@
 #import "XLightweightAppInstaller.h"
 #import "XUtils.h"
 #import "NSString+XStartParams.h"
+#import "iToast.h"
 
 #define jsForFireAppEvent(event, arg) [NSString stringWithFormat:\
                       @"(function() { \
@@ -121,6 +122,14 @@
     return YES;
 }
 
+- (void)checkAppRequiredEngineVersion:(NSString*)requiredVersion
+{
+    NSString* engineVersion = [XUtils getPreferenceForKey:ENGINE_VERSION];
+    if ([engineVersion compare:requiredVersion] == NSOrderedAscending) {
+        [[[iToast makeText:(@"The engine is older than what the app requires, Please update the engine to avoid potential issues.")] setDuration:iToastDurationNormal] show];
+    }
+}
+
 - (BOOL) startApp:(NSString *)appId withParameters:(NSString *)params
 {
     BOOL ret = NO;
@@ -136,10 +145,11 @@
         return ret;
     }
 
+    [self checkAppRequiredEngineVersion:app.appInfo.engineVersion];
 
     if ([app isNative])
     {
-        ret = [app loadWithParameters:params.paramsForNative];
+        ret = [app loadWithParameters:params];
     }
     else
     {
@@ -183,6 +193,14 @@
 - (BOOL) startDefaultAppWithParams:(NSString *)params
 {
     NSString *defaultAppId = [[self appList] defaultAppId];
+
+    //分离appId
+    if ([params length] > 0) {
+        NSString* query = [[NSURL URLWithString:params] query];
+        params = [query length] >0 ? query : params;
+    }
+
+    //TODO:启动参数中指定的appid
     BOOL ret = [self startApp:defaultAppId withParameters:params];
     return ret;
 }
@@ -213,8 +231,8 @@
     id<XApplication> defaultApp = [[self appList] getDefaultApp];
 
     if ([kAppEventMessage isEqualToString:event]) {
-        if (isDefaultApp)
-        {
+    if (isDefaultApp)
+    {
             [[self activeApps] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
              {
                  id<XApplication> targetApp = obj;

@@ -240,17 +240,6 @@
     }
 }
 
-- (void) onAppWillUninstall:(NSString *)appId
-{
-    //得到词典中所有Value值
-    NSEnumerator * enumeratorValue = [self.extensionObjects objectEnumerator];
-
-    for (XExtension *extension in enumeratorValue)
-    {
-        [extension onAppWillUninstall:appId];
-    }
-}
-
 - (void) onPageStarted:(NSString*)appId
 {
     // 当一个app中发生页面切换时，清除该app注册的所有回调

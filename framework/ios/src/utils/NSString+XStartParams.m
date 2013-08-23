@@ -33,53 +33,32 @@
 #define START_PAGE_COMPONENT_KEY @"startPage"
 #define DATA_COMPONENT_KEY       @"data"
 
-@implementation NSString (XURL)
-
-- (NSString *)appId
-{
-    NSURL *url = [self convertToValidURL];
-    if (!url)
-    {
-        XLogW(@"Failed to parse start params (%@) due to it's an invalid URL!", self);
-        return nil;
-    }
-
-    NSString  *appId;
-    NSScanner *theScanner = [NSScanner scannerWithString:[[url absoluteString] paramsForNative]];
-    [theScanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"?"] intoString:&appId];
-    return [appId length] ? appId : nil;
-}
+@implementation NSString (XStartParams)
 
 - (NSString *)startPage
 {
-    NSURL *url = [self convertToValidURL];
-    if (!url)
-    {
-        XLogW(@"Failed to parse start params (%@) due to it's an invalid URL!", self);
-        return nil;
-    }
-
-    NSDictionary *components = [self getComponents:[url query]];
+    NSDictionary *components = [self getComponents];
     NSString *startPageComponent = CAST_TO_NIL_IF_NSNULL([components objectForKey:START_PAGE_COMPONENT_KEY]);
 
     NSString *startPage = [self extractValueFromExpression:startPageComponent];
-    return startPage;
+
+    NSRange whitespaceRange = [startPage rangeOfString:@"\\s*" options:NSCaseInsensitiveSearch | NSRegularExpressionSearch];
+
+    if (whitespaceRange.location == 0 && whitespaceRange.length > 0) {
+        startPage= [startPage substringFromIndex:whitespaceRange.length];
+    }
+
+    return [startPage length] == 0 ? nil : startPage;
 }
 
 - (NSString *)data
 {
-    NSURL *url = [self convertToValidURL];
-    if (!url)
-    {
-        XLogW(@"Failed to parse start params (%@) due to it's an invalid URL!", self);
-        return nil;
-    }
-
     NSString *data;
-    NSDictionary *components = [self getComponents:[url query]];
+    NSDictionary *components = [self getComponents];
     NSString *dataComponent = CAST_TO_NIL_IF_NSNULL([components objectForKey:DATA_COMPONENT_KEY]);
 
-    if (NSOrderedSame == [dataComponent compare:@"data=" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 5)])
+    NSRange range = [dataComponent rangeOfString:@"\\s*data\\s*=" options:NSCaseInsensitiveSearch | NSRegularExpressionSearch];
+    if (range.length > 0 && range.location == 0)
     {
         data = [self extractValueFromExpression:dataComponent];
     }
@@ -87,25 +66,14 @@
     {
         data = [dataComponent length] ? dataComponent : nil;
     }
-    return data;
-}
 
-- (NSString *)paramsForNative
-{
-    NSURL *url = [self convertToValidURL];
-    if (!url)
-    {
-        XLogW(@"Failed to parse start params (%@) due to it's an invalid URL!", self);
-        return nil;
+    NSRange whitespaceRange = [data rangeOfString:@"\\s*" options:NSCaseInsensitiveSearch | NSRegularExpressionSearch];
+
+    if (whitespaceRange.location == 0 && whitespaceRange.length > 0) {
+        data = [data substringFromIndex:whitespaceRange.length];
     }
 
-    NSString *paramsForNative;
-    NSRange range = [[url absoluteString] rangeOfString:NATIVE_APP_CUSTOM_URL_PARAMS_SEPERATOR];
-    if(NSNotFound != range.location)
-    {
-        paramsForNative = [[url absoluteString] substringFromIndex:(range.location + range.length)];
-    }
-    return [paramsForNative length] ? paramsForNative : nil;
+    return [data length] == 0 ? nil : data;
 }
 
 @end
@@ -124,50 +92,41 @@
     {
         value = [value substringToIndex:[value length] - 1];
     }
+
     return [value length] ? value : nil;
 }
 
-- (NSDictionary *) getComponents:(NSString *)theString
+- (NSDictionary *) getComponents
 {
-    if (![theString length])
+    if (![self length])
     {
         return nil;
     }
 
     NSString *startPageComponent;
     NSString *dataComponent;
-    if (NSOrderedSame == [theString compare:@"startpage=" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 10)])
+    NSRange range = [self rangeOfString:@"\\s*startpage\\s*=" options:NSCaseInsensitiveSearch | NSRegularExpressionSearch];
+    if (range.length > 0 && range.location == 0)
     {
-        NSRange range = [theString rangeOfString:@";" options:NSCaseInsensitiveSearch];
+        NSRange range = [self rangeOfString:@";" options:NSCaseInsensitiveSearch];
         if (range.length)
         {
-            startPageComponent = [theString substringToIndex:range.location];
-            dataComponent = [theString substringFromIndex:(range.location + 1)];
+            startPageComponent = [self substringToIndex:range.location];
+            dataComponent = [self substringFromIndex:(range.location + 1)];
         }
         else
         {
-            startPageComponent = theString;
+            startPageComponent = self;
         }
     }
     else
     {
-        dataComponent = theString;
+        dataComponent = self;
     }
 
     NSDictionary *dict = @{START_PAGE_COMPONENT_KEY:CAST_TO_NSNULL_IF_NIL(startPageComponent),
                            DATA_COMPONENT_KEY:CAST_TO_NSNULL_IF_NIL(dataComponent)};
     return dict;
-}
-
-- (NSURL *)convertToValidURL
-{
-    NSURL *url = [NSURL URLWithString:self];
-    if (!url || ![url scheme])
-    {
-        //如果url没有scheme,则人为添加一个scheme，以便于后面解析启动参数
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", @"xFace://", self]];
-    }
-    return url;
 }
 
 @end

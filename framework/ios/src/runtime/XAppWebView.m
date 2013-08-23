@@ -43,6 +43,21 @@
         self->isValid = NO;
 
         self.scalesPageToFit = YES;
+        NSNumber* enableViewportScale = [XUtils getPreferenceForKey:ENABLE_VIEWPORT_SCALE_PROP_NAME];
+        NSNumber* mediaPlaybackRequiresUserAction = [XUtils getPreferenceForKey:MEDIA_PLAYBACK_REQUIRES_USER_ACTION_PROP_NAME];
+        NSNumber* allowInlineMediaPlayback = [XUtils getPreferenceForKey:ALLOW_INLINE_MEDIA_PLAYBACK_PROP_NAME];
+
+        self.scalesPageToFit = enableViewportScale == nil ?
+                               YES //default value
+                              :[enableViewportScale boolValue];
+
+        self.mediaPlaybackRequiresUserAction = mediaPlaybackRequiresUserAction == nil ?
+                                               YES//default value
+                                              :[mediaPlaybackRequiresUserAction boolValue];
+
+        self.allowsInlineMediaPlayback = allowInlineMediaPlayback == nil ?
+                                         self.allowsInlineMediaPlayback //default value
+                                        :[allowInlineMediaPlayback boolValue];;
 
         // 指定DisallowOverscroll为true时,webview不弹跳
         BOOL disallowBounce = [[XUtils getPreferenceForKey:DISALLOW_OVERSCROLL] boolValue];

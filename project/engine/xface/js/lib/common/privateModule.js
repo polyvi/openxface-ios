@@ -37,16 +37,11 @@ channel.waitForInitialization('onPrivateDataReady');
  */
 privateModule.prototype.initPrivateData = function(initData) {
     currentAppId = initData[0];
-    securityMode = initData[1];
     channel.onPrivateDataReady.fire();
 };
 
 privateModule.prototype.getAppId = function() {
     return currentAppId;
-};
-
-privateModule.prototype.isSecurityMode = function() {
-    return securityMode;
 };
 
 module.exports = new privateModule();

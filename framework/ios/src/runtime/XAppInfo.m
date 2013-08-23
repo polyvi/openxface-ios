@@ -51,6 +51,7 @@
 @synthesize srcRoot;
 @synthesize srcPath = _srcPath;
 @synthesize whitelistHosts = _whitelistHosts;
+@synthesize engineVersion;
 
 -(NSString *) srcPath
 {

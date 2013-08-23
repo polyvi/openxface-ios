@@ -26,10 +26,10 @@
  */
 
  /**
-  * 该类提供一系列基础api，用于字符串或者文件的加解密操作（Android, iOS）<br/>
+  * 该类提供一系列基础api，用于字符串或者文件的加解密操作（Android, iOS, WP8）<br/>
   * 该类不能通过new来创建相应的对象，只能通过xFace.Security对象来直接使用该类中定义的方法
   * @class Security
-  * @platform Android, iOS
+  * @platform Android, iOS, WP8
   * @since 3.0.0
   */
 var argscheck = require('xFace/argscheck'),
@@ -37,7 +37,7 @@ var argscheck = require('xFace/argscheck'),
 var Security = function() {};
 
 /**
- * 根据传入的密钥对明文字符串加密，并返回加密后的密文（Android, iOS）<br/>
+ * 根据传入的密钥对明文字符串加密，并返回加密后的密文（Android, iOS, WP8）<br/>
  * @example
         //采用3DES方式加密并以16进制返回加密数据，如果没有设置加密方式则默认用DES加密，如果没有设置加密后数据类型则默认返回String类型数据。
         options.CryptAlgorithm = SecurityOptions.CryptAlgorithm.TRIPLE_DES;
@@ -62,7 +62,7 @@ var Security = function() {};
  * <ul>2:   加密路径错误</ul>
  * <ul>3:   加密过程出错</ul>
  * @param {SecurityOptions} [options] 封装加解密配置选项
- * @platform Android, iOS
+ * @platform Android, iOS, WP8
  */
 Security.prototype.encrypt = function(key, plainText,  successCallback, errorCallback, options){
     argscheck.checkArgs('ssFFO', 'xFace.Security.encrypt', arguments);
@@ -76,7 +76,7 @@ Security.prototype.encrypt = function(key, plainText,  successCallback, errorCal
 };
 
 /**
- * 根据传入的密钥对密文解密，并返回解密后的明文（Android, iOS）<br/>
+ * 根据传入的密钥对密文解密，并返回解密后的明文（Android, iOS, WP8）<br/>
  * @example
         //采用3DES方式解密并以16进制返回解密数据，如果没有设置解密方式则默认用DES解密，如果没有设置解密后数据类型则默认返回String类型数据。
         var options = new SecurityOptions();
@@ -102,7 +102,7 @@ Security.prototype.encrypt = function(key, plainText,  successCallback, errorCal
  * <ul>2:   加密路径错误</ul>
  * <ul>3:   加密过程出错</ul>
  * @param {SecurityOptions} [options] 封装加解密配置选项
- * @platform Android, iOS
+ * @platform Android, iOS, WP8
  */
 Security.prototype.decrypt = function(key, encryptedText, successCallback, errorCallback, options){
     argscheck.checkArgs('ssFFO', 'xFace.Security.decrypt', arguments);
@@ -116,7 +116,7 @@ Security.prototype.decrypt = function(key, encryptedText, successCallback, error
 };
 
 /**
- * 根据传入的密钥加密文件，并返回新生成加密文件的路径（Android，iOS）<br/>
+ * 根据传入的密钥加密文件，并返回新生成加密文件的路径（Android，iOS, WP8）<br/>
  * @example
         var sourceFilePath = "encrypt_source.txt";
         var targetFilePath = "encrypt_target.txt";
@@ -139,7 +139,7 @@ Security.prototype.decrypt = function(key, encryptedText, successCallback, error
  * <ul>1:   文件找不到错误</ul>
  * <ul>2:   加密路径错误</ul>
  * <ul>3:   加密过程出错</ul>
- * @platform Android, iOS
+ * @platform Android, iOS, WP8
  */
 Security.prototype.encryptFile = function(key, sourceFilePath, targetFilePath, successCallback, errorCallback){
     argscheck.checkArgs('sssFF', 'xFace.Security.decrypt', arguments);
@@ -153,7 +153,7 @@ Security.prototype.encryptFile = function(key, sourceFilePath, targetFilePath, s
 };
 
 /**
- * 根据传入的密钥解密文件，返回解密后的新生成文件的路径（Android，iOS）<br/>
+ * 根据传入的密钥解密文件，返回解密后的新生成文件的路径（Android，iOS, WP8）<br/>
  * @example
         var sourceFilePath = "decrypt_source.txt";
         var targetFilePath = "decrypt_target.txt";
@@ -176,7 +176,7 @@ Security.prototype.encryptFile = function(key, sourceFilePath, targetFilePath, s
  * <ul>1:   文件找不到错误</ul>
  * <ul>2:   加密路径错误</ul>
  * <ul>3:   加密过程出错</ul>
- * @platform Android, iOS
+ * @platform Android, iOS, WP8
  */
 Security.prototype.decryptFile = function(key, sourceFilePath, targetFilePath, successCallback, errorCallback){
     argscheck.checkArgs('sssFF', 'xFace.Security.decrypt', arguments);
@@ -190,7 +190,7 @@ Security.prototype.decryptFile = function(key, sourceFilePath, targetFilePath, s
 };
 
 /**
- * 根据传入的数据求MD5值，并返回该数据的MD5值（Android，iOS）<br/>
+ * 根据传入的数据求MD5值，并返回该数据的MD5值（Android, iOS, WP8）<br/>
  * @example
         var data = "test1234567890";
         xFace.Security.digest(data, successCallback, errorCallback);
@@ -205,7 +205,7 @@ Security.prototype.decryptFile = function(key, sourceFilePath, targetFilePath, s
  * @param {Function} [successCallback] 成功回调函数
  * @param {String} successCallback.MD5Value MD5值
  * @param {Function} [errorCallback]  失败回调函数
- * @platform Android
+ * @platform Android, iOS, WP8
  */
 Security.prototype.digest = function(data, successCallback, errorCallback){
     argscheck.checkArgs('sFF', 'xFace.Security.digest', arguments);

@@ -21,7 +21,7 @@
 
 //
 //  XDefaultSecurityResourceFilterLogicTests.m
-//  xFacePAASLib
+//  xFaceLib
 //
 //
 

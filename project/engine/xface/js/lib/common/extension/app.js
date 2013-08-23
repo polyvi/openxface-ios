@@ -80,21 +80,26 @@ app.prototype.openUrl = function(url, successCallback, errorCallback){
  * @param {String} successCallback.channel.name 渠道名称
  * @param {Function} [errorCallback]   失败回调函数
  * @platform Android, iOS, Wp8
- * @since 3.0.0
+ * @since 3.1.0
  */
 app.prototype.getChannel = function(successCallback, errorCallback){
     argscheck.checkArgs('fF', 'app.getChannel', arguments);
-    exec(successCallback, errorCallback, null, "App", "getChannel", []);
+    exec(successCallback, errorCallback, null, "Channel", "getChannel", []);
 };
 
 /**
- * 启动本地应用（Android, iOS）
+ * 启动本地应用（Android, iOS, Wp8）
  * @example
         var url;
         var parameter;
         if(isAndroid())
         {
             url = "com.polyvi.largeFileTest";
+            parameter = "";
+        }
+        else if(isWindowsPhone())
+        {
+            url = "tel:13900000000";
             parameter = "";
         }
         else
@@ -104,12 +109,12 @@ app.prototype.getChannel = function(successCallback, errorCallback){
         }
         navigator.app.startNativeApp(url, parameter, win, fail);
  * @method startNativeApp
- * @param {String} packageName 对于android平台，此参数是指程序AndroidManifest.xml配置文件中配置的package属性值，即程序的包名；<br /> 对于iOS平台，此参数是指Info.plist中定义的Custome URL Scheme，请参考<a href="http://developer.apple.com/library/ios/#documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html" class="crosslink">Custom URL Schemes</a>, <a class="crosslink" href="http://wiki.akosma.com/IPhone_URL_Schemes">IPhone URL Schemes</a>, <a class="crosslink" href="http://developer.apple.com/library/ios/#featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899">iPhone URL Scheme Reference</a>
+ * @param {String} packageName 对于android平台，此参数是指程序AndroidManifest.xml配置文件中配置的package属性值，即程序的包名；<br /> 对于iOS平台，此参数是指Info.plist中定义的Custome URL Scheme，请参考<a href="http://developer.apple.com/library/ios/#documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html" class="crosslink">Custom URL Schemes</a>, <a class="crosslink" href="http://wiki.akosma.com/IPhone_URL_Schemes">IPhone URL Schemes</a>, <a class="crosslink" href="http://developer.apple.com/library/ios/#featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899">iPhone URL Scheme Reference</a><br /> 对于WP8平台，此参数是指WMAppManifest.xml中定义的Custome URL Scheme,请参考<a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj206987(v=vs.105).aspx" class="crosslink">Auto-launching apps using file and URI associations for Windows Phone 8</a>
  * @param {String} [parameter] 程序启动的参数
  * @param {Function} [successCallback] 成功回调函数
  * @param {Function} [errorCallback] 失败回调函数
  * @for App
- * @platform Android
+ * @platform Android, iOS, Wp8
  * @since 3.0.0
  */
 app.prototype.startNativeApp = function(packageName, parameter, successCallback, errorCallback){

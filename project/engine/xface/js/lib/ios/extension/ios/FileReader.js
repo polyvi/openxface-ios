@@ -28,7 +28,7 @@ var argscheck = require('xFace/argscheck'),
 
 module.exports = {
     readAsText:function(file, encoding) {
-    argscheck.checkArgs('oS', 'FileReader.readAsText', arguments);
+        argscheck.checkArgs('oS', 'FileReader.readAsText', arguments);
         this.fileName = '';
         if (typeof file.fullPath === 'undefined') {
             this.fileName = file;
@@ -55,7 +55,7 @@ module.exports = {
                     return;
                 }
 
-                me.result = decodeURIComponent(r);
+                me.result = r;
 
                 if (typeof me.onload === "function") {
                     me.onload(new ProgressEvent("load", {target:me}));

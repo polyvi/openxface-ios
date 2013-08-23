@@ -21,7 +21,7 @@
 
 //
 //  XSecKeyWrapper.m
-//  xFacePAASLib
+//  xFaceLib
 //
 //
 
@@ -50,6 +50,40 @@ if (!(X)) {                \
 #endif
 
 @implementation XSecKeyWrapper
++ (OSStatus)rsaVerifyWithSignature:(NSData*)sig withDigist:(NSData *)dig
+{
+
+    NSString* p_keyPath = [[NSBundle mainBundle] pathForResource: @"server_pkey" ofType : @""];
+    NSData* certificateData = [NSData dataWithContentsOfFile:(p_keyPath)];
+
+    NSString *keyName = @"server_pkey";
+
+    NSData *serverPublicKey = [self stripPublicKeyHeader:certificateData];
+
+    NSLog(@"serverPublicKey:%@", serverPublicKey);
+
+    SecKeyRef key = [self addPublicKey:keyName keyBits:serverPublicKey];
+    const uint8_t *digData = (const uint8_t*)[dig bytes];
+    size_t digLen = [dig length];
+    const uint8_t *sigData = (const uint8_t*)[sig bytes];
+    size_t sigLen = [sig length];
+
+    OSStatus status = SecKeyRawVerify(key,
+                                      kSecPaddingPKCS1SHA1,
+                                      digData,
+                                      digLen,
+                                      sigData,
+                                      sigLen);
+    if (status == errSecSuccess) {
+        NSLog(@"Valid Signature");
+    } else {
+        NSLog(@"Invalid Signature");
+    }
+
+    return status;
+
+}
+
 
 + (SecKeyRef)addPublicKey:(NSString*)keyName keyString:(NSString*)keyString
 {

@@ -105,6 +105,9 @@
 #define CHECK_UPDATE_PROP_NAME                   @"CheckUpdate"
 #define UPDATE_ADDRESS_PROP_NAME                 @"UpdateAddress"
 #define SECURITY_SERVER_PROP_NAME                @"SecurityServer"
+#define ENABLE_VIEWPORT_SCALE_PROP_NAME          @"EnableViewportScale"
+#define MEDIA_PLAYBACK_REQUIRES_USER_ACTION_PROP_NAME   @"MediaPlaybackRequiresUserAction"
+#define ALLOW_INLINE_MEDIA_PLAYBACK_PROP_NAME    @"AllowInlineMediaPlayback"
 
 // info.plist中定义的常量
 #define UI_ORIENTAIONS_TAG                       @"UISupportedInterfaceOrientations"
@@ -115,7 +118,6 @@
 #define WEBVIEW_DID_START_LOAD_NOTIFICATION              @"WebViewDidStartLoadNotification"
 #define XAPPLICATION_DID_FINISH_INSTALL_NOTIFICATION     @"XApplicationDidFinishInstallNotification"
 #define XAPPLICATION_DID_FINISH_CLOSE_NOTIFICATION       @"XApplicationDidFinishCloseNotification"
-#define XAPPLICATION_WILL_UNINSTALL_NOTIFICATION         @"XApplicationWillUninstallNotification"
 #define XAPPLICATION_CLOSE_NOTIFICATION                  @"XApplicationCloseNotification"
 #define XAPPLICATION_SEND_MESSAGE_NOTIFICATION           @"XApplicationSendMessageNotification"
 #define XUIAPPLICATION_TIMEOUT_NOTIFICATION              @"XUIApplicationTimeoutNotification"

@@ -118,13 +118,6 @@
     [downloaderManager stopAllWithAppId:appId];
 }
 
-- (void) onAppWillUninstall:(NSString *)appId
-{
-    // 卸载app时移除DownloaderManager中该app对应的XFileDownloadInfoRecorder和downloaders
-    [downloaderManager removeDownloadersWithAppId:appId];
-    [downloaderManager removeDownloadInfoRecorderWithAppId:appId];
-}
-
 @end
 
 #endif

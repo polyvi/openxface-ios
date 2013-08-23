@@ -76,12 +76,6 @@
 - (void) onAppClosed:(NSString *)appId;
 
 /**
-    当卸载app时，通知每个 ext 回调
-    @param appId 当前app的id
- */
-- (void) onAppWillUninstall:(NSString *)appId;
-
-/**
     页面切换的处理函数
     @param appId 当前app的id
  */

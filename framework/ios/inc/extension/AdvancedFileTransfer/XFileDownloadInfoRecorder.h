@@ -72,14 +72,6 @@
 - (XFileDownloadInfo *) getDownloadInfo:(NSString *)url;
 
 /**
-    更新下载的具体信息.
-    @param completeSize 已下载的大小
-    @param url          要更新的记录项
-    @return
- */
-- (void) updateDownloadInfo:(NSInteger)completeSize withUrl:(NSString *)url;
-
-/**
     设置下载文件的总大小.
     @param totalSize 文件的总大小
     @param url       要设置的记录项

@@ -90,18 +90,6 @@
  */
 - (void) cancelWithAppId:(NSString *)appId url:(NSString *)url filePath:(NSString *)filePath;
 
-/**
-    移出appId对应的app中的所有下载任务.
-    @param appId        当前app的id
- */
-- (void) removeDownloadersWithAppId:(NSString *)appId;
-
-/**
-    移出appId对应的app中的DownloadInfoRecorder.
-    @param appId        当前app的id
- */
-- (void) removeDownloadInfoRecorderWithAppId:(NSString *)appId;
-
 @end
 
 #endif

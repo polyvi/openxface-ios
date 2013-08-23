@@ -59,6 +59,8 @@
     if ((self.isIpaUpdated = [self ipaUpdated]))
     {
         [self saveIpaVersion];
+
+        [self firstLaunch];
     }
 
     // 准备系统工作空间
@@ -202,6 +204,11 @@
         [[[[iToast makeText:@"Failed to start default app, please verify the default app is installed!"] setGravity:iToastGravityCenter] setDuration:iToastDurationLong] show];
     }
     return;
+}
+
+- (void) firstLaunch
+{
+    [self saveIpaVersion];
 }
 
 @end

@@ -92,6 +92,7 @@
 
     self.appInfo.prefRemotePkg  = [self valueForPreference:PREFERENCE_REMOTE_PKG];
     self.appInfo.appleId  = [self valueForPreference:PREFERENCE_APPLE_ID];
+    self.appInfo.engineVersion  = [self valueForPreference:PREFERENCE_ENGINE];
 }
 
 -(void) parseAccessTag

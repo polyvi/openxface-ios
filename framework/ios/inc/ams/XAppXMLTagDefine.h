@@ -55,5 +55,5 @@
 
 #define PREFERENCE_TYPE                @"type"
 #define PREFERENCE_MODE                @"mode"
-
+#define PREFERENCE_ENGINE              @"engine"
 

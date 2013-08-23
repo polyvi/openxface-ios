@@ -73,6 +73,7 @@
     STAssertEqualObjects(@"startapp", self->xmlParserForWebApp.appInfo.name, nil);
     STAssertEqualObjects(@"online", self->xmlParserForWebApp.appInfo.runningMode, nil);
     STAssertNil(self->xmlParserForWebApp.appInfo.prefRemotePkg, nil);
+    STAssertEqualObjects(@"3.1.0", self->xmlParserForWebApp.appInfo.engineVersion, nil);
 }
 
 -(void) testParseAccessTagForWebApp

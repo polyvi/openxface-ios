@@ -21,7 +21,7 @@
 
 //
 //  XSecKeyWrapper.h
-//  xFacePAASLib
+//  xFaceLib
 //
 //
 

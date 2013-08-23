@@ -56,6 +56,18 @@ module.exports = {
             db = originalOpenDatabase(newname, version, desc, size);
             return db;
         };
+
+        //重写XMLHttpRequest.prototype.open接口, 给ajax请求的头部添加app的地址
+	XMLHttpRequest.prototype.open_raw = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function() {
+            this.open_raw.apply(this, arguments);
+            if(xFace.iOSAppAddr)
+            {
+               //用于在引擎内部区分不同xapp的请求（iOS only）
+               this.setRequestHeader('app', xFace.iOSAppAddr);
+            }
+        };
+
     },
     objects: {
         File: { // exists natively, override

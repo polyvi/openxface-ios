@@ -92,12 +92,6 @@
 - (void) onAppClosed:(NSString *)appId;
 
 /**
-    app卸载时的处理函数
-    @appId 当前app的id
- */
-- (void) onAppWillUninstall:(NSString *)appId;
-
-/**
     页面切换的处理函数
     @appId 当前app的id
  */

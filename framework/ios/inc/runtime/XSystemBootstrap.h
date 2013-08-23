@@ -70,4 +70,9 @@
  */
 -(void) boot:(XAppManagement*)appManagement;
 
+/**
+    程序第一次启动的初始化
+ */
+-(void) firstLaunch;
+
 @end

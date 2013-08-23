@@ -79,9 +79,6 @@
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(xAppDidFinishClose:)
                                                      name:XAPPLICATION_DID_FINISH_CLOSE_NOTIFICATION object:self];
-
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(xAppWillUninstall:)
-                                                     name:XAPPLICATION_WILL_UNINSTALL_NOTIFICATION object:self];
     }
     return self;
 }
@@ -256,12 +253,6 @@
 {
     NSAssert(self == [notification object] , nil);
     [self->extMgr onAppClosed:[self getAppId]];
-}
-
-- (void) xAppWillUninstall:(NSNotification*)notification
-{
-    NSAssert(self == [notification object] , nil);
-    [self->extMgr onAppWillUninstall:[self getAppId]];
 }
 
 @end

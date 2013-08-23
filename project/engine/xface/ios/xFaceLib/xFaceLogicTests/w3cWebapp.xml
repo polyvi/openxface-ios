@@ -6,6 +6,7 @@
 
     <preference name="type" value="xapp" readonly="true" />
     <preference name="mode" value="online" readonly="true" />
+    <preference name="engine" readonly="true" value="3.1.0" />
 
     <description>
         A sample widget to demonstrate some of the possibilities.
@@ -14,6 +15,6 @@
     <author href="http://polyvi.com/"
         email="foo-bar@polyvi.com/">polyvi</author>
 
-    <license> C  opyright 2012-2013, Polyvi Inc. </license>
+    <license> Copyright 2012-2013, Polyvi Inc. </license>
 
 </widget>

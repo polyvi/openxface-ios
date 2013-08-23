@@ -45,7 +45,7 @@
 #define XAPPMANAGEMENT_LOGIC_TESTS_DEFAULT_APP_ID                 @"defaultAppId"
 #define XAPPMANAGEMENT_LOGIC_TESTS_APP_ID                         @"appId"
 #define XAPPMANAGEMENT_LOGIC_TESTS_ANOTHER_APP_ID                 @"anotherAppId"
-#define XAPPMANAGEMENT_LOGIC_TESTS_START_PARAMS                   @"?Admin;123"
+#define XAPPMANAGEMENT_LOGIC_TESTS_START_PARAMS                   @"Admin;123"
 #define XAPPMANAGEMENT_LOGIC_TESTS_START_PARAMS_DATA              @"Admin;123"
 #define XAPPMANAGEMENT_LOGIC_TESTS_APP_PACKAGE_FILE_NAME          @"app.zip"
 #define XAPPMANAGEMENT_LOGIC_TESTS_NATIVE_APP_PACKAGE_FILE_NAME   @"nativeApp.zip"

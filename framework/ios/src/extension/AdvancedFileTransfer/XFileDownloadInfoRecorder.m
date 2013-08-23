@@ -118,24 +118,6 @@
     return downloadInfo;
 }
 
-- (void) updateDownloadInfo:(NSInteger)completeSize withUrl:(NSString *)url
-{
-    if(nil != self->document)
-    {
-        APElement *rootElement = [self->document rootElement];
-        APElement *urlElement = [rootElement elementNamed:TAG_URL attribute:ATTR_ID withValue:url];
-        if(nil != urlElement)
-        {
-            NSString *completeSizeStr = [NSString stringWithFormat:@"%d", completeSize];
-            [urlElement addAttributeNamed:ATTR_COMPLETESIZE withValue:completeSizeStr];
-        }
-        @synchronized(self)
-        {
-            [XUtils saveDoc:self->document toFile:self->configFilePath];
-        }
-    }
-}
-
 - (void) setTotalSize:(NSInteger)totalSize withUrl:(NSString *)url
 {
     if(nil != self->document)

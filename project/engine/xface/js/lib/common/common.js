@@ -20,8 +20,6 @@
  under the License.
 */
 
-require('xFace/ajax');
-
 module.exports = {
     objects: {
         xFace: {

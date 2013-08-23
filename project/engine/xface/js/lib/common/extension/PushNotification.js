@@ -88,16 +88,32 @@ PushNotification.prototype.registerOnReceivedListener = function(listener) {
 *@since 3.0.0
 */
 PushNotification.prototype.getDeviceToken = function(successCallback, errorCallback) {
-    if (typeof successCallback !== "function") {
-       console.log("PushNotification Error: successCallback is not a function");
-       return;
-    }
-
-    if (errorCallback && (typeof errorCallback !== "function")) {
-       console.log("PushNotification Error: errorCallback is not a function");
-       return;
-    }
+    argscheck.checkArgs('FF', 'PushNotification.getDeviceToken', arguments);
     exec(successCallback, errorCallback, null, "PushNotification", "getDeviceToken", []);
 };
+
+/**
+* 通过服务器地址,端口号打开Push(Android)<br/>
+* @example
+        xFace.PushNotification.open(host,port,success, error);
+        function success(deviceToken){
+                alert(deviceToken);
+            };
+        function error(err){
+                alert(err);
+            };
+*@method openPush
+*@param {String} host 服务器的地址
+*@param {String} port 服务器的端口号
+*@param {Function} [successCallback] 成功回调函数
+*@param {Function} [errorCallback] 失败回调函数
+*@param {String} errorCallback.err 失败的描述信息
+*@platform Android
+*@since 3.0.0
+*/
+PushNotification.prototype.open = function(host,port,successCallback, errorCallback) {
+    argscheck.checkArgs('FF', 'PushNotification.open', arguments);
+    exec(successCallback, errorCallback, null, "PushNotification", "open", [host,port]);
+	};
 
 module.exports = new PushNotification();

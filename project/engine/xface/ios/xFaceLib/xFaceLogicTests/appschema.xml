@@ -24,6 +24,7 @@
                 <author href="www.polyvi.com" email="">polyvi</author>
                 <license href="www.polyvi.com">tie</license>
             </copyright>
+            <preference name="engine" readonly="true" value="3.1.0" />
         </description>
         <extensions>
             <!-- 定义当前应用能使用的扩展功能，如果不需要使用某项扩展，直接加上注释对应扩展定义项 -->

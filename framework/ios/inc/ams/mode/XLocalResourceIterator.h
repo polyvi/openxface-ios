@@ -27,7 +27,20 @@
 
 #import <Foundation/Foundation.h>
 #import "XResourceIterator.h"
+#import "XSecurityResourceFilter.h"
 
 @interface XLocalResourceIterator : NSObject <XResourceIterator>
+{
+    NSDirectoryEnumerator *dirEnumerator;  /**< 文件目录遍历器*/
+    id<XSecurityResourceFilter> filter;    /**< 资源过滤器*/
+    NSString* rootPath;                    /**< 应用根目录*/
+}
+
+/**
+    初始化函数
+    @param root 应用的根目录
+    @returns 返回应用资源的迭代器的实例
+ */
+- (id)initWithAppRoot:(NSString*)root;
 
 @end

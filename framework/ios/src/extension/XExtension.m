@@ -88,11 +88,6 @@
 
 }
 
-- (void) onAppWillUninstall:(NSString *)appId
-{
-
-}
-
 - (void) onPageStarted:(NSString*)appId
 {
 

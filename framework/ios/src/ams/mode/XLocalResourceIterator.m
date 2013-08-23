@@ -26,13 +26,36 @@
 //
 
 #import "XLocalResourceIterator.h"
+#import "XSecurityResourceFilterFactory.h"
 
 @implementation XLocalResourceIterator
 
+- (id)initWithAppRoot:(NSString*)root
+{
+    self = [super init];
+    if (self) {
+        rootPath = root;
+        dirEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:rootPath];
+        self->filter = [XSecurityResourceFilterFactory createFilter];
+    }
+    return self;
+}
+
 - (NSData*)next
 {
-    //TODO
-    return nil;
+    NSString* file = [dirEnumerator nextObject];
+    if (file == nil) {
+        return nil;
+    }
+    NSString* path = [rootPath stringByAppendingPathComponent:file];
+
+    BOOL isDir;
+    if ((filter != nil && ![self->filter accept:path])
+        //跳过目录
+       || ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir] && isDir)) {
+        return [self next];
+    }
+    return [[NSFileManager defaultManager] contentsAtPath:path];
 }
 
 @end

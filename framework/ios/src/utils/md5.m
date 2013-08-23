@@ -21,7 +21,7 @@
 
 //
 //  md5.m
-//  xFacePAASLib
+//  xFaceLib
 //
 //
 

@@ -24,14 +24,14 @@
  */
 
  /**
-  * 该类封装了加密算法配置选项（Android, iOS）<br/>
+  * 该类封装了加密算法配置选项（Android, iOS, WP8）<br/>
   * @class SecurityOptions
   * @platform Android, iOS
   * @since 3.0.0
   */
 function SecurityOptions() {
     /**
-     * 加解密用到的算法(Android, iOS)<br/>
+     * 加解密用到的算法(Android, iOS, WP8)<br/>
      * @example
             //采用DES算法加密
             var options = new SecurityOptions();
@@ -60,12 +60,12 @@ function SecurityOptions() {
      * @property CryptAlgorithm
      * @type Number
      * @default SecurityOptions.CryptAlgorithm.DES
-     * @platform Android, iOS
+     * @platform Android, iOS, WP8
      * @since 3.0.0
      */
     this.CryptAlgorithm = SecurityOptions.CryptAlgorithm.DES;
     /**
-     * 加密结果(解密内容)字符串编码类型(Android, iOS)
+     * 加密结果(解密内容)字符串编码类型(Android, iOS, WP8)
      * @example
             //加密后返回数据为Base64编码
             var options = new SecurityOptions();
@@ -86,12 +86,12 @@ function SecurityOptions() {
      * @property EncodeDataType
      * @type Number
      * @default StringEncodeType.STRING
-     * @platform Android, iOS
+     * @platform Android, iOS, WP8
      * @since 3.0.0
      */
     this.EncodeDataType = StringEncodeType.Base64;
     /**
-     * 加密key结果(解密key内容)字符串编码类型(Android, iOS)
+     * 加密key结果(解密key内容)字符串编码类型(Android, iOS, WP8)
      * @example
             //要加密的key格式为Base64编码
             var options = new SecurityOptions();
@@ -112,7 +112,7 @@ function SecurityOptions() {
      * @property EncodeKeyType
      * @type Number
      * @default StringEncodeType.STRING
-     * @platform Android, iOS
+     * @platform Android, iOS, WP8
      * @since 3.0.0
      */
     this.EncodeKeyType = StringEncodeType.STRING;
@@ -123,7 +123,7 @@ function SecurityOptions() {
    * @class CryptAlgorithm
    * @namespace SecurityOptions
    * @static
-   * @platform Android, iOS
+   * @platform Android, iOS, WP8
    * @since 3.0.0
    */
   SecurityOptions.CryptAlgorithm = {
@@ -132,7 +132,7 @@ function SecurityOptions() {
      * @property DES
      * @type Number
      * @final
-     * @platform Android, iOS
+     * @platform Android, iOS, WP8
      * @since 3.0.0
      */
     DES : 1,
@@ -141,7 +141,7 @@ function SecurityOptions() {
      * @property TRIPLE_DES
      * @type Number
      * @final
-     * @platform Android, iOS
+     * @platform Android, iOS, WP8
      * @since 3.0.0
      */
     TRIPLE_DES : 2,

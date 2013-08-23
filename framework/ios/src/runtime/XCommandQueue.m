@@ -110,19 +110,22 @@
             // 遍历commandBatch并执行所有的commands.
             for (NSArray* jsonEntry in commandBatch)
             {
-                XCommand* command = [XCommand commandFromJson:jsonEntry];
-
-                if (![self execute:command])
+                @autoreleasepool
                 {
-#ifdef DEBUG
-                    NSString* commandJson = [jsonEntry JSONString];
-                    static NSUInteger maxLogLength = MAX_LOG_LENGTH;
-                    NSString* commandString = ([commandJson length] > maxLogLength) ?
-                    [NSString stringWithFormat:@"%@[...]", [commandJson substringToIndex:maxLogLength]] :
-                    commandJson;
+                    XCommand* command = [XCommand commandFromJson:jsonEntry];
 
-                    XLogE(@"FAILED extensionJSON = %@", commandString);
-#endif
+                    if (![self execute:command])
+                    {
+    #ifdef DEBUG
+                        NSString* commandJson = [jsonEntry JSONString];
+                        static NSUInteger maxLogLength = MAX_LOG_LENGTH;
+                        NSString* commandString = ([commandJson length] > maxLogLength) ?
+                        [NSString stringWithFormat:@"%@[...]", [commandJson substringToIndex:maxLogLength]] :
+                        commandJson;
+
+                        XLogE(@"FAILED extensionJSON = %@", commandString);
+    #endif
+                    }
                 }
             }
         }

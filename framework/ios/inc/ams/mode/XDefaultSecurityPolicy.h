@@ -28,7 +28,8 @@
 #import <UIKit/UIKit.h>
 #import "XSecurityPolicy.h"
 
-//默认安全策略
+//默认的安全策略, 该策略为空，不做任何的安全检查，
+//可通过覆盖XSecurityPolicyFactory的createPolicy方法来创建不同的安全策略。
 @interface XDefaultSecurityPolicy : NSObject <XSecurityPolicy>
 
 @end

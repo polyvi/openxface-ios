@@ -120,16 +120,6 @@
     [XFileUtils removeItemAtPath:[filePath stringByAppendingString:TEMP_FILE_SUFFIX] error:nil];
 }
 
-- (void) removeDownloadersWithAppId:(NSString *)appId
-{
-    [self->dictDownloaders removeObjectForKey:appId];
-}
-
-- (void) removeDownloadInfoRecorderWithAppId:(NSString *)appId
-{
-    [self->dictDownloadInfoRecorders removeObjectForKey:appId];
-}
-
 @end
 
 #endif

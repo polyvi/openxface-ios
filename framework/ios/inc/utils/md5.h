@@ -21,7 +21,7 @@
 
 //
 //  md5.h
-//  xFacePAASLib
+//  xFaceLib
 //
 //
 
