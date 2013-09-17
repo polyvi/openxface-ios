@@ -77,10 +77,9 @@
 - (void) pauseWithAppId:(NSString *)appId url:(NSString *)url;
 
 /**
-    暂停当前app中的所有下载任务.
-    @param appId        当前app的id
+    暂停所有的下载任务.
  */
-- (void) stopAllWithAppId:(NSString *)appId;
+- (void)pauseAll;
 
 /**
     取消当前app下url对应的下载任务.

@@ -97,16 +97,21 @@
     }
 }
 
-- (void) stopAllWithAppId:(NSString *)appId
+- (void)pauseAll
 {
-    NSMutableDictionary *downloaders = [dictDownloaders valueForKey:appId];
-    if(nil != downloaders)
-    {
-        for(XFileDownloader *downloader in [downloaders objectEnumerator])
+    [self->dictDownloaders enumerateKeysAndObjectsUsingBlock:^(id key, id downloaders, BOOL* stop){
+        if(nil != downloaders)
         {
-            [downloader pause];
+            [(NSMutableDictionary*)downloaders enumerateKeysAndObjectsUsingBlock:^(id key, id downloader, BOOL* stop){
+                if(nil != downloader)
+                {
+                    [downloader pause];
+                }
+            }];
+
         }
-    }
+
+    }];
 }
 
 - (void) cancelWithAppId:(NSString *)appId url:(NSString *)url filePath:(NSString *)filePath
@@ -118,6 +123,11 @@
 
     //删掉已下载的temp文件
     [XFileUtils removeItemAtPath:[filePath stringByAppendingString:TEMP_FILE_SUFFIX] error:nil];
+}
+
+- (void)dealloc
+{
+    [self pauseAll];
 }
 
 @end

@@ -278,9 +278,10 @@
 
 -(BOOL) shouldUseLightweightInstaller:(NSString *)resPath
 {
-    //当资源路径没有后缀名时，使用lightweight app installer
-    BOOL ret = [[resPath pathExtension] length];
-    return !ret;
+    //当资源路径为目录时，使用lightweight app installer
+    BOOL isDir;
+    [[NSFileManager defaultManager] fileExistsAtPath:resPath isDirectory:&isDir];
+    return isDir;
 }
 
 - (void) xAppClose:(NSNotification*)notification

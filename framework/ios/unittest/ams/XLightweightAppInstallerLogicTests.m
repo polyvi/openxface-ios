@@ -48,6 +48,8 @@
 #define XLIGHTWEIGHT_APP_INSTALLER_LOGIC_TESTS_INVALID_TEST_APP_SRC_DIR   @"invalidTestApp"
 #define LIGHTWEIGHT_APP_INSTALLER_LOGIC_TESTS_APP_ICON                    @"//image/icon.png"
 
+#define kAppIdWithDot           @"test.App.Id"
+
 @interface XLightweightAppInstallerLogicTests : XLogicTests
 {
 @private
@@ -56,6 +58,7 @@
     XApplicationPersistence   *appPersistence;
     XInstallListenerStub      *installListener;
     NSString                  *appSrcPath;
+    NSString                  *appSrcPathWithDot;
     NSString                  *appSrcRoot;
     NSString                  *invalidAppSrcRoot;
 }
@@ -88,6 +91,10 @@
 
     self->appSrcPath = [preinstalledAppsPath stringByAppendingFormat:@"%@%@%@", FILE_SEPARATOR, XLIGHTWEIGHT_APP_INSTALLER_LOGIC_TESTS_TEST_APP_SRC_DIR, FILE_SEPARATOR];
     STAssertNotNil(self->appSrcPath, nil);
+
+    self->appSrcPathWithDot = [preinstalledAppsPath stringByAppendingFormat:@"%@%@%@", FILE_SEPARATOR, kAppIdWithDot, FILE_SEPARATOR];
+    STAssertNotNil(self->appSrcPathWithDot, nil);
+
 
     self->appSrcRoot = APP_ROOT_PREINSTALLED;
 
@@ -218,6 +225,33 @@
     STAssertTrue([self->installListener isOnSuccessInvoked], nil);
     STAssertTrue((1 == [[self->appPersistence getAppsDict] count]), nil);
     STAssertTrue([[[self->appPersistence getAppsDict] objectForKey:XLIGHTWEIGHT_APP_INSTALLER_LOGIC_TESTS_TEST_APP_ID] isEqualToString:self->appSrcRoot], nil);
+}
+
+- (void)testInstallWithAppIDWithDot
+{
+    // 测试前检查
+    STAssertNil([self->installListener applicationId], nil);
+    STAssertEquals([self->installListener operationType], INSTALL, nil);
+    STAssertEquals([self->installListener amsError], UNKNOWN, nil);
+    STAssertEquals([self->installListener status], INITIALIZED, nil);
+    STAssertFalse([self->appList containsApp:kAppIdWithDot], nil);
+    STAssertFalse([self->installListener isOnProgressUpdatedInvoked], nil);
+    STAssertFalse([self->installListener isOnSuccessInvoked], nil);
+    STAssertNil([self->appPersistence getAppsDict], nil);
+
+    // 执行测试
+    STAssertNoThrow([self->appInstaller install:self->appSrcPathWithDot withListener:self->installListener], nil);
+
+    // 测试后检查
+    STAssertTrue([[self->installListener applicationId] isEqualToString:kAppIdWithDot], nil);
+    STAssertEquals([self->installListener operationType], INSTALL, nil);
+    STAssertEquals([self->installListener amsError], UNKNOWN, nil);
+    STAssertTrue([self->appList containsApp:kAppIdWithDot], nil);
+    STAssertFalse([[self->appList getAppById:kAppIdWithDot] isNative], nil);
+    STAssertTrue([[[[self->appList getAppById:kAppIdWithDot] appInfo] srcPath] isEqualToString:self->appSrcPathWithDot], nil);
+    STAssertTrue([self->installListener isOnSuccessInvoked], nil);
+    STAssertTrue((1 == [[self->appPersistence getAppsDict] count]), nil);
+    STAssertTrue([[[self->appPersistence getAppsDict] objectForKey:kAppIdWithDot] isEqualToString:self->appSrcRoot], nil);
 }
 
 - (void)testUpdateWithNilArgs

@@ -50,6 +50,8 @@
 #define XAPPMANAGEMENT_LOGIC_TESTS_APP_PACKAGE_FILE_NAME          @"app.zip"
 #define XAPPMANAGEMENT_LOGIC_TESTS_NATIVE_APP_PACKAGE_FILE_NAME   @"nativeApp.zip"
 
+#define kAppIdWithDot           @"test.App.Id"
+
 @interface XAmsDelegateStub : NSObject <XAmsDelegate>
 
 @property (strong, nonatomic) XAppManagement *appManagement;
@@ -490,12 +492,25 @@
 
 - (void)testShouldUseLightweightInstallerWithTrueResult
 {
-    STAssertTrue([self->appManagement shouldUseLightweightInstaller:nil], nil);
+    STAssertFalse([self->appManagement shouldUseLightweightInstaller:nil], nil);
     STAssertTrue([self->appManagement shouldUseLightweightInstaller:[[XConfiguration getInstance] systemWorkspace]], nil);
 
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSString *appSrcPath = [bundle pathForResource:XFACE_WORKSPACE_NAME_UNDER_APP ofType:nil inDirectory:APPLICATION_WWW_FOLDER];
     STAssertTrue([self->appManagement shouldUseLightweightInstaller:appSrcPath], nil);
+}
+
+
+- (void)testShouldUseLightweightInstallerWithTrueResultWithDot
+{
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+
+    NSString *preinstalledAppsPath = [bundle pathForResource:PREINSTALLED_APPLICATIONS_FLODER ofType:nil inDirectory:APPLICATION_WWW_FOLDER];
+    STAssertNotNil(preinstalledAppsPath, nil);
+
+    NSString* appSrcPathWithDot = [preinstalledAppsPath stringByAppendingFormat:@"%@%@%@", FILE_SEPARATOR, kAppIdWithDot, FILE_SEPARATOR];
+    STAssertNotNil(appSrcPathWithDot, nil);
+    STAssertTrue([self->appManagement shouldUseLightweightInstaller:appSrcPathWithDot], nil);
 }
 
 - (void)testShouldUseLightweightInstallerWithFalseResult

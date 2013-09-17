@@ -91,27 +91,11 @@
     [registeredApps addObject:app];
 }
 
-- (void) onAppClosed:(NSString *)appId
-{
-    id<XApplication> app = nil;
-    NSEnumerator *enumerator = [registeredApps objectEnumerator];
-    while (app = [enumerator nextObject]) {
-        if ([[app appInfo].appId isEqualToString:appId]) {
-            [registeredApps removeObject:app];
-            break;
-        }
-    }
-}
-
 - (void)fire:(NSString *)pushString
 {
-    id<XApplication> app = nil;
     XJsCallback *callback = [[XJsCallback alloc] init];
     [callback setJsScript:[NSString stringWithFormat:@"xFace.require('xFace/extension/PushNotification').fire('%@');", pushString]];
-    NSEnumerator *enumerator = [registeredApps objectEnumerator];
-    while (app = (id<XApplication>)[enumerator nextObject]) {
-        [jsEvaluator eval:callback];
-    }
+    [jsEvaluator eval:callback];
 }
 
 @end

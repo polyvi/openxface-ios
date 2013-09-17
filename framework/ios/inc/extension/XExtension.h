@@ -86,12 +86,6 @@
            callerFunctionName:(const char*)callerFunctionName;
 
 /**
-    app退出时的处理函数
-    @appId 当前app的id
- */
-- (void) onAppClosed:(NSString *)appId;
-
-/**
     页面切换的处理函数
     @appId 当前app的id
  */

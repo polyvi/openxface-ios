@@ -33,6 +33,8 @@
 #import "XExtensionResult.h"
 #import "XJsCallback.h"
 #import "XInAppBrowserXHRURLProtocol.h"
+#import <QuartzCore/QuartzCore.h>
+#import "UIDevice+Additions.h"
 
 #define    TOOLBAR_HEIGHT            44.0
 #define    ADDRESSBAR_HEIGHT         30.0
@@ -103,16 +105,25 @@
     }
 
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+
+    if ([UIDevice deviceType] & IPAD)
+    {
+        self.spinner.transform = CGAffineTransformMakeScale(4, 4);
+    }
+
     self.spinner.alpha = 1.000;
-    self.spinner.autoresizesSubviews = YES;
-    self.spinner.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
     self.spinner.clearsContextBeforeDrawing = NO;
     self.spinner.clipsToBounds = NO;
     self.spinner.contentMode = UIViewContentModeScaleToFill;
     self.spinner.contentStretch = CGRectFromString(@"{{0, 0}, {1, 1}}");
-    self.spinner.frame = CGRectMake(webViewBounds.origin.x + webViewBounds.size.width / 2,
-                                    webViewBounds.origin.y + webViewBounds.size.height / 2,
-                                    20.0, 20.0);
+
+    CGFloat x = self.webView.center.x;
+    CGFloat y = self.webView.center.y;
+
+    self.spinner.center = UIInterfaceOrientationIsPortrait(self.interfaceOrientation)
+                        ? CGPointMake(x, y) :
+                          CGPointMake(y, x);
+
     self.spinner.hidden = YES;
     self.spinner.hidesWhenStopped = YES;
     self.spinner.multipleTouchEnabled = NO;

@@ -207,6 +207,11 @@
     [self->messenger sendAsyncResult:jsCallback toMsgHandler:self->jsEvaluator];
 }
 
+- (void)dealloc
+{
+    [self pause];
+}
+
 @end
 
 #endif

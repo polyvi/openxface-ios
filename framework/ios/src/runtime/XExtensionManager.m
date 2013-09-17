@@ -231,13 +231,7 @@
 
 - (void) onAppClosed:(NSString *)appId
 {
-    //得到词典中所有Value值
-    NSEnumerator * enumeratorValue = [self.extensionObjects objectEnumerator];
-
-    for (XExtension *extension in enumeratorValue)
-    {
-        [extension onAppClosed:appId];
-    }
+    [self.extensionObjects removeAllObjects];
 }
 
 - (void) onPageStarted:(NSString*)appId

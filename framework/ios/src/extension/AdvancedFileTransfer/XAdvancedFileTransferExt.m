@@ -112,10 +112,9 @@
     [downloaderManager cancelWithAppId:[app getAppId] url:url filePath:filePath];
 }
 
-- (void) onAppClosed:(NSString *)appId
+- (void)dealloc
 {
-    // 退出app时暂停该app中的所有下载任务
-    [downloaderManager stopAllWithAppId:appId];
+    [downloaderManager pauseAll];
 }
 
 @end
